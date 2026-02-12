@@ -1,0 +1,27 @@
+---
+title: 'Lab 2 - Demo Pub 1'
+author: 'Erin Yang'
+format: html
+---
+
+
+```{r}
+2 + 3
+```
+
+
+```{r make candy}
+candy <- c('skittles', 'snickers', 'twix')
+rep(candy, 3)
+rep(candy, 3, 2)
+```
+
+
+```{r make number vec}
+num <- c(3,5,7,2,7,9,32,6,0)
+```
+
+
+```{r}
+sqrt(sum(num >5))
+```

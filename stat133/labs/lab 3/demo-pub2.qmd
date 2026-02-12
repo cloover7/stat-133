@@ -1,0 +1,35 @@
+---
+title: 'Lab 3'
+author: 'Erin Yang'
+format: 
+    html:
+        theme: solar
+---
+
+"some content"
+
+# Herps
+some very good animals
+
+## Frogs
+
+### White's Tree Frog
+
+![lil guy](https://leaphabitats.com/cdn/shop/articles/whites-tree-frog.jpg?v=1651248889){fig-align="center"}
+
+White's tree frogs are very cute frogs. 
+
+:::{.callout-tip}
+White's tree frogs are famously bad at arithmetic.
+:::
+
+## Newts
+
+### Taricha
+
+> "I love terrorizing taricha" - Taricha Terrorist
+
+::: {.callout-warning}
+## A warning:
+Taricha newts produce a highly deadly neurotoxin, tetrodotoxin! Do not consume! You can touch them though.
+:::

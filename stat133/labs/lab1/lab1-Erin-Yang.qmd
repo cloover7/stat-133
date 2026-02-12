@@ -1,0 +1,23 @@
+---
+title: "Lab 1"
+format: html
+author: "Erin Yang"
+---
+
+1.  Major: Environmental Science, minor: Data Science
+
+2.  Hometown: Fremont, CA
+
+3.  Favorite song in the last 3 months: Play Pretend by Jomm
+
+4.  Insert a table (e.g. 3x3 table):
+
+    | Col1 | Col2 | Col3 |
+    |------|------|------|
+    |      |      |      |
+    |      |      |      |
+    |      |      |      |
+
+5.  Insert an image: ![](images/paste-1.png)
+
+6.  Include a quote: "i \<3 white's tree frogs" -Erin Yang

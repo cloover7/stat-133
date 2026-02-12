@@ -1,0 +1,4 @@
+- source: demo-pub1.qmd
+  quarto-pub:
+    - id: 044bd6a6-25e3-48be-9af3-579aaff8466d
+      url: https://erin-yang.quarto.pub/lab-2---demo-pub-1
