@@ -1,0 +1,7 @@
+---
+title: project 1
+author: Erin Yang
+format: html
+---
+
+## Dogs Data
