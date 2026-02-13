@@ -1,0 +1,79 @@
+---
+title: my first slide deck
+author: Erin Yang
+format:
+    revealjs:
+        embed-resources: true
+---
+
+# title slide 1
+
+# title slide 2
+
+## slide w actual content {background-color='blue'}
+
+have you ever thought about your own mortality?
+
+### ooga booga
+
+```{r}
+print('wheres the code bro')
+```
+
+u gotta do #| echo: true
+```{r}
+#| echo: true
+
+wowza <- function(a){
+    return(paste(a, '!!!!!!!!!!!!'))
+}
+
+wowza('wowza')
+```
+
+# title slide 3 {background-color='#afeeee'}
+
+
+## that feeling when u
+
+`'r a code cell'`
+
+`2 + 2`
+
+to return the output of the code, do 'r ____'
+
+`r 2 + 2`
+
+## expandable code fold!
+
+```{r}
+#| echo: true
+#| code-fold: true
+print('surprise!')
+# it wasn't much of a surprise was it...
+```
+
+::: {.incremental}
+- bullet points
+- more bullet points
+- MORE BULLET POINTS!!!
+:::
+
+## uhh stanford thing?
+
+
+```{r}
+#| echo: true
+#| code-fold: true
+mascot <- 'bear'
+
+if (mascot == 'bear'){
+    print('Berkeley!!')
+} else if (mascot == 'tree'){
+    print('stanford boo')
+} else{
+    print('ur only options are bear or tree')
+}
+```
+
+# thank u for watching my presentation!!! {background-gradient='radial-gradient(#afeeee, #f27bffff)'}
