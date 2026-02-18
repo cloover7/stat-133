@@ -41,7 +41,7 @@ pythagoras <- function(a, b){
     c = sqrt(a^2 + b^2)
     return(c)
 }
-pythagoras(3, 4)
+
 ```
 
 Now, add roxygen comments to document your function.
@@ -64,7 +64,7 @@ Test your `pythagoras()` with two leg values: e.g. `pythagoras(3, 4)`.
 
 ```{r}
 # call your function here
-
+pythagoras(3, 4)
 ```
 
 ## `pythagoras()` version 2
@@ -73,14 +73,17 @@ Modify your function `pythagoras()` so that argument `b` takes the same value of
 
 ```{r}
 # your modified pythagoras function here
-
+pythagoras <- function(a, b = a){
+    c = sqrt(a^2 + b^2)
+    return(c)
+}
 ```
 
 Test it with just one leg value: e.g. `pythagoras(5)`.
 
 ```{r}
 # call your function here
-
+pythagoras(5)
 ```
 
 ------------------------------------------------------------------------
@@ -103,21 +106,31 @@ The parameters $\sigma$ and $\mu$ are real numbers, where $\sigma$ must be great
 
 ```{r}
 # write your function here
-
+gaussian <- function(x, mu, sigma){
+    gx = (1 /( sigma * sqrt(2 * pi))) 
+         exp(-0.5 * ((x - mu) / sigma) ^ 2)
+}
 ```
 
 Modify your function so that it raises an error message if `sigma` is not positive.
 
 ```{r}
 # copy your function and add the error functionality
-
+gaussian <- function(x, mu, sigma){
+    if(sigma < 0){
+        warning('sigma must be positive')
+    }
+    gx = (1 /( sigma * sqrt(2 * pi))) * exp(-0.5 * ((x - mu) / sigma) ^ 2)
+    
+    return(gx)
+}
 ```
 
 Evaluate the function with `mu = 0`, `sigma = 2`, and `x = 1`.
 
 ```{r}
 # call your function here
-
+gaussian(0, 2, 1)
 ```
 
 ## Graphing a Normal curve
@@ -126,7 +139,11 @@ Once you have your `gaussian()` function try it with a vector `x = seq(-6, 6, by
 
 ```{r fig.align='center'}
 # plot function here
-
+output <- list()
+for (x in seq(-6, 6, by = 0.1)) {
+    output <- append(output, gaussian(0, 2, x))
+}
+plot(seq(-6, 6, by = 0.1), output)
 ```
 
 ## Compare to `d(norm)`
@@ -136,14 +153,14 @@ R actually has a built-in function to calculate the density of a normal distribu
 ::: callout-tip
 ## Type your answer in this callout block:
 
-Your description here.
+dnorm has the additional input of log, which when set to TRUE, will give probabilities as log of the probabilities.
 :::
 
 Call `dbinom` with the inputs `x=1`, `mean = 0`, and `sd = 2`and check that it returns the same output as your `gaussian` function.
 
 ```{r}
 # call dnorm here
-
+dnorm(x = 1, mean = 0, sd = 2)
 ```
 
 ------------------------------------------------------------------------
@@ -178,8 +195,26 @@ Create a function `logistic_growth()` that allows you to compute the population 
 
 -   Don't forget to include documentation comments (title, description, inputs, and output).
 
-``` r
+```         
+    {r}
 # write your function here
+# logistic growth function
+# params: 
+# $K$ = carrying capacity of the environment
+
+# p0 = initial population
+
+# r = intrinsic growth rate
+
+# t = time (we will use years)
+# output: a number corresponding to the population after a given amount of time
+
+  logistic_growth <- function(k = 100, p0 = 1000, r = 0.1, t = 5){
+      pt = k / (1 + ((k - p0) / p0)) * exp(-r * t)
+  }
+```
+
+``` r
 ```
 
 ## Use `logistic_growth()` to answer the following questions
@@ -188,6 +223,7 @@ a)  Suppose a population of bacteria starts with an initial population of $P_0 =
 
 ``` r
 # call your function here
+logistic_growth(5000, 100, 0.4, 10)
 ```
 
 \
