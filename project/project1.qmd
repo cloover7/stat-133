@@ -1,7 +1,9 @@
 ---
 title: project 1
 author: Erin Yang
-format: html
+format: 
+    html:
+        embed-resources: true
 ---
 
 # 1. Dogs Data
