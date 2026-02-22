@@ -1,0 +1,165 @@
+---
+title: project 1
+author: Erin Yang
+format: 
+    html:
+        embed-resources: true
+---
+
+# 1. Dogs Data
+
+![many dogs :0](https://theonlinedogtrainer.com/wp-content/uploads/2012/10/3d09e7f2-20e0-4ac4-be7f-bf010998f778-1.png)
+
+
+```{r}
+breed <- c('Beagle', 'Bulldog', 'Collie', 'German Shepherd', 'Golden Retriever', 'Greyhound', 'Labrador Retriever', 'Pomeranian', 'Pug', 'Shiba Inu')
+
+avg_life <- c(12L, 9L, 13L, 9L, 11L, 12L, 11L, 14L, 14L, 15L)
+
+energy <- factor(c('high', 'medium', 'medium', 'medium', 'very high', 'high', 'very high', 'medium', 'medium', 'medium'), levels = c('medium', 'high', 'very high'))
+
+trainability <- c(0.6, 0.6, 0.8, 1, 1, NA, 1, 0.6, 0.6, 0.4)
+
+friendly <- c(T, T, T, F, T, T, F, F, T, F)
+```
+
+## Subscripting
+
+breed with the longest average life expectancy diameter:
+```{r}
+breed[which.max(avg_life)]
+```
+
+number of unfriendly breeds:
+
+```{r}
+sum(friendly == F)
+```
+
+median trainability value of those breeds that are friendly:
+
+```{r}
+median(trainability[friendly == T][-5])
+```
+
+number of breeds that have average life expectancy values smaller than the median average
+life expectancy:
+
+```{r}
+length(breed[avg_life < median(avg_life)])
+```
+
+How many breeds have medium energy level and tend to be very friendly?
+
+```{r}
+length(breed[energy == 'medium' & friendly])
+```
+
+What breeds have medium energy level and tend to be very friendly?
+
+```{r}
+breed[energy == 'medium' & friendly]
+```
+
+What is the minimum trainability value for those breeds with an average lifetime of
+13 years or more?
+
+```{r}
+min(trainability[avg_life >= 13])
+```
+
+# 2. Vectorized Functions
+
+Is It Vectorized?
+
+1. length() - no. It returns a singular number corresponding to the length of the vector.
+
+```{r}
+vec <- c(1, 2, 2.5, 3)
+length(vec)
+```
+
+2. * - yes. This multiplies every element in a vector and returns an output for each one.
+
+```{r}
+vec * 5
+```
+
+3. log() - yes. this takes the log of every element in a vector and returns a list with all of them.
+
+```{r}
+log(vec)
+```
+
+4. max() - no. this compares all elements of a vector and returns the greatest one. there is only one output.
+
+```{r}
+max(vec)
+```
+
+5. trunc() - yes. this truncates the decimal values of numerical items in the vector. it then returns the full vector with truncated elements.
+
+```{r}
+trunc(vec)
+```
+
+# 3 Loan Amortization Payment Formula
+
+Suppose that one of your friends recently graduated from a College in California with
+$45,000 in student loan debt, at an interest rate of 5.25%. What would be the monthly
+payment if your friend wants to pay-off their student loan in 20 years?
+
+
+```{r}
+payment <- function(p, r, n, k){
+    pmt = p * (
+       ((r/k) * ((1 + r/k) ** (n*k))) / (((1 + r/k) ** (n*k)) - 1)
+    )
+    return(pmt)
+}
+
+payment(45000, 0.0525, 20, 12)
+```
+
+Your friend has various monthly payments to make such as rent, car loan, cell-phone,
+internet, streaming services, etc. With so many things to pay for, your friend is thinking
+of making monthly payments of $220 to pay for their student loan. How many years would
+it take your friend to be student-loan debt free if they plan to make monthly payments of
+$220? Hint: use a trial-and-error process for various values of 𝑛 to find the answer.
+
+
+```{r}
+payment(45000, 0.0525, 1:50, 12)
+```
+
+43 years.
+
+# 4 Future Value of Ordinary Annuity
+
+Mrs. Savingswood wants to save money for the college education of her 3 year-old daugh-
+ter. She plans to deposit $100 at the end of each month, for the next 15 years, into a
+mutual fund that gives—on average—a 10% annual rate of return. How much money will
+Mrs. Savingswood have at the end of 15 years?
+
+
+```{r}
+annuity <- function(PMT = 100, rate = 0.05, n_yrs = 20, comp_per = 12){ # PMT is the amount contributed every period, rate is the interest rate, n_yrs, is the number of years, and comp_per is the number of compounding periods per year
+    if(rate == 0){
+        fv = PMT * n_yrs * comp_per #fv is the future value
+    } else{
+        fv = PMT * (
+            ((1 + rate/comp_per) ** (n_yrs*comp_per) - 1) / 
+                (rate/comp_per)
+        )
+    }
+    return(fv)
+}
+```
+
+How much money will she have after 15 years?
+
+```{r}
+annuity(rate = 0.1, n_yrs = 15)
+```
+
+She will have $41447.03! Thats a lot!

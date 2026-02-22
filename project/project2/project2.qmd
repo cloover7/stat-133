@@ -1,0 +1,22 @@
+---
+title: "Project 2"
+subtitle: "CA Crash Data"
+author: "Erin Yang"
+format:
+  revealjs:
+    slide-number: c
+    embed-resources: true
+---
+
+```{r include = FALSE}
+library(tidyverse)
+
+# use this code chunk to import your data
+data <- read.csv("project/project2/data/crashes_2023.csv")
+head(data)
+```
+
+
+# Title Section Slide
+
+## Subsection Slide 1
