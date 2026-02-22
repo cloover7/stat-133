@@ -381,5 +381,5 @@ func_c <- function(df, col){
             group_by(manufacturer, class) |>
             summarise(mean_col = mean(col))
     }
-}
+} 
 ```
