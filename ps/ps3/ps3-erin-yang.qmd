@@ -107,8 +107,10 @@ The parameters $\sigma$ and $\mu$ are real numbers, where $\sigma$ must be great
 ```{r}
 # write your function here
 gaussian <- function(x, mu, sigma){
-    gx = (1 /( sigma * sqrt(2 * pi))) 
-         exp(-0.5 * ((x - mu) / sigma) ^ 2)
+
+    gx = (1 /( sigma * sqrt(2 * pi))) * exp(-0.5 * ((x - mu) / sigma) ^ 2)
+    
+    return(gx)
 }
 ```
 
@@ -195,8 +197,7 @@ Create a function `logistic_growth()` that allows you to compute the population 
 
 -   Don't forget to include documentation comments (title, description, inputs, and output).
 
-```         
-    {r}
+```{r}
 # write your function here
 # logistic growth function
 # params: 
@@ -210,18 +211,16 @@ Create a function `logistic_growth()` that allows you to compute the population 
 # output: a number corresponding to the population after a given amount of time
 
   logistic_growth <- function(k = 100, p0 = 1000, r = 0.1, t = 5){
-      pt = k / (1 + ((k - p0) / p0)) * exp(-r * t)
+    pt = k / (1 + ((k - p0) / p0) * exp(-r * t))
+    return(pt)
   }
-```
-
-``` r
 ```
 
 ## Use `logistic_growth()` to answer the following questions
 
 a)  Suppose a population of bacteria starts with an initial population of $P_0 = 100$ individuals and has a carrying capacity of $K = 5000$. If the intrinsic growth rate is $r = 0.4$, what will the population be after $10$ years?
 
-``` r
+```{r}
 # call your function here
 logistic_growth(5000, 100, 0.4, 10)
 ```
@@ -230,16 +229,20 @@ logistic_growth(5000, 100, 0.4, 10)
 
 b)  A wildlife reserve introduces $250$ deer into an environment with a carrying capacity of $2000$ deer. Assume the intrinsic growth rate is $0.25$. What is the population size after $15$ years?
 
-``` r
+```{r}
 # call your function here
+logistic_growth(2000, 250, 0.25, 15)
 ```
 
 \
 
 c)  Consider the previous part (b); but now assume different possible growth rates $r = 0.15, 0.25, 0.35$. Pass a vector of growth rates to your function `logistic_growth()` and obtain the three different population values after 15 time units.
 
-``` r
+```{r}
 # call your function here
+for (r in c(0.15, 0.25, 0.35)){
+    logistic_growth(2000, 250, r, 15)
+}
 ```
 
 ------------------------------------------------------------------------
@@ -298,7 +301,23 @@ And don't forget to include documentation comments (title, description, inputs, 
 
 ```{r}
 # write your function here
+# binoomial probability func
+# inputs: n = number of trials, k = number of successes, p = probability of success
+# output: a number between 0 and 1 probability
 
+bin_probability <- function(n, k, p){
+    if(n < 1){
+        stop('there must be at least 1 trial')
+    }
+    else if(k > n){
+        stop('cant have more successes than trials')
+    }
+    else if(p < 0 | p > 1){
+        stop('p must be a fraction')
+    }
+    prob = choose(n, k) * p ^ k * (1 - p)^(n-k)
+    return(prob)
+}
 ```
 
 \
@@ -312,7 +331,7 @@ a)  the probability of getting 2 heads in 5 tosses of a (fair) coin
 
 ```{r}
 # call your function here
-
+bin_probability(5, 2, 0.5)
 ```
 
 \bigskip
@@ -324,7 +343,7 @@ b)  the probability of getting 3 sixes in 3 rolls of a (fair) die
 
 ```{r}
 # call your function here
-
+bin_probability(3, 3, 1/6)
 ```
 
 ## Function `bin_tail`
@@ -343,9 +362,9 @@ Replace the blanks below to write a new function `bin_tail` that uses the functi
 # and replace the blanks to complete the function below
 bin_tail = function(n, k, p){
   s <- 0
-  for(i  in ________){
-    s <- s + bin_probability(___, ____, ____)
+  for(i  in seq(0, k)){
+    s <- s + bin_probability(n, k, p)
   }
-  return(______)
+  return(s)
 }
 ```
