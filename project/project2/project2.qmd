@@ -1,22 +1,291 @@
 ---
-title: "Project 2"
-subtitle: "CA Crash Data"
+title: "2023 CA Crash Data Analysis"
+subtitle: "Stat 133 Project 2"
 author: "Erin Yang"
 format:
   revealjs:
-    slide-number: c
-    embed-resources: true
+    code-fold: true
+    echo: true
+    embed-resources: True
+    transition: slide
+    background-transition: fade
 ---
 
 ```{r include = FALSE}
 library(tidyverse)
 
 # use this code chunk to import your data
-data <- read.csv("project/project2/data/crashes_2023.csv")
+data <- read.csv("C:/Users/eriny/Documents/github/stat-133/project/project2/data/crashes_2023.csv")
 head(data)
 ```
 
 
-# Title Section Slide
+## Agenda
 
-## Subsection Slide 1
+This presentation analyzes vehicle crash data in California from 2023. Topics include:
+
+- Overall Statistics
+- Distribution Tables
+- Ranking Tables
+- Crashes Involving Pedestrians
+- Crashes Involving Bicyclists
+- Collision Severity Comparison
+
+## 2.2 Overall Statistics
+
+Total number of crashes: 161,852
+
+```{r}
+nrow(data)
+```
+
+Total number of injured victims: 224,642
+
+```{r}
+sum(data$NUMBER_INJURED)
+```
+
+Total number of fatalities: 3,560
+
+```{r}
+sum(data$NUMBER_KILLED)
+```
+
+# 2.3 Distribution Tables
+
+## Crashes per Month
+
+It seems the most crashes are in October and August. The safest month is apparently February.
+
+```{r}
+data |>
+    group_by(MONTH) |>
+    summarize(num_crashes = length(CASE_ID), percent_crashes = length(CASE_ID) / nrow(data) * 100)
+
+```
+
+## Crashes per Day of the Week
+
+Sunday and Monday seem to be the safest days, with Friday having the most frequent crashes.
+
+```{r}
+data |>
+    group_by(DAY_OF_WEEK) |>
+    summarize(num_crashes = length(CASE_ID), percent_crashes = length(CASE_ID) / nrow(data) * 100)
+
+```
+
+## Crashes per Hour
+
+There are a lot of crashes around rush hours! There are the fewest crashes in the wee hours of the morning.
+
+```{r}
+data |>
+    group_by(HOUR) |>
+    summarize(num_crashes = length(CASE_ID), percent_crashes = length(CASE_ID) / nrow(data) * 100)
+
+```
+
+# 2.4 Ranking Tables
+
+## Top 10 PCF Violations
+
+- the most common violation is speeding!
+- the 10th most common violation is pedestrian violation
+
+```{r}
+data |>
+    count(PCF_VIOL_CATEGORY) |>
+    arrange(desc(n)) |>
+    slice(1:10)
+```
+
+## Types of Collisions
+
+- ranked from most to least common
+- the most common type of collision is rear-ending!
+
+
+```{r}
+data |>
+    count(TYPE_OF_COLLISION) |>
+    arrange(desc(n))
+```
+
+## Top 8 Parties at Fault
+
+- the most common party at fault is a passenger car, and by a very wide margin, over 5 times as common as the next most common party
+- surprisingly, pedestrians are in the top 8, sitting at rank 6
+
+```{r}
+data |>
+    count(STWD_VEHTYPE_AT_FAULT) |>
+    arrange(desc(n)) |> 
+    slice(1:8)
+```
+
+# 2.5 Crashes Involving Pedestrians
+
+## Quick Stats
+
+Number of accidents involving pedestrians: 11,490
+
+```{r}
+data |>
+    filter(PEDESTRIAN_ACCIDENT == 'yes') |>
+    nrow()
+```
+
+Number of injured pedestrians: 10,026
+
+```{r}
+data |>
+    filter(COUNT_PED_INJURED == '1') |>
+    nrow()
+```
+
+Number of pedestrians killed: 949
+
+```{r}
+data |>    
+    filter(COUNT_PED_KILLED == 1) |>
+    nrow()
+```
+
+## Top 5 PCF Violations for Pedestrian Accidents
+
+The most popular PCF violation for pedestrian accidents is pedestrian right of way! This is somewhat interesting considering pedestrians always have right of way.
+
+```{r}
+data |>
+    filter(PEDESTRIAN_ACCIDENT == 'yes') |>
+    count(PCF_VIOL_CATEGORY) |>
+    arrange(desc(n)) |>
+    slice(1:5)
+```
+
+## Top 5 Types of Collision for Pedestrian Accidents
+
+It makes sense that the most common type of collision for pedestrian accidents is vehicle/pedestrian collision!
+```{r}
+data |>
+    filter(PEDESTRIAN_ACCIDENT == 'yes') |>
+    count(TYPE_OF_COLLISION) |>
+    arrange(desc(n)) |>
+    slice(1:5)
+```
+
+## Top 5 Parties at Fault for Pedestrian Accidents
+
+Similar to the top party at fault for all accidents, the #1 party at fault for pedestrian accidents is passenger car.
+
+```{r}
+data |>
+    filter(PEDESTRIAN_ACCIDENT == 'yes') |>
+    count(STWD_VEHTYPE_AT_FAULT) |>
+    arrange(desc(n)) |>
+    slice(1:5)
+```
+
+# 2.6 Crashes Involving Bicyclists
+
+## Quick Stats
+
+Number of accidents involving bicyclists: 8,744
+
+```{r}
+data |>
+    filter(BICYCLE_ACCIDENT == 'yes') |>
+    nrow()
+```
+
+Number of injured bicyclists: 8,372
+
+```{r}
+data |>
+    filter(COUNT_BICYCLIST_INJURED == '1') |>
+    nrow()
+```
+
+Number of bicyclists killed: 130
+
+```{r}
+data |>    
+    filter(COUNT_BICYCLIST_KILLED == 1) |>
+    nrow()
+```
+
+
+## Top 5 PCF Violations for Bicyclist Accidents
+
+The most popular PCF violation for bicyclist accidents is automobile right of way!
+
+```{r}
+data |>
+    filter(BICYCLE_ACCIDENT == 'yes') |>
+    count(PCF_VIOL_CATEGORY) |>
+    arrange(desc(n)) |>
+    slice(1:5)
+```
+
+## Top 5 Types of Collision for Bicyclist Accidents
+
+The most common type of collision for bicyclist accidents is broadside!
+```{r}
+data |>
+    filter(BICYCLE_ACCIDENT == 'yes') |>
+    count(TYPE_OF_COLLISION) |>
+    arrange(desc(n)) |>
+    slice(1:5)
+```
+
+## Top 5 Parties at Fault for Bicyclist Accidents
+
+Surprisingly, the most common party at fault for bicyclist accidents is the bicyclist! It is almost double the amount of cases where the passenger car is at fault.
+
+```{r}
+data |>
+    filter(BICYCLE_ACCIDENT == 'yes') |>
+    count(STWD_VEHTYPE_AT_FAULT) |>
+    arrange(desc(n)) |>
+    slice(1:5)
+```
+
+## Collision Severity
+
+How does severity of the collision differ between collisions involving pedestrians, bicycles, and motorcycles?
+
+```{r}
+data |>
+    filter(PEDESTRIAN_ACCIDENT == 'yes') |>
+    count(COLLISION_SEVERITY) |>
+    mutate(percent = (n / sum(n)) * 100) |>
+    arrange(desc(n))
+```
+
+
+```{r}
+data |>
+    filter(BICYCLE_ACCIDENT == 'yes') |>
+    count(COLLISION_SEVERITY) |>
+    mutate(percent = (n / sum(n)) * 100) |>
+    arrange(desc(n))
+```
+
+```{r}
+data |>
+    filter(MOTORCYCLE_ACCIDENT == 'yes') |>
+    count(COLLISION_SEVERITY) |>
+    mutate(percent = (n / sum(n)) * 100) |>
+    arrange(desc(percent))
+```
+
+## Analysis of Collision Severity Data
+
+- Pedestrian fatality rate: 8.42%
+- Motorcyclist fatality rate: 4.60%
+- Bicyclist fatality rate: 1.53%
+
+One possible explanation for this difference is that pedestrians are the least protected since only bicylists and motorcyclists wear helmets. Perhaps there is a higher rate of fatalities for motorcyclists than bicyclists because despite wearing helmets, they are often going at much greater speeds than bicyclists. Conclusion: biking is the safest!
+
+# Thank you for listening to my presentation!!!
