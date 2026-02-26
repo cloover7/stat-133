@@ -1,0 +1,69 @@
+---
+title: "Lab 6"
+author: "Erin Yang"
+format: 
+  closeread-html:
+    theme: cosmo
+    cr-style:
+      section-background-color: white
+      narrative-background-color-sidebar: black
+      narrative-text-color-sidebar: white
+      narrative-font-size: 2em
+embed-resources: true
+---
+
+
+```{r}
+#| label: setup
+#| include: false
+# load packages and/or import data
+library(tidyverse)
+```
+
+:::: {.cr-section}
+
+woah first thingy
+
+haha second thingy
+
+get ready for graphs
+
+sike its a table!!! @cr-1
+
+::: {#cr-1}
+
+```{r}
+mpg |>
+  filter(manufacturer == 'audi') |>
+  group_by(model) |>
+  summarize(sum_cty = sum(cty)) |>
+  knitr::kable(format = "html")
+  
+  #ggplot(data = mpg, aes(x = year, y = cty, color = manufacturer)) +
+ #   geom_point()
+```
+
+
+:::
+
+this table has like lots of info and stuff
+
+alright now onto graphs
+
+GRAPH!!!!!!! @cr-2
+
+lol it looks so goofy w the colored outlines
+
+::: {#cr-2}
+
+```{r}
+mpg |>
+  filter(manufacturer == 'audi') |>
+  group_by(model) |>
+  summarize(sum_cty = sum(cty)) |>
+  ggplot(aes(x = model, y = sum_cty, color = model)) +
+    geom_col()
+```
+
+:::
+::::
