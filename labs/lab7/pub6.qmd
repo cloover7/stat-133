@@ -1,0 +1,84 @@
+---
+title: "Lab 6"
+author: "Erin Yang"
+format: 
+  closeread-html:
+    theme: cosmo
+    cr-style:
+      section-background-color: white
+      narrative-background-color-sidebar: black
+      narrative-text-color-sidebar: white
+      narrative-font-size: 2em
+embed-resources: true
+---
+
+
+```{r}
+#| label: setup
+#| include: false
+# load packages and/or import data
+library(tidyverse)
+```
+
+:::: {.cr-section}
+
+haha frog car @cr-frog
+
+::: {#cr-frog}
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYCZkjsmnk1O_rhtxdqq_rkdx7u7rF-Q_X1w&s)
+:::
+
+woah first thingy
+
+haha second thingy
+
+get ready for graphs
+
+sike its a table!!! @cr-1
+
+::: {#cr-1}
+
+```{r}
+mpg |>
+  filter(manufacturer == 'audi') |>
+  group_by(model) |>
+  summarize(sum_cty = sum(cty)) |>
+  knitr::kable(format = "html")
+  
+  #ggplot(data = mpg, aes(x = year, y = cty, color = manufacturer)) +
+ #   geom_point()
+```
+
+
+:::
+
+this table has like lots of info and stuff
+
+alright now onto graphs
+
+GRAPH!!!!!!! @cr-2
+
+lol it looks so goofy w the colored outlines
+
+::: {#cr-2}
+
+```{r}
+mpg |>
+  filter(manufacturer == 'audi') |>
+  group_by(model) |>
+  summarize(sum_cty = sum(cty)) |>
+  ggplot(aes(x = model, y = sum_cty, color = model)) +
+    geom_col()
+```
+
+:::
+
+Normal scale @cr-2
+
+Shrinking effect [@cr-2]{scale-by="0.5"}
+
+Enlarging effect [@cr-2]{scale-by="2"}
+
+Normal size again (don't worry guys) @cr-2
+
+::::
