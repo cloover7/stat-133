@@ -1,0 +1,287 @@
+---
+title: "PS6: Interacting with Data"
+subtitle: "STAT 133"
+author: "Erin Yang"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    theme: simplex
+embed-resources: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(palmerpenguins) 
+library(ggiraph)
+library(plotly)
+```
+
+::: {.callout-note icon=false}
+
+## General Instructions
+
+-   Download the template file `ps6.qmd` to answer the questions.
+
+-   Rename `ps6.qmd` to `ps6-first-last.qmd`, where `first` and `last`
+    are your first and last names (e.g. `ps6-gaston-sanchez.qmd`).
+
+-   Render your qmd file to an HTML file and submit both your qmd and HTML files to the corresponding assignment submission in bCourses.
+
+:::
+
+:::{.callout-important}
+# Important
+
+If you haven't already, you will need to install `plotly` and `ggiraph` for this assignment. You can do so by running `install.packages(c("plotly", "ggiraph"))` in the r _console_. Do not include this command in a code cell in your qmd file.
+
+:::
+
+```{r}
+# load necessary packages
+# do not remove
+library(tidyverse)
+library(palmerpenguins) 
+library(ggiraph)
+library(plotly)
+```
+
+# Interactive Plots
+
+## Using `ggplotly`
+
+We'll be using the `penguins` dataset for this section of the problem set. We'll start with a plot you've seen before. 
+
+a) Make a plot of the `flipper_lenght_mm` vs. `bill_length_mm`, coloring the points by `Species`. This time, store it as a variable and call the variable to display the plot below.
+
+```{r}
+# your code here
+1a <- ggplot(data = penguins, aes( ))
+```
+
+\
+
+Now, put the variable you stored into `ggplotly()` to create an interactive graphic:
+
+```{r}
+# your code here
+```
+
+\
+
+b) Make a density plot of `flipper_length_mm` colored by `Species` and store it as a variable, then put it into `ggplotly` to make the interactive plot.
+
+```{r}
+# your code here
+```
+
+\
+
+c) Make a bar plot of the `Species` variable from a random sample of 100 pengiuns and store it as a variable, then put it into `ggplotly` to make the interactive plot.
+
+```{r}
+# your code here
+```
+
+\
+
+## Using `ggiraph`
+
+Now, make the same plots, but this time use `ggiraph`.
+
+a) Make a plot of the `flipper_lenght_mm` vs. `bill_length_mm`, coloring the points by `Species`. Set the tooltip to be `island`.
+
+```{r}
+# your code here
+```
+
+\
+
+b) Make a density plot of `flipper_length_mm` colored by `species`. Set the tooltip to species.
+
+```{r}
+# your code here
+```
+
+\
+
+c) Make a bar plot of the `Species` variable from a random sample of 100 penguins. Set the tooltip to the count of the bar. You can do this with `tooltip = after_stat(count)`.
+
+\
+
+```{r}
+# your code here
+```
+
+---
+
+# Exploratory/Explanatory Data Analysis (EDA)
+
+To give you some practice exploring a more complicated dataset, we will be using the full data from the US Department of Energy (DOE) that the `mpg` dataset that you saw in lab was based on. The data is publicly available here: [Fuel Economy](https://www.fueleconomy.gov/feg/ws/).
+
+::: {.callout-important}
+# Download `vehicles.csv`
+
+Before continuing, you will need to download the `vehicles.csv` file from bcourses. It is linked in the problem set, or you can find it in the files/problem-sets/ps6 directory on bcourses.
+
+:::
+
+## Read In Data
+
+Start by reading in the data using dplyr verbs and asigning it to the variable `dat`. Think about how the data is stored and what `read_` function you will need to use.
+
+```{r}
+# your code here
+```
+
+\
+
+Start by using `head()` to get a feel for what the dataset looks like. This dataset will be larger than what we have worked with so far.
+
+```{r}
+# your code here
+```
+
+\
+
+Now, use the `dim` function to get a sense of the size of the dataset.
+
+```{r}
+# your code here
+```
+
+\
+
+## Variable Descriptions
+
+As you can see, this is a decently sized dataset with many different variables that have been recorded. Most of the variables have names that are not understandable at first glance: e.g. `highway08U` or `fuelType1` vs. `fuelType2`. However, just like `mpg`, each row is a type of car and each column is information about that car.
+
+The descriptions of each variable can be found on the US Department of Energy's website: [Feul Economy](https://www.fueleconomy.gov/feg/ws/). Go there, and scroll down until you see "Data Description." Choose two variables that have non-obvious names and describe them:
+
+::: {.callout-note}
+# Type Your Answer in this Callout Block
+
+Your answer here
+
+:::
+
+\
+
+## Exploratory Analysis
+
+Now that we've learned a bit more about the data, we can start exploring it using `dplyr` and `ggplot2`. 
+
+### Using `dplyr`
+
+Fill in the code cells below that will help us explore the data.
+
+a) What are the number of cars of each `fuelType`?
+```{r}
+# your code here
+```
+
+\
+
+b) How far back and how current is the dataset? i.e. what are the minumum and maximum `year`?
+
+```{r}
+# your code here
+```
+
+\
+
+c) Which manufacturer has the most cars in the dataset? (Note that the corresponding variable for manufacturer is `make` in this dataset. You can use `which.max()` to find the index of the largest item in a vector.)
+
+```{r}
+# your code here
+```
+
+\
+
+d) What is the mean city fuel efficiency for each manufacturer sorted from largest to smallest? (The variable `city08` has the city miles per gallon of the vehicle using the vehicle's primary fuel type. For electric vehicles this value represents MPGe: gasoline equivalent miles per gallon.)
+
+```{r}
+# your code here
+```
+
+\
+
+e) Choose a numeric variable in the dataset and use `summary` to display the statistics about the variable.
+
+```{r}
+# your code here
+```
+
+\
+
+### Using `ggplot2`
+
+Now, let's make some plots with the data to answer some basic questions. These plots don't have to look nice.
+
+a) Has the number of vehicles that are tracked changed from year to year? Use `count()` to make a line plot showing the potential change over time. 
+
+```{r}
+# your code here
+```
+
+\
+
+b) What is the distribution of highway miles per gallon? Make a histogram of the variable `highway08U`. (This one will look a little strange.)
+
+```{r}
+# your code here
+```
+
+\
+
+c) How many cars are/aren't subject to the "Gas Guzzler Tax?" Make a bar plot showing the counts. This is represented as the variable `guzzler` in the dataset that indicates if a car is subject to the tax.
+
+\
+
+```{r}
+# your code here
+```
+
+\
+
+### Questions
+
+Some of what we saw above should have raised some red flags. Why is there a drop in cars in the dataset between 1995 and 2000? Why does the variable `highway08U` have so many 0's? What do `G`, `S`, and `T` mean in the `guzzler` variable?
+
+Go back to the [DOE's Website](https://www.fueleconomy.gov/feg/ws/) and look at the data description again or search online to _try_ and answer these questions: (Do your best, but it's ok if you can't find anything. The difficulty is part of the message of the exercise.)
+
+::: {.callout-tip}
+
+In a larger project we might spend more time generating plots or tables to try and answer these questions, but we will stop working with the data here unless you wish to continue.
+
+:::
+
+::: {.callout-note}
+# Type Your Answer in this Callout Block
+
+Your answer here
+
+:::
+
+
+
+## Explanatory Data Analysis
+
+What separates what we did in the previous section from explanatory data analysis is that now our plots should look professional and tell some sort of story with the data. We are no longer trying to _explore_ the dataset for our own understanding, we're trying to _explain_ some facet of the data to someone else.
+
+Now, this data is fairly complex and "dirty," so what we can do with it at this stage is limited. Answer the questions below to make polished graphics from the data:
+
+a) Plot the distribution of engine displacement, faceted by whether the vehicle is "turbo charged." In the dataset, these are `displ` and `tCharger` respectively. Make sure to include a title and axis labels!
+
+```{r}
+# your code here
+```
+
+\
+
+b) Subset the data to just cars with `fuelType1` being `"Electricity"` or `"Regular Gasoline"`, then make a scatterplot of highway vs city miles per gallon (`highway08` and `city08`), with the color of the points being mapped to the fuel type. Experiment with the `alpha` of the points as a setting. Make sure to include a title and axis labels!
+
+```{r}
+# your code here
+```
