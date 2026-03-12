@@ -1,0 +1,46 @@
+---
+title: 'lab 8'
+author: 'erin yang'
+format:
+    dashboard: 
+        orientation: columns
+embed-resources: True
+---
+
+## Column {width = 30%}
+
+Research Question: How has air quality changed over time?
+
+### Row {height = 40%}
+
+```{r}
+#| title: Table of Air Quality Data
+
+head(airquality)
+```
+
+### Row
+
+```{r}
+#| component: valuebox
+#| title: Highest Recorded Ozone
+list(
+  icon = "stopwatch",
+  color = "primary",
+  value = max(airquality$Ozone, na.rm = TRUE)
+)
+```
+
+## Column
+
+```{r}
+#| title: Graph of Average Ozone per Month
+
+plot(airquality)
+```
+
+### row under
+
+Summary
+
+So basically as we can see theres like a lot of data and theres some corrlation for some of them, such as ozone and wind, ozone and temp, and temp and wind.
