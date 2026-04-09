@@ -1,0 +1,124 @@
+---
+title: "Title"
+author: "Erin Yang"
+format: dashboard
+server: shiny
+---
+
+```{r}
+#| context: setup
+library(tidyverse)
+library(plotly)
+
+# Optional: you may use this section to write auxiliary functions
+# future value function
+fv <- function(p, cont, years, rate){
+  (p * (1 + rate) ** years) +
+  (cont * (((1 + rate) ** years - 1) / rate))
+}
+```
+
+## {.sidebar}
+
+```{r}
+# input widget for initial amount
+sliderInput(
+  inputId = 'principal',
+  label = 'Initial Amount',
+  min = 1,
+  max = 100000,
+  value = 5000
+)
+```
+
+```{r}
+# input widget for periodic contributions
+sliderInput(
+  inputId = 'contribution',
+  label = 'Annual Contribution',
+  min = 1,
+  max = 100000,
+  value = 1000
+)
+```
+
+```{r}
+# input widget for number of years
+sliderInput(
+  inputId = 'years',
+  label = 'Years',
+  min = 1,
+  max = 100,
+  value = 20
+)
+```
+
+```{r}
+# input widget for rate of return
+sliderInput(
+  inputId = 'rate',
+  label = 'Rate of Return',
+  min = 0,
+  max = 1,
+  value = 0.08
+)
+```
+
+
+# Timeline
+
+```{r}
+plotlyOutput(outputId = 'plot')
+```
+
+
+# Table
+
+```{r}
+tableOutput(outputId = 'table')
+```
+
+
+```{r}
+#| context: server
+
+# ------------------------------------------------------------
+# Auxiliary table (note that this is a reactive object)
+# (adapt code to your own analysis)
+# ------------------------------------------------------------
+tbl = reactive({
+  # the following code is for demo purposes only; adapt it!!!
+  dummy_tbl = data.frame(
+    year = seq_len(input$years),
+    amount = list()
+    for(x in year){
+      result <- fv(input$principal, input$contribution, x, input$rate)
+      amount <- append(amount, result)
+      }
+  )
+  
+  dummy_tbl
+})
+
+
+# ------------------------------------------------------------
+# Plot (timeline)
+# (adapt code to make a timeline according to your analysis!!!)
+# ------------------------------------------------------------
+output$plot <- renderPlotly({
+# the following code is for demo purposes only; adapt it!!!
+  ggplot(data = tbl(), aes(x = year, y = amount)) +
+    geom_area(fill = "#A1E3F588") +
+    scale_y_continuous(labels = scales::comma)
+})
+
+
+# ------------------------------------------------------------
+# Table
+# (adapt code to display appropriate table!!!)
+# ------------------------------------------------------------
+output$table <- renderTable({
+  tbl()
+})
+```
+
