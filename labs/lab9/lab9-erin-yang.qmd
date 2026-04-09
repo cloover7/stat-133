@@ -1,0 +1,66 @@
+---
+title: "Palmer Penguins"
+format: dashboard
+server: shiny
+runtime: shiny
+---
+
+```{r}
+#| context: setup
+library(tidyverse)
+library(plotly)
+library(palmerpenguins)
+
+penguins <- filter(penguins, !is.na(sex))
+head(penguins)
+```
+
+## {.sidebar}
+
+```{r}
+# select input: variable for x-axis
+selectInput(
+  inputId = 'xvar', 
+  label = 'X-axis:',
+  choices = colnames(penguins)[3:6],
+  selected = "bill_length_mm")
+```
+
+```{r}
+# select input: variable for y-axis
+selectInput(
+  inputId = 'yvar', 
+  label = 'Y-axis:',
+  choices = colnames(penguins)[3:6],
+  selected = "bill_depth_mm")
+```
+
+```{r}
+# Input: radio buttons to color code by species
+# choices: c("yes", "no)
+radioButtons(
+  inputId = 'graphic',
+  label = 'Sex?',
+  choices = c("yes", "no"),
+  selected = 'yes'
+)
+```
+
+
+## Row
+
+```{r}
+#| title: "Scatter plot"
+plotlyOutput(outputId = 'plot')
+```
+
+
+```{r}
+#| context: server
+output$plot <- renderPlotly({
+  # your code
+  ggplot(data = penguins, aes(x = .data[[input$xvar]], y = .data[[input$yvar]])) +
+    geom_point()
+})
+```
+
