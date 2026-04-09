@@ -1,5 +1,5 @@
 ---
-title: "Title"
+title: "PS 9 - Savings-Investment Calculator"
 author: "Erin Yang"
 format: dashboard
 server: shiny
@@ -16,6 +16,7 @@ fv <- function(p, cont, years, rate){
   (p * (1 + rate) ** years) +
   (cont * (((1 + rate) ** years - 1) / rate))
 }
+  
 ```
 
 ## {.sidebar}
@@ -86,15 +87,20 @@ tableOutput(outputId = 'table')
 # Auxiliary table (note that this is a reactive object)
 # (adapt code to your own analysis)
 # ------------------------------------------------------------
+
+
 tbl = reactive({
   # the following code is for demo purposes only; adapt it!!!
+  year = seq_len(input$years)
+  amount = numeric(input$years)
+  for(x in year){
+    amount[x] <- fv(input$principal, input$contribution, x, input$rate)
+}
+
+
   dummy_tbl = data.frame(
-    year = seq_len(input$years),
-    amount = list()
-    for(x in year){
-      result <- fv(input$principal, input$contribution, x, input$rate)
-      amount <- append(amount, result)
-      }
+    year = year,
+    amount = amount
   )
   
   dummy_tbl

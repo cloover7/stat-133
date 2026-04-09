@@ -8,7 +8,7 @@
 
 <meta name="author" content="Erin Yang">
 
-<title>Title</title>
+<title>PS 9 - Savings-Investment Calculator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 
 
       <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">Title</a></div>
+        <div class="navbar-title-text"><a href="#">PS 9 - Savings-Investment Calculator</a></div>
         
         <div class="navbar-author">Erin Yang</div>
       </div>
@@ -160,6 +160,7 @@ fv <- function(p, cont, years, rate){
   (p * (1 + rate) ** years) +
   (cont * (((1 + rate) ** years - 1) / rate))
 }
+  
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -167,11 +168,20 @@ fv <- function(p, cont, years, rate){
 # Auxiliary table (note that this is a reactive object)
 # (adapt code to your own analysis)
 # ------------------------------------------------------------
+
+
 tbl = reactive({
   # the following code is for demo purposes only; adapt it!!!
+  year = seq_len(input$years)
+  amount = numeric(input$years)
+  for(x in year){
+    amount[x] <- fv(input$principal, input$contribution, x, input$rate)
+}
+
+
   dummy_tbl = data.frame(
-    year = seq_len(input$years),
-    amount = fv(input$principal, input$contribution, year, input$rate)
+    year = year,
+    amount = amount
   )
   
   dummy_tbl
