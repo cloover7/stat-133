@@ -1,0 +1,210 @@
+---
+title: "Project 3 - Exploring NBA Salary Data"
+author: "Erin Yang"
+format: 
+  closeread-html:
+    theme: cosmo
+    cr-style:
+      section-background-color: white
+      narrative-background-color-sidebar: black
+      narrative-text-color-sidebar: white
+      narrative-font-size: 2em
+embed-resources: true
+---
+
+```{r setup, include=FALSE}
+# load packages and/or import data set(s)
+library(tidyverse)
+nba <- read.csv('/Users/eriny/Documents/GitHub/stat-133/project/project3/nba2025-clean.csv')
+```
+
+:::: {.cr-section}
+
+The NBA. @cr-players
+
+So many players.
+
+But are they all "worth" the same?
+
+Let's find out!
+
+:::{#cr-players}
+![](https://fadeawayworld.net/wp-content/uploads/2022/06/285925087_543090000781662_6195783055162636562_n.jpg)
+:::
+
+1 - Salary distribution @cr-plot2
+
+Here is a histogram showing the full distribution of salaries amongst all NBA players. 
+
+Don't worry about the stat bin warning thing.
+
+There's a wide range of salaries! Imagine someone making 10x the amount of money you do for the same job.
+
+But most people be making under $10 million. (which is still a freak ton!)
+
+
+::: {#cr-plot2}
+```{r}
+ggplot(data = nba, aes(x = salary)) +
+  geom_histogram() +
+  labs(title = 'Distribution of NBA Player Salaries', x = 'Salary', y = 'Count')
+```
+:::
+
+2 - Summary Statistics @cr-sum
+
+The mean salary is more than double the median salary! This indicates that the data is skewed to the right and there are some very large extremes.
+
+Also the minimum salary of 12k a year is actually diabolical?? maybe they're a temp worker...
+
+::: {#cr-sum}
+
+```{r}
+summary(nba)
+```
+:::
+
+3 - 10 Highest Paid Players @cr-tten
+
+Steph Curry at the top, ofc!!
+
+not gonna lie idk any of the other ppl except Kevin Durant...
+
+All the top 10 paid players are getting around $50 million, which is SO MUCH
+
+But truly Steph Curry is a step above the rest at $55 million @cr-steph
+
+the soulless eyes of a rich af man -->
+
+::: {#cr-steph}
+![](https://www.usab.com/imgproxy/qBABZwWRZ71S1hqM_Bqjayn9vpO6cWgPP_Ki7X4dWmc/rs:fit:3000:0:0/g:ce/q:90/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3VzYWItY29tLXByb2QvdXBsb2FkLzIwMjQvMDcvMDkvNDc0OTRhNTktYmM2NC00MmRiLWJmNDctNTA1YjQ5ZmU4OTg2LmpwZw.png)
+
+:::
+
+
+::: {#cr-tten}
+
+```{r}
+nbaten <- nba |> 
+  select(player, team, position, salary) |>
+  arrange(desc(salary)) |>
+  slice(1:10)
+
+nbaten
+```
+
+:::
+
+4 - Position vs Salary @cr-position
+
+It seems that point guards are paid significantly more on average than the other positions, perhaps because they are the "leaders"
+
+The shooting guard makes the least amount of money on average... rip... and they're the ones scoring the most points too!
+
+::: {#cr-position}
+
+```{r}
+nba_po <- nba |>
+  group_by(position) |>
+  summarize('avg_salary' = mean(salary))
+
+nba_po_graph <- ggplot(nba_po, aes(x = position, y = avg_salary)) +
+  geom_bar(stat = 'identity') +
+  labs(title = 'Average Salary per Basketball Position', x = 'Positions', y = 'Average Salary')
+
+nba_po_graph
+
+```
+
+:::
+
+5 - Teams Ranked by Salary @cr-teams
+
+THe total salaries of most teams are around the same, which is fair.
+
+The overall highest paid team is the Phoenix Suns!
+
+
+::: {#cr-teams}
+
+```{r}
+sal <- nba |>
+  group_by(team) |>
+  summarize('sum_salary' = sum(salary)) |>
+  arrange(desc(sum_salary)) |>
+  slice(1:10)
+
+sal_graph <- ggplot(sal, aes(x = team, y = sum_salary)) +
+  geom_bar(stat = 'identity') +
+  labs(title = 'Top 10 Teams by Salary', x = 'Team', y = 'Total Salary')
+
+sal_graph
+```
+
+:::
+
+6 - Is Salary Proportional to Experience? @cr-exp
+
+So it seems like generally the answer is yes, at least until you pass the 12 years mark...
+
+Maybe those people are either older and don't play as well, or their contract is older and hasn't been updated accordingly
+
+Anyway who's that person pulling up the average salary for those with 21 years of experience??
+
+
+
+::: {#cr-exp}
+
+```{r}
+exp <- nba |>
+  group_by(experience) |>
+  summarize('avg_salary' = mean(salary)) |>
+  arrange(desc(avg_salary))
+
+exp_graph <- ggplot(exp, aes(x = experience, y = avg_salary)) +
+  geom_bar(stat = 'identity') +
+  labs(title = 'Years of Experience vs Salary', x = 'Years of Experience', y = 'Average Salary')
+
+exp_graph
+```
+
+:::
+
+It's LeBron!!!! @cr-lebron
+
+And he's the player with the most years of experience too! @cr-lestats
+
+Goated unc frfr [@cr-unc]{scale-by="3"}
+
+::: {#cr-lebron}
+![](https://a.espncdn.com/i/headshots/nba/players/full/1966.png)
+:::
+
+::: {#cr-lestats}
+
+```{r}
+
+nba |> filter(experience == 21)
+```
+
+:::
+
+::: {#cr-unc}
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl9xj7YyTKi8oh6IQIVRyYAu_m4x6hZUzcBA&s)
+:::
+
+Ok thank u for watching!! @cr-ty
+
+Bye!!
+
+Bye!!!
+
+BYEEEE!!!!
+
+ok im leaving [@cr-ty]{scale-by="0.1"}
+
+::: {#cr-ty}
+![](https://media.tenor.com/HA2i7jF0UBsAAAAM/spinning-ball-basketball.gif)
+:::
+
+::::
