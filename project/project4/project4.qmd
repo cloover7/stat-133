@@ -1,0 +1,88 @@
+---
+title: 'lab 8'
+author: 'erin yang'
+format:
+    dashboard: 
+        orientation: columns
+embed-resources: True
+---
+
+
+```{r}
+alpha <- read_csv('project/project4/data/bicyclist_alpha_2014_2023.csv')
+
+beta <- read_csv('project/project4/data/bicyclist_beta_2014_2023.csv')
+alpha
+```
+
+
+```{r}
+alpha <- alpha %>%
+  mutate(
+    YEAR = lubridate::year(alpha$COLLISION_DATE),
+    MONTH = lubridate::month(alpha$COLLISION_DATE),
+    DAY_OF_WEEK = lubridate::wday(alpha$COLLISION_DATE, label = TRUE),
+    HOUR = case_when(
+        COLLISION_TIME >= 2100 ~ 21,
+        COLLISION_TIME >= 2000 ~ 20,
+        COLLISION_TIME >= 1900 ~ 19,
+        COLLISION_TIME >= 1800 ~ 18,
+        COLLISION_TIME >= 1700 ~ 17,
+        COLLISION_TIME >= 1600 ~ 16,
+        COLLISION_TIME >= 1500 ~ 15,
+        COLLISION_TIME >= 1400 ~ 14,
+        COLLISION_TIME >= 1300 ~ 13,
+        COLLISION_TIME >= 1200 ~ 12,
+        COLLISION_TIME >= 1100 ~ 11,
+        COLLISION_TIME >= 1000 ~ 10,
+        COLLISION_TIME >= 900  ~ 9,
+        COLLISION_TIME >= 800  ~ 8,
+        COLLISION_TIME >= 700  ~ 7,
+        COLLISION_TIME >= 600  ~ 6,
+        COLLISION_TIME >= 500  ~ 5,
+        COLLISION_TIME >= 400  ~ 4,
+        COLLISION_TIME >= 300  ~ 3,
+        COLLISION_TIME >= 200  ~ 2,
+        COLLISION_TIME >= 100  ~ 1,
+        COLLISION_TIME >= 0    ~ 0
+    )
+  )
+
+beta <- beta %>%
+  mutate(
+    YEAR = lubridate::year(beta$COLLISION_DATE),
+    MONTH = lubridate::month(beta$COLLISION_DATE),
+    DAY_OF_WEEK = lubridate::wday(beta$COLLISION_DATE, label = TRUE), 
+    HOUR = case_when(
+        COLLISION_TIME >= 2100 ~ 21,
+        COLLISION_TIME >= 2000 ~ 20,
+        COLLISION_TIME >= 1900 ~ 19,
+        COLLISION_TIME >= 1800 ~ 18,
+        COLLISION_TIME >= 1700 ~ 17,
+        COLLISION_TIME >= 1600 ~ 16,
+        COLLISION_TIME >= 1500 ~ 15,
+        COLLISION_TIME >= 1400 ~ 14,
+        COLLISION_TIME >= 1300 ~ 13,
+        COLLISION_TIME >= 1200 ~ 12,
+        COLLISION_TIME >= 1100 ~ 11,
+        COLLISION_TIME >= 1000 ~ 10,
+        COLLISION_TIME >= 900  ~ 9,
+        COLLISION_TIME >= 800  ~ 8,
+        COLLISION_TIME >= 700  ~ 7,
+        COLLISION_TIME >= 600  ~ 6,
+        COLLISION_TIME >= 500  ~ 5,
+        COLLISION_TIME >= 400  ~ 4,
+        COLLISION_TIME >= 300  ~ 3,
+        COLLISION_TIME >= 200  ~ 2,
+        COLLISION_TIME >= 100  ~ 1,
+        COLLISION_TIME >= 0    ~ 0
+    )
+  )
+```
+
+1.2 Joining tables
+
+```{r}
+merge(alpha, beta, by = 'CASE_ID')
+```
+
