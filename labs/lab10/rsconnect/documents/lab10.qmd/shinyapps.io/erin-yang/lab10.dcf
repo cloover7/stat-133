@@ -1,0 +1,13 @@
+name: lab10
+title:
+username: erin-yang
+account: erin-yang
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 17098152
+bundleId: 11828954
+url: https://erin-yang.shinyapps.io/lab10/
+version: 1
+quarto_version: 1.8.27
+quarto_engines: knitr
+serverRender: FALSE

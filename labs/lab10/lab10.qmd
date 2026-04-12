@@ -1,0 +1,70 @@
+---
+title: 'My Top 3 Boba Stores!'
+author: 'erin yang'
+format: dashboard
+server: shiny
+runtime: shiny
+---
+
+```{r}
+#| context: setup
+library(tidyverse)
+library(plotly)
+library(leaflet)
+library(shiny)
+```
+
+
+## {.sidebar}
+
+```{r}
+# input widget for initial amount
+radioButtons(
+  inputId = "layer", 
+  label = "Type of map:",
+  choices = c("detailed", "light", 'dark'),
+  selected = "detailed")
+```
+
+# Map
+
+```{r}
+leafletOutput(outputId = "map")
+```
+
+```{r}
+#| context: server
+# view of UC Berkeley 
+# with marker at Campanile's lat & long
+
+output$map <- renderLeaflet({
+  if (input$layer == 'dark'){
+    leaflet() |>
+      addProviderTiles("CartoDB.DarkMatter") |>
+      addMarkers(
+        lng = c(-122.2686385, -122.258864, -122.2620166),
+        lat = c(37.8709065, 37.86864, 37.8683081),
+        popup = c("#1 - Heytea", "#2 - Yi Fang", "#3 - Chi Cha San Chen")
+      )
+  } else if (input$layer == 'light'){
+    leaflet() |>
+      addProviderTiles("CartoDB.Voyager") |>
+      addMarkers(
+        lng = c(-122.2686385, -122.258864, -122.2620166),
+        lat = c(37.8709065, 37.86864, 37.8683081),
+        popup = c("#1 - Heytea", "#2 - Yi Fang", "#3 - Chi Cha San Chen")
+      )
+  } else {
+    leaflet() |>
+      addTiles() |>
+      addMarkers(
+        lng = c(-122.2686385, -122.258864, -122.2620166),
+        lat = c(37.8709065, 37.86864, 37.8683081),
+        popup = c("#1 - Heytea", "#2 - Yi Fang", "#3 - Chi Cha San Chen")
+      )
+  }
+})
+
+  
+```
+
