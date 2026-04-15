@@ -1,5 +1,5 @@
 ---
-title: 'lab 8'
+title: 'project 4'
 author: 'erin yang'
 format:
     dashboard: 
@@ -86,3 +86,4 @@ beta <- beta %>%
 merge(alpha, beta, by = 'CASE_ID')
 ```
 
+## 
