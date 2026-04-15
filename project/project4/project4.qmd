@@ -7,16 +7,26 @@ format:
 embed-resources: True
 ---
 
+```{r}
+library(dplyr)
+library(readr)
+library(tidyr)
+library(lubridate)
+library(ggplot2)
+library(plotly)
+```
 
 ```{r}
-alpha <- read_csv('project/project4/data/bicyclist_alpha_2014_2023.csv')
+#| include: false
+alpha <- read_csv('data/bicyclist_alpha_2014_2023.csv')
 
-beta <- read_csv('project/project4/data/bicyclist_beta_2014_2023.csv')
+beta <- read_csv('data/bicyclist_beta_2014_2023.csv')
 alpha
 ```
 
 
 ```{r}
+#| include: false
 alpha <- alpha %>%
   mutate(
     YEAR = lubridate::year(alpha$COLLISION_DATE),
@@ -48,42 +58,172 @@ alpha <- alpha %>%
     )
   )
 
-beta <- beta %>%
-  mutate(
-    YEAR = lubridate::year(beta$COLLISION_DATE),
-    MONTH = lubridate::month(beta$COLLISION_DATE),
-    DAY_OF_WEEK = lubridate::wday(beta$COLLISION_DATE, label = TRUE), 
-    HOUR = case_when(
-        COLLISION_TIME >= 2100 ~ 21,
-        COLLISION_TIME >= 2000 ~ 20,
-        COLLISION_TIME >= 1900 ~ 19,
-        COLLISION_TIME >= 1800 ~ 18,
-        COLLISION_TIME >= 1700 ~ 17,
-        COLLISION_TIME >= 1600 ~ 16,
-        COLLISION_TIME >= 1500 ~ 15,
-        COLLISION_TIME >= 1400 ~ 14,
-        COLLISION_TIME >= 1300 ~ 13,
-        COLLISION_TIME >= 1200 ~ 12,
-        COLLISION_TIME >= 1100 ~ 11,
-        COLLISION_TIME >= 1000 ~ 10,
-        COLLISION_TIME >= 900  ~ 9,
-        COLLISION_TIME >= 800  ~ 8,
-        COLLISION_TIME >= 700  ~ 7,
-        COLLISION_TIME >= 600  ~ 6,
-        COLLISION_TIME >= 500  ~ 5,
-        COLLISION_TIME >= 400  ~ 4,
-        COLLISION_TIME >= 300  ~ 3,
-        COLLISION_TIME >= 200  ~ 2,
-        COLLISION_TIME >= 100  ~ 1,
-        COLLISION_TIME >= 0    ~ 0
-    )
-  )
+
 ```
 
-1.2 Joining tables
 
 ```{r}
-merge(alpha, beta, by = 'CASE_ID')
+#| include: false
+crash <- merge(alpha, beta, by = 'CASE_ID')
+head(crash)
+
 ```
 
-## 
+# Yearly Bike Collisions
+
+## column
+
+Research Question: How have total injuries and deaths from bike collisions changed over the years?
+
+```{r}
+yr_deaths <- crash |>
+  group_by(YEAR) |>
+  summarise(sum_killed = sum(NUMBER_KILLED, na.rm = TRUE))
+
+```
+
+```{r}
+#| TItle: Bike Collision Deaths
+p1 <- ggplot(data = yr_deaths, aes(x = YEAR, y = sum_killed)) +
+        geom_line() +
+        geom_point() +
+        labs(title = 'Total Deaths in Bike Collisions per Year')
+
+ggplotly(p1)
+```
+
+```{r}
+yr_injury <- crash |>
+  group_by(YEAR) |>
+  summarise(sum_injured = sum(NUMBER_INJURED, na.rm = TRUE))
+
+```
+
+```{r}
+ p2 <- ggplot(data = yr_injury, aes(x = YEAR, y = sum_injured)) +
+  geom_line() +
+  geom_point() +
+  labs(title = 'Total Injuries in Bike Collisions per Year')
+
+ggplotly(p2)
+```
+
+## column 2
+
+```{r}
+yr_comb <- merge(yr_injury, yr_deaths, by = 'YEAR')
+
+```
+
+
+```{r}
+#| title: Table of Yearly Bike Collision Data
+yr_comb['prop_killed'] <- yr_comb$sum_killed / (yr_comb$sum_killed + yr_comb$sum_injured)
+
+yr_comb
+```
+
+```{r}
+#| component: valuebox
+#| title: Average Number of Deaths per Year
+list(
+  icon = "bicycle",
+  color = "primary",
+  value = mean(yr_comb$sum_killed, na.rm = TRUE)
+)
+```
+
+```{r}
+p3 <- ggplot(data = yr_comb, aes(x = YEAR, y = prop_killed)) +
+  geom_line() +
+  geom_point() +
+  labs(title = 'Proportion of Deaths in Bike Collisions per Year')
+
+ggplotly(p3)
+```
+
+# Monthly Bike Collisions
+
+## column
+
+Research Question: How do the number of bike collision deaths and injuries change through the months?
+
+```{r}
+mn_deaths <- crash |>
+  group_by(MONTH) |>
+  summarise(sum_killed = sum(NUMBER_KILLED, na.rm = TRUE))
+
+```
+
+
+
+```{r}
+mn_injury <- crash |>
+  group_by(MONTH) |>
+  summarise(sum_injured = sum(NUMBER_INJURED, na.rm = TRUE))
+
+```
+
+
+
+```{r}
+mn_comb <- merge(mn_injury, mn_deaths, by = 'MONTH')
+```
+
+
+```{r}
+mn_comb['prop_killed'] <- mn_comb$sum_killed / (mn_comb$sum_killed + mn_comb$sum_injured)
+
+mn_comb
+```
+
+
+```{r}
+p6 <- ggplot(data = mn_comb, aes(x = MONTH, y = prop_killed)) +
+  geom_line() +
+  geom_point() +
+  labs(title = 'Proportion of Deaths in Bike Collisions per Month')
+
+ggplotly(p6)
+```
+
+There is a greater proportion of deaths in the winter. Perhaps because environmental conditions such as light and rain are often worse.
+
+## column
+
+```{r}
+mn_long <- mn_comb |>
+  pivot_longer(
+    cols = c(sum_killed, sum_injured),
+    names_to = "metric",
+    values_to = 'value'
+  )
+
+```
+
+
+```{r}
+p7 <- ggplot(data = mn_long, aes(x = MONTH, y = value)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~ metric, scales = 'free_y') +
+  labs(title = 'Bike Collision Deaths and Injuries by Month')
+
+ggplotly(p7)
+```
+
+### row {height = 60%}
+
+```{r}
+#| component: valuebox
+#| title: Month with the Greatest Death Rate
+list(
+  icon = "bicycle",
+  color = "red",
+  value = 'December'
+)
+```
+
+### row
+
+It seems that there are the most injuries and deaths in the fall. Perhaps this is when people bike the most often!
