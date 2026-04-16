@@ -1,0 +1,7 @@
+.Rhistory
+.Rproj.user
+.DS_Store
+_site/
+
+/.quarto/
+_publish.yml

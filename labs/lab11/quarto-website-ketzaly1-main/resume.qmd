@@ -1,0 +1,82 @@
+---
+title: "Resume"
+---
+
+\
+
+## Education
+
+__UC Berkeley__ <br>
+BS in _Environmental Science_ <br>
+Minor in _Data Science_ <br>
+Expected Graduation: Spring 2026
+
+__UC Santa Barbara__ <br>
+Masters in _Environmental Data Science_ <br>
+Expected Graduation: Spring 2027
+
+Relevant coursework: 
+
+- ER 131: Data, Environment, and Society
+- Data 8
+- Data c88s
+- STAT 133
+
+
+## Experience
+
+__Lead Researcher__, Pacific Newt Toxicity Honors Thesis at UCB Botanical Gardens
+
+__Undergraduate Researcher__, Tarvin Lab (UC Berkeley Integrative Biology Dept.)
+
+__Animal Lab Assistant__, Lawrence Hall of Science
+
+__Intern__, Housing and Dining Sustainability Advocates
+
+
+## Awards
+
+- Sponsored Projects for Undergraduate Research Grant - $2000
+
+- Regina Mastrantonio Community Service Award - $200
+
+
+
+## Skills
+
+- Language skills
+    - English
+    - French (intermediate)
+    - Korean (beginner)
+
+
+- Programming skills
+    - Python (pandas, scikit-learn)
+    - R
+    - SQL
+    - Shiny
+    - Quarto
+
+- Software skills
+    - Microsoft Excel
+    - Word
+    - PowerPoint
+    - Canva
+    - ArcGIS Pro 
+    - NCBI BLAST
+
+- Research Skills
+    - Solid Phase Extraction
+    - PCR
+    - DNA library preparation
+    - Bioanalyzer
+    - Qubit RNA assays
+    - FOX assays
+    - FC assays
+    - PER assays
+    - Microscopy & dissection
+    - Animal Handling & husbandry
+    - Fieldwork in freshwater systems
+    - Water & sediment sampling
+
+
