@@ -5,11 +5,11 @@ title: "A little bit about me"
 - I am a Bay Area native!
 
 Hobbies include:
-- exploring restaurants and cafes
-- baking
-- tidepooling
-- watching anime
-- playing gacha games
+    - exploring restaurants and cafes
+    - baking
+    - tidepooling
+    - watching anime
+    - playing gacha games
 
 One of my favorite quotes is:
 

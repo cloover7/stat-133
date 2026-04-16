@@ -8,7 +8,7 @@ Take a look at some of my work and projects.
 
 ## Air Quality Dashboard
 
-A brief dashboard exploring air quality trends. [Dashboard](https://pub7-erin-yang.netlify.app/)
+A brief dashboard exploring air quality trends. 
 <a href="https://pub7-erin-yang.netlify.app/" target="_blank">https://pub7-erin-yang.netlify.app</a>
 
 ![](slides/slides-screenshot.png){width=70% fig-align="center"}
