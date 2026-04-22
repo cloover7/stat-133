@@ -1,0 +1,259 @@
+---
+title: "PS11: Shapefiles"
+subtitle: "STAT 133"
+author: "Your Name"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    theme: simplex
+embed-resources: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)      # data wrangling and graphics
+library(lubridate)      # for working with dates
+library(sf)             # for working with geospatial vector-data
+library(leaflet)        # web interactive maps
+library(plotly)         # web interactive graphics
+```
+
+
+::: {.callout-note icon=false}
+
+## General Instructions
+
+-   Download the template file `ps11.qmd` to answer the questions.
+
+-   Rename `ps11.qmd` to `ps11-first-last.qmd`, where `first` and `last` are your first and last names (e.g. `ps11-gaston-sanchez.qmd`).
+
+-   Download the shapefile `California_Fire_Perimeters_2018_2022` from bcourses and put it in the same directory as your qmd file. It is present in the description of this assignment and under files/problem-sets/ps11/. By default, bcourses downloads the shapefile in a zipped directory. You will need to extract it before working on this problem set.
+
+-   Render your qmd file to an HTML file and submit both your qmd and HTML files to the corresponding assignment submission in bCourses.
+
+:::
+
+
+
+# CalFIRE Perimeters Data 2018-2022
+
+The geospatial data of this assignment is the __shapefile__ 
+`California_Fire_Perimeters_2018_2022` located in bCourses:
+
+<https://bcourses.berkeley.edu/courses/1551809/files/folder/problem-sets/ps11>
+
+This is a subset of the `California_Fire_Perimeters_(+1950)` reviewed in
+lecture 32 about Shapefiles (April-13). Please check the associated slides to 
+know more about this data set.
+
+
+## Importing shapefile data in R
+
+As discussed in lecture, shapefiles can be imported in R with the function 
+`st_read()` from the package `"sf"`.
+
+Assuming that you have the shapefile `California_Fire_Perimeters_2018_2022` 
+in your working directory, here's how to import it in R:
+
+```{r message=FALSE}
+# import shapefile
+cal_perims <- st_read(
+  dsn = "California_Fire_Perimeters_2018_2022",
+  quiet = TRUE)
+```
+
+
+## A bit of Exploratory Data Analysis
+
+The first part of this assignment involves applying basic exploratory commands 
+on the fire perimeters data. While one could proceed with dplyr commands as usual, 
+it is better if we create a "copy" of `cal_perims` that doesn't include the `geometry` 
+column. The reason to do this is to make operations faster, otherwise computations
+become slow if we are _dragging_ the `geometry` column.
+
+Use the code cell below to create a copy of `cal_perims` called `dat_perims`, and then drop the `geometry` column from `dat_perims`. Please review the lecture on shapefiles if you need a refresher on how to drop the `geometry` column.
+
+```{r}
+# Your code here
+dat_perims <- st_drop_geometry(cal_perims)
+head(dat_perims)
+```
+
+
+Using `dat_perims`, write R commands (e.g. pipelines) for the following:
+
+a) Find the number of fires in each year
+
+```{r}
+# Your code here
+dat_perims |>
+  group_by(YEAR_) |>
+  summarise(num_fires = n())
+```
+
+\
+
+b) Get the `YEAR_`, `FIRE_NAME`, `ALARM_DATE`, `CONT_DATE`, and `GIS_ACRES` of the fire with the largest area burned before containment.
+
+```{r}
+# Your code here
+dat_perims |> 
+  arrange(desc(GIS_ACRES)) |>
+  slice(1) |>
+  select(`YEAR_`, `FIRE_NAME`, `ALARM_DATE`, `CONT_DATE`, `GIS_ACRES`)
+
+```
+
+c) Make a bar chart to visualize the number of fires started in each month 
+regardless of year (i.e. total # of fires started in Jan, total # of fires 
+started in Feb, so on and so forth). TIP: you'll have to mutate a column for 
+month, based on the alarm date. Make sure your graph shows names (abbreviations)
+of months, and include meaningful labels (title, axis labels). Also, provide a 
+concise explanation of what you see in the graph.
+
+```{r}
+# Your code here
+monthly <- dat_perims |>
+  mutate(month = month(ALARM_DATE)) |>
+  group_by(month) |>
+  summarise(num_fires = n())
+
+ggplot(data = monthly, aes(x = month, y = num_fires)) +
+  geom_col() +
+  labs(x = 'Month', y = 'Number of Fires', title = 'Number of Fires per Month') +
+  scale_x_continuous(breaks=seq(1:12), labels = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+
+```
+
+
+::: {.callout-note}
+# Type Your Answer in this Callout Block
+
+It seems the summer months such as June, July, and August have the greatest number of fires. This would make sense since they are often the hottest and dryest months. 
+
+:::
+
+\
+
+d) Make a plot to visualize the distribution of burned area (`GIS_ACRES`) and
+provide a concise explanation of what you see in the graph.
+
+```{r}
+# Your code here
+ggplot(data = dat_perims, aes(x = GIS_ACRES)) +
+  geom_histogram(bins = 30)
+
+```
+
+::: {.callout-note}
+# Type Your Answer in this Callout Block
+
+The vast majority of fires are quite small, under 50,000 acres. However, there are a few outliers that are extremely large, up to 1 million acres.
+
+:::
+
+e) Obtain a table with the year, fire name, alarm date, containment date, 
+and area burned of the largest fire in each year. Call this table 
+`largest_fires_by_year` and display its contents.
+
+```{r}
+largest_fires_by_year <- dat_perims |>
+  group_by(YEAR_) |>
+  arrange(desc(GIS_ACRES)) |>
+  slice(1) |>
+  select(YEAR_, `FIRE_NAME`, `ALARM_DATE`, `CONT_DATE`, `GIS_ACRES`)
+
+largest_fires_by_year
+```
+
+f) With the `largest_fires_by_year` table obtained in the preceding part, 
+mutate a column `duration` with the duration between the alarm date and the
+containment date. Arrange the rows of the output table by `duration` in 
+descending order.
+
+```{r}
+# Your code here
+largest_fires_by_year |>
+  mutate(duration = CONT_DATE - ALARM_DATE) |>
+  arrange(desc(duration))
+```
+
+
+-----
+
+
+# Interactive Map
+
+As you may recall from lecture, the polygons in `"California_Fire_Perimeters_2018_2022"`
+are not expressed in long-lat format. This is an issue if you want to make 
+interactive maps with leaflet. Why? Because `"leaflet"` expects all point, 
+line, and polygon vector-data to be specified in longitude and latitude 
+degrees using the _geodetic coordinate system_ WGS 84 (a.k.a. EPSG:4326). 
+
+To use `leaflet()`, we need to `st_transform()` the shapefile by specifying 
+the coordinate system EPSG:4326 (used by leaflet):
+
+```{r}
+# make cal_perims compatible with leaflet
+cal_perims <- cal_perims |>
+  st_transform(crs = 4326)
+```
+
+
+## Map of Large Wildfires
+
+The goal is to visualize the fire perimeters of large fires. By "large" we
+mean fires with an area burned greater than or equal to 10,000 acres.
+
+Make a leaflet map to visualize __only large fires__ (2018-2022). Add labels to the
+polygons so that when you hover over a given fire perimeter, a label is 
+displayed with the name and alarm-date of the fire.
+
+```{r}
+# Your code here
+large_fires <- cal_perims |>
+  filter(GIS_ACRES >= 10000)
+
+large_fires |>
+  leaflet() |>
+  addProviderTiles(provider = "Esri.WorldTopoMap") |> 
+  addPolygons(
+    color = "red",
+    fillOpacity = 0.5,
+    weight = 1, 
+    label = ~FIRE_NAME)
+```
+
+
+## Map of Large Wildfires Colored By Season
+
+Make another leaflet map to visualize __only large fires__ (2018-2022) with
+the same specifications of version 1. This time, however, color code the 
+fires based on the following month categories:
+
+- `"Jan-Mar"`
+- `"Apr-Jun"`
+- `"Jul-Sep"`
+- `"Oct-Dec"`
+
+Your map should include a label for the colors. You will need to `mutate` a column that indicates the three-month period by using a `lubridate` function on the `ALARM_DATE` column. 
+
+```{r}
+# Your code here
+seasons <- large_fires |>
+  mutate(season = quarter(ALARM_DATE))
+
+pal <- colorFactor(palette = "Set1", domain = seasons$season)
+
+seasons |>
+  leaflet() |>
+  addProviderTiles(provider = "Esri.WorldTopoMap") |> 
+  addPolygons(
+    color = ~pal(season),
+    fillOpacity = 0.5,
+    weight = 1, 
+    label = ~FIRE_NAME)
+```
+
+
