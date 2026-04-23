@@ -1,0 +1,110 @@
+---
+title: "Title of your dashboard"
+format: dashboard
+server: shiny
+---
+
+```{r}
+#| context: setup
+
+# ==================================================================
+# packages
+# (you can use other packages if you want to)
+# ==================================================================
+library(tidyverse)     # ecosystem of data science packages
+library(leaflet)       # web interactive maps
+library(sf)            # "simple features" (vector data for maps)
+library(plotly)        # web interactive plots
+library(ggiraph)       # make ggplots into interactive plots
+library(RColorBrewer)  # optional: nice color schemes
+
+
+# ==================================================================
+# import crash data, and mutate auxiliary columns for your analysis
+# ==================================================================
+
+```
+
+
+# {.sidebar width="300px"}
+
+```{r}
+# You may want to delete this entire code chunk!
+# (using tags to show HTML elements)
+tags$div(
+  tags$h4("Inputs for all tabs"),
+  tags$p("This is a global sidebar. Input widgets affect outputs in all tabs.")
+)
+```
+
+
+```{r}
+# input to select county
+
+```
+
+```{r}
+# input to select violation (PCF_VIOL_CATEGORY)
+
+```
+
+```{r}
+# input to choose type of collision (TYPE_OF_COLLISION)
+
+```
+
+```{r}
+# input to decide whether to color code by severity (COLLISION_SEVERITY)
+
+```
+
+```{r}
+# input to choose date range
+
+```
+
+```{r}
+# input to change leaflet provider tiles
+
+```
+
+
+
+# Tab 1
+
+## Row
+
+```{r}
+# output: leaflet map
+leafletOutput(outputId = "map")
+```
+
+
+# Tab 2
+
+## Row
+
+```{r}
+# output(s) for tab-2
+plotlyOutput(outputId = "plot")
+```
+
+
+
+```{r}
+#| context: server
+
+# assemble leaflet map of crash locations (tab 1)
+output$map <- renderLeaflet({
+  
+  
+})
+
+
+# assemble graphic for tab 2
+output$plot <- renderPlotly({
+  
+  
+})
+```
+
