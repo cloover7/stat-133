@@ -1,0 +1,11 @@
+---
+title: "About"
+---
+
+My name is Erin!
+
+I'm a senior studying Environmental Science and data science at UC Berkeley. I am ready to graduate :)
+
+Why did I do this project?
+
+- Bc I want to get a good grade in Stat 133.

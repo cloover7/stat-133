@@ -1,0 +1,14 @@
+---
+title: "Project 6 - Text Analysis"
+---
+
+![https://www.usatoday.com/gcdn/authoring/authoring-images/2024/03/08/USAT/72890876007-xxx-news-state-of-the-union-2024062.JPG]
+
+This project analyzes State of the Union Addresses from 1970 to 2021.
+
+## Analyses
+
+This website presents two text analyses:
+
+- [Analysis 1: Title of Your First Text Analysis](analysis1.html)
+- [Analysis 2: Title of Your Second Text Analysis](analysis2.html)
