@@ -5,9 +5,9 @@ account: erin-yang
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 17270592
-bundleId: 11931880
+bundleId: 11932525
 url: https://erin-yang.shinyapps.io/erin-yang-project5/
 version: 1
-quarto_version: 1.9.36
+quarto_version: 1.8.27
 quarto_engines: knitr
 serverRender: FALSE

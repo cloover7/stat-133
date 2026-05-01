@@ -39,7 +39,7 @@ head(crashes)
 selectInput(
   inputId = 'county',
   label = 'County',
-  choices = crashes$LOCATION,
+  choices = sort(unique(crashes$LOCATION)),
   selected = 'Alameda'
 )
 ```
@@ -49,7 +49,7 @@ selectInput(
 selectInput(
   inputId = 'violation',
   label = 'Violation',
-  choices = crashes$PCF_VIOL_CATEGORY,
+  choices = sort(unique(crashes$PCF_VIOL_CATEGORY)),
   selected = 'DUI'
 )
 ```
@@ -59,7 +59,7 @@ selectInput(
 checkboxGroupInput(
   inputId = 'coltype',
   label = 'Type of Collision',
-  choices = crashes$TYPE_OF_COLLISION
+  choices = sort(unique(crashes$TYPE_OF_COLLISION))
 )
 ```
 
