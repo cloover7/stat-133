@@ -26,8 +26,13 @@ library(RColorBrewer)  # optional: nice color schemes
 ```
 
 ```{r}
-crashes <- read_csv('crashes_geospatial_2019.csv')
-head(crashes)
+
+crashes <- read_csv("crashes_geospatial_2019.csv") |>
+  mutate(
+    DATETIME = as.Date(DATETIME),
+    WDAY = weekdays(DATETIME),
+    COUNTY = stringr::str_trim(stringr::word(LOCATION, -1, sep = fixed(",")))
+  )
 ```
 
 # {.sidebar width="300px"}
@@ -39,7 +44,7 @@ head(crashes)
 selectInput(
   inputId = 'county',
   label = 'County',
-  choices = sort(unique(crashes$LOCATION)),
+  choices = sort(unique(crashes$COUNTY)),
   selected = 'Alameda'
 )
 ```
@@ -59,7 +64,8 @@ selectInput(
 checkboxGroupInput(
   inputId = 'coltype',
   label = 'Type of Collision',
-  choices = sort(unique(crashes$TYPE_OF_COLLISION))
+  choices = sort(unique(crashes$TYPE_OF_COLLISION)),
+  selected = sort(unique(crashes$TYPE_OF_COLLISION))
 )
 ```
 
@@ -78,22 +84,34 @@ radioButtons(
 dateRangeInput(
   inputId = 'dates',
   label = 'Date Range',
-  start = 2019-01-01,
-  end = 2019-12-31
+  start = as.Date("2019-01-01"),
+  end = as.Date("2019-12-31")
 )
 ```
 
 ```{r}
 # input to change leaflet provider tiles
 selectInput(
-  inputId = 'tiles',
-  label = 'Map Layer',
-  choices = c("detailed", "light", 'dark'),
-  selected = 'detailed'
-)
+  inputId = "provider",
+  label = "Select tile provider:",
+  choices = c(
+    "CartoDB.Positron",
+    "CartoDB.DarkMatter",
+    "Esri.WorldTerrain",
+    "MtbMap",
+    "Stadia.StamenWatercolor",
+    "USGS.USImageryTopo"), 
+  selected = "CartoDB.Positron")
 ```
 
-
+```{r}
+selectInput(
+  inputId = "wday",
+  label = "Filter by Day of Week:",
+  choices = unique(crashes$WDAY),
+  selected = "Monday"
+)
+```
 
 # Tab 1
 
@@ -120,16 +138,80 @@ plotlyOutput(outputId = "plot")
 #| context: server
 
 # assemble leaflet map of crash locations (tab 1)
+
 output$map <- renderLeaflet({
-  
-  
+
+  req(input$coltype)
+
+  filtered <- crashes |>
+    filter(
+      DATETIME >= input$dates[1],
+      DATETIME <= input$dates[2],
+      COUNTY == input$county,
+      PCF_VIOL_CATEGORY == input$violation,
+      TYPE_OF_COLLISION %in% input$coltype
+    )
+
+  leafmap <- leaflet(filtered) |>
+    addProviderTiles(input$provider)
+
+  if (input$color == "yes") {
+    pal <- colorFactor(
+    palette = "Reds",   
+    domain = filtered$COLLISION_SEVERITY,
+    ordered = TRUE
+   )
+    
+    leafmap |>
+      addCircles(
+        lng = ~POINT_X,
+        lat = ~POINT_Y,
+        label = ~paste0("Case ID:", CASE_ID, ", ", PCF_VIOL_CATEGORY),
+        color = ~pal(COLLISION_SEVERITY),
+        weight = 2
+      ) |>
+      addLegend(
+        position = "bottomright",
+        pal = pal,
+        values = ~COLLISION_SEVERITY,
+        title = "Severity"
+      )
+
+  } 
+  else {
+
+    leafmap |>
+      addCircles(
+        lng = ~POINT_X,
+        lat = ~POINT_Y,
+        label = ~paste0("Case ID:", CASE_ID, ", ", PCF_VIOL_CATEGORY),
+        weight = 2
+      )
+  }
 })
+  
 
 
 # assemble graphic for tab 2
 output$plot <- renderPlotly({
-  
-  
+  filtered2 <- crashes |>
+    filter((WDAY == input$wday), 
+      DATETIME >= input$dates[1],
+      DATETIME <= input$dates[2],
+      COUNTY == input$county,
+      PCF_VIOL_CATEGORY == input$violation,
+      TYPE_OF_COLLISION %in% input$coltype) |>
+        group_by(TYPE_OF_COLLISION) |>
+           summarize(count = n())
+g <- filtered2 |> ggplot(aes(y = count, x = TYPE_OF_COLLISION)) +
+  geom_col() +
+  labs(
+    title = "Number and Type of Crashes by Day of Week", 
+          x = "Type of Collision", 
+          y = "Number of Crashes")
+  ggplotly(g)
+
 })
+
 ```
 

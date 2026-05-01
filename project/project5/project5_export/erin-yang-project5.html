@@ -75,33 +75,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 <div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages dashboard-sidebar-container">  
 
-<div class="bslib-sidebar-layout html-fill-item sidebar-right html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" style=" --bslib-sidebar-width: 300px" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
-<div class="tab-content bslib-grid html-fill-item html-fill-container" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+<div class="bslib-sidebar-layout html-fill-item html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" style=" --bslib-sidebar-width: 300px" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
+<div class="tab-content bslib-grid html-fill-item html-fill-container" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
-<div class="card cell bslib-card html-fill-container html-fill-item" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output cell-output-stdout html-fill-item html-fill-container">
-<pre><code># A tibble: 6 × 16
-   CASE_ID DATETIME            COLLISION_SEVERITY NUMBER_KILLED NUMBER_INJURED
-     &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;                      &lt;dbl&gt;          &lt;dbl&gt;
-1  8008506 2019-05-29 09:30:00 minor injury                   0              1
-2  8008510 2019-06-16 08:00:00 minor injury                   0              1
-3  8008514 2019-07-26 06:00:00 minor injury                   0              1
-4 80961968 2019-03-17 06:28:00 minor injury                   0              1
-5 80961970 2019-03-18 13:53:00 minor injury                   0              2
-6 80961971 2019-03-20 13:03:00 minor injury                   0              3
-# ℹ 11 more variables: PCF_VIOL_CATEGORY &lt;chr&gt;, TYPE_OF_COLLISION &lt;chr&gt;,
-#   STWD_VEHTYPE_AT_FAULT &lt;chr&gt;, PEDESTRIAN_ACCIDENT &lt;chr&gt;,
-#   BICYCLE_ACCIDENT &lt;chr&gt;, MOTORCYCLE_ACCIDENT &lt;chr&gt;, TRUCK_ACCIDENT &lt;chr&gt;,
-#   ALCOHOL_INVOLVED &lt;chr&gt;, POINT_X &lt;dbl&gt;, POINT_Y &lt;dbl&gt;, LOCATION &lt;chr&gt;</code></pre>
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="tab-1" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-tab-1">
+<div id="tab-1" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-tab-1">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
@@ -146,1251 +123,64 @@ grid-auto-rows: minmax(0, 1fr);">
 <div class="form-group shiny-input-container">
 <label class="control-label" id="county-label" for="county">County</label>
 <div>
-<select id="county" class="shiny-input-select"><option value="Acampo, SAN JOAQUIN">Acampo, SAN JOAQUIN</option>
-<option value="Acton, LOS ANGELES">Acton, LOS ANGELES</option>
-<option value="Adelanto, SAN BERNARDINO">Adelanto, SAN BERNARDINO</option>
-<option value="Agoura Hills, LOS ANGELES">Agoura Hills, LOS ANGELES</option>
-<option value="Aguanga, RIVERSIDE">Aguanga, RIVERSIDE</option>
-<option value="Aguanga, SAN DIEGO">Aguanga, SAN DIEGO</option>
-<option value="Ahwahnee, MADERA">Ahwahnee, MADERA</option>
-<option value="Alameda, ALAMEDA">Alameda, ALAMEDA</option>
-<option value="Alamo, CONTRA COSTA">Alamo, CONTRA COSTA</option>
-<option value="Albany, ALAMEDA">Albany, ALAMEDA</option>
-<option value="Albany, CONTRA COSTA">Albany, CONTRA COSTA</option>
-<option value="Albion, MENDOCINO">Albion, MENDOCINO</option>
-<option value="Alderpoint, HUMBOLDT">Alderpoint, HUMBOLDT</option>
-<option value="Alhambra, LOS ANGELES">Alhambra, LOS ANGELES</option>
-<option value="Aliso Viejo, ORANGE">Aliso Viejo, ORANGE</option>
-<option value="Alpine, SAN DIEGO">Alpine, SAN DIEGO</option>
-<option value="Alta, PLACER">Alta, PLACER</option>
-<option value="Altadena, LOS ANGELES">Altadena, LOS ANGELES</option>
-<option value="Alturas, MODOC">Alturas, MODOC</option>
-<option value="Alviso, SANTA CLARA">Alviso, SANTA CLARA</option>
-<option value="Amboy, SAN BERNARDINO">Amboy, SAN BERNARDINO</option>
-<option value="American Canyon, NAPA">American Canyon, NAPA</option>
-<option value="American Canyon, SOLANO">American Canyon, SOLANO</option>
-<option value="Anaheim, ORANGE">Anaheim, ORANGE</option>
-<option value="Anderson, SHASTA">Anderson, SHASTA</option>
-<option value="Angels Camp, CALAVERAS">Angels Camp, CALAVERAS</option>
-<option value="Angelus Oaks, SAN BERNARDINO">Angelus Oaks, SAN BERNARDINO</option>
-<option value="Angwin, NAPA">Angwin, NAPA</option>
-<option value="Annapolis, SONOMA">Annapolis, SONOMA</option>
-<option value="Antelope, PLACER">Antelope, PLACER</option>
-<option value="Antelope, SACRAMENTO">Antelope, SACRAMENTO</option>
-<option value="Antioch, CONTRA COSTA">Antioch, CONTRA COSTA</option>
-<option value="Anza, RIVERSIDE">Anza, RIVERSIDE</option>
-<option value="Apple Valley, SAN BERNARDINO">Apple Valley, SAN BERNARDINO</option>
-<option value="Applegate, PLACER">Applegate, PLACER</option>
-<option value="Aptos, SANTA CRUZ">Aptos, SANTA CRUZ</option>
-<option value="Arbuckle, COLUSA">Arbuckle, COLUSA</option>
-<option value="Arbuckle, YOLO">Arbuckle, YOLO</option>
-<option value="Arcadia, LOS ANGELES">Arcadia, LOS ANGELES</option>
-<option value="Arcata, HUMBOLDT">Arcata, HUMBOLDT</option>
-<option value="Armona, KINGS">Armona, KINGS</option>
-<option value="Arnold, ALPINE">Arnold, ALPINE</option>
-<option value="Arnold, CALAVERAS">Arnold, CALAVERAS</option>
-<option value="Aromas, MONTEREY">Aromas, MONTEREY</option>
-<option value="Aromas, SAN BENITO">Aromas, SAN BENITO</option>
-<option value="Arroyo Grande, SAN LUIS OBISPO">Arroyo Grande, SAN LUIS OBISPO</option>
-<option value="Arroyo Grande, SANTA BARBARA">Arroyo Grande, SANTA BARBARA</option>
-<option value="Artesia, LOS ANGELES">Artesia, LOS ANGELES</option>
-<option value="Arvin, KERN">Arvin, KERN</option>
-<option value="Atascadero, SAN LUIS OBISPO">Atascadero, SAN LUIS OBISPO</option>
-<option value="Atherton, SAN MATEO">Atherton, SAN MATEO</option>
-<option value="Atwater, MERCED">Atwater, MERCED</option>
-<option value="Auberry, FRESNO">Auberry, FRESNO</option>
-<option value="Auburn, NEVADA">Auburn, NEVADA</option>
-<option value="Auburn, PLACER">Auburn, PLACER</option>
-<option value="Avalon, LOS ANGELES">Avalon, LOS ANGELES</option>
-<option value="Avenal, KINGS">Avenal, KINGS</option>
-<option value="Azusa, LOS ANGELES">Azusa, LOS ANGELES</option>
-<option value="Baker, SAN BERNARDINO">Baker, SAN BERNARDINO</option>
-<option value="Bakersfield, KERN">Bakersfield, KERN</option>
-<option value="Baldwin Park, LOS ANGELES">Baldwin Park, LOS ANGELES</option>
-<option value="Ballico, MERCED">Ballico, MERCED</option>
-<option value="Bangor, BUTTE">Bangor, BUTTE</option>
-<option value="Banning, RIVERSIDE">Banning, RIVERSIDE</option>
-<option value="Barstow, SAN BERNARDINO">Barstow, SAN BERNARDINO</option>
-<option value="Bass Lake, MADERA">Bass Lake, MADERA</option>
-<option value="Bayside, HUMBOLDT">Bayside, HUMBOLDT</option>
-<option value="Beaumont, RIVERSIDE">Beaumont, RIVERSIDE</option>
-<option value="Beckwourth, PLUMAS">Beckwourth, PLUMAS</option>
-<option value="Belden, PLUMAS">Belden, PLUMAS</option>
-<option value="Bell Gardens, LOS ANGELES">Bell Gardens, LOS ANGELES</option>
-<option value="Bella Vista, SHASTA">Bella Vista, SHASTA</option>
-<option value="Bellflower, LOS ANGELES">Bellflower, LOS ANGELES</option>
-<option value="Belmont, SAN MATEO">Belmont, SAN MATEO</option>
-<option value="Belvedere Tiburon, MARIN">Belvedere Tiburon, MARIN</option>
-<option value="Ben Lomond, SANTA CRUZ">Ben Lomond, SANTA CRUZ</option>
-<option value="Benicia, SOLANO">Benicia, SOLANO</option>
-<option value="Berkeley, ALAMEDA">Berkeley, ALAMEDA</option>
-<option value="Berry Creek, BUTTE">Berry Creek, BUTTE</option>
-<option value="Bethel Island, CONTRA COSTA">Bethel Island, CONTRA COSTA</option>
-<option value="Beverly Hills, LOS ANGELES">Beverly Hills, LOS ANGELES</option>
-<option value="Big Bar, TRINITY">Big Bar, TRINITY</option>
-<option value="Big Bear City, SAN BERNARDINO">Big Bear City, SAN BERNARDINO</option>
-<option value="Big Bear Lake, SAN BERNARDINO">Big Bear Lake, SAN BERNARDINO</option>
-<option value="Big Pine, INYO">Big Pine, INYO</option>
-<option value="Big Sur, MONTEREY">Big Sur, MONTEREY</option>
-<option value="Biggs, BUTTE">Biggs, BUTTE</option>
-<option value="Birds Landing, SOLANO">Birds Landing, SOLANO</option>
-<option value="Bishop, INYO">Bishop, INYO</option>
-<option value="Bishop, MONO">Bishop, MONO</option>
-<option value="Blairsden Graeagle, PLUMAS">Blairsden Graeagle, PLUMAS</option>
-<option value="Bloomington, SAN BERNARDINO">Bloomington, SAN BERNARDINO</option>
-<option value="Blue Lake, HUMBOLDT">Blue Lake, HUMBOLDT</option>
-<option value="Blythe, RIVERSIDE">Blythe, RIVERSIDE</option>
-<option value="Bodega Bay, SONOMA">Bodega Bay, SONOMA</option>
-<option value="Bodega, SONOMA">Bodega, SONOMA</option>
-<option value="Bodfish, KERN">Bodfish, KERN</option>
-<option value="Bolinas, MARIN">Bolinas, MARIN</option>
-<option value="Bonita, SAN DIEGO">Bonita, SAN DIEGO</option>
-<option value="Bonsall, SAN DIEGO">Bonsall, SAN DIEGO</option>
-<option value="Boonville, MENDOCINO">Boonville, MENDOCINO</option>
-<option value="Boron, KERN">Boron, KERN</option>
-<option value="Boron, SAN BERNARDINO">Boron, SAN BERNARDINO</option>
-<option value="Borrego Springs, SAN DIEGO">Borrego Springs, SAN DIEGO</option>
-<option value="Boulder Creek, SANTA CRUZ">Boulder Creek, SANTA CRUZ</option>
-<option value="Boulevard, SAN DIEGO">Boulevard, SAN DIEGO</option>
-<option value="Bradley, MONTEREY">Bradley, MONTEREY</option>
-<option value="Bradley, SAN LUIS OBISPO">Bradley, SAN LUIS OBISPO</option>
-<option value="Branscomb, MENDOCINO">Branscomb, MENDOCINO</option>
-<option value="Brawley, IMPERIAL">Brawley, IMPERIAL</option>
-<option value="Brea, LOS ANGELES">Brea, LOS ANGELES</option>
-<option value="Brea, ORANGE">Brea, ORANGE</option>
-<option value="Brentwood, CONTRA COSTA">Brentwood, CONTRA COSTA</option>
-<option value="Bridgeport, MONO">Bridgeport, MONO</option>
-<option value="Bridgeville, HUMBOLDT">Bridgeville, HUMBOLDT</option>
-<option value="Bridgeville, TRINITY">Bridgeville, TRINITY</option>
-<option value="Brisbane, SAN FRANCISCO">Brisbane, SAN FRANCISCO</option>
-<option value="Brisbane, SAN MATEO">Brisbane, SAN MATEO</option>
-<option value="Brooks, YOLO">Brooks, YOLO</option>
-<option value="Browns Valley, SUTTER">Browns Valley, SUTTER</option>
-<option value="Browns Valley, YUBA">Browns Valley, YUBA</option>
-<option value="Brownsville, YUBA">Brownsville, YUBA</option>
-<option value="Bryn Mawr, SAN BERNARDINO">Bryn Mawr, SAN BERNARDINO</option>
-<option value="Buellton, SANTA BARBARA">Buellton, SANTA BARBARA</option>
-<option value="Buena Park, LOS ANGELES">Buena Park, LOS ANGELES</option>
-<option value="Buena Park, ORANGE">Buena Park, ORANGE</option>
-<option value="Burbank, LOS ANGELES">Burbank, LOS ANGELES</option>
-<option value="Burlingame, SAN MATEO">Burlingame, SAN MATEO</option>
-<option value="Burney, SHASTA">Burney, SHASTA</option>
-<option value="Burnt Ranch, TRINITY">Burnt Ranch, TRINITY</option>
-<option value="Butte City, GLENN">Butte City, GLENN</option>
-<option value="Buttonwillow, KERN">Buttonwillow, KERN</option>
-<option value="Byron, ALAMEDA">Byron, ALAMEDA</option>
-<option value="Byron, CONTRA COSTA">Byron, CONTRA COSTA</option>
-<option value="Cabazon, RIVERSIDE">Cabazon, RIVERSIDE</option>
-<option value="Calabasas, LOS ANGELES">Calabasas, LOS ANGELES</option>
-<option value="Calexico, IMPERIAL">Calexico, IMPERIAL</option>
-<option value="Caliente, KERN">Caliente, KERN</option>
-<option value="California City, KERN">California City, KERN</option>
-<option value="California Hot Springs, TULARE">California Hot Springs, TULARE</option>
-<option value="Calimesa, RIVERSIDE">Calimesa, RIVERSIDE</option>
-<option value="Calimesa, SAN BERNARDINO">Calimesa, SAN BERNARDINO</option>
-<option value="Calipatria, IMPERIAL">Calipatria, IMPERIAL</option>
-<option value="Calistoga, NAPA">Calistoga, NAPA</option>
-<option value="Calistoga, SONOMA">Calistoga, SONOMA</option>
-<option value="Calpine, SIERRA">Calpine, SIERRA</option>
-<option value="Camarillo, SAN BERNARDINO">Camarillo, SAN BERNARDINO</option>
-<option value="Camarillo, VENTURA">Camarillo, VENTURA</option>
-<option value="Cambria, SAN LUIS OBISPO">Cambria, SAN LUIS OBISPO</option>
-<option value="Camino, EL DORADO">Camino, EL DORADO</option>
-<option value="Camp Pendleton, SAN DIEGO">Camp Pendleton, SAN DIEGO</option>
-<option value="Campbell, SANTA CLARA">Campbell, SANTA CLARA</option>
-<option value="Campo, SAN DIEGO">Campo, SAN DIEGO</option>
-<option value="Camptonville, SIERRA">Camptonville, SIERRA</option>
-<option value="Camptonville, YUBA">Camptonville, YUBA</option>
-<option value="Canby, MODOC">Canby, MODOC</option>
-<option value="Canoga Park, LOS ANGELES">Canoga Park, LOS ANGELES</option>
-<option value="Canoga Park, VENTURA">Canoga Park, VENTURA</option>
-<option value="Cantil, KERN">Cantil, KERN</option>
-<option value="Cantua Creek, FRESNO">Cantua Creek, FRESNO</option>
-<option value="Canyon Country, LOS ANGELES">Canyon Country, LOS ANGELES</option>
-<option value="Capay, YOLO">Capay, YOLO</option>
-<option value="Capistrano Beach, ORANGE">Capistrano Beach, ORANGE</option>
-<option value="Capitola, SANTA CRUZ">Capitola, SANTA CRUZ</option>
-<option value="Cardiff By The Sea, SAN DIEGO">Cardiff By The Sea, SAN DIEGO</option>
-<option value="Carlotta, HUMBOLDT">Carlotta, HUMBOLDT</option>
-<option value="Carlsbad, SAN DIEGO">Carlsbad, SAN DIEGO</option>
-<option value="Carmel Valley, MONTEREY">Carmel Valley, MONTEREY</option>
-<option value="Carmel, MONTEREY">Carmel, MONTEREY</option>
-<option value="Carmichael, SACRAMENTO">Carmichael, SACRAMENTO</option>
-<option value="Carnelian Bay, PLACER">Carnelian Bay, PLACER</option>
-<option value="Carpinteria, SANTA BARBARA">Carpinteria, SANTA BARBARA</option>
-<option value="Carpinteria, VENTURA">Carpinteria, VENTURA</option>
-<option value="Carson, LOS ANGELES">Carson, LOS ANGELES</option>
-<option value="Caruthers, FRESNO">Caruthers, FRESNO</option>
-<option value="Casmalia, SANTA BARBARA">Casmalia, SANTA BARBARA</option>
-<option value="Caspar, MENDOCINO">Caspar, MENDOCINO</option>
-<option value="Cassel, SHASTA">Cassel, SHASTA</option>
-<option value="Castaic, LOS ANGELES">Castaic, LOS ANGELES</option>
-<option value="Castella, SHASTA">Castella, SHASTA</option>
-<option value="Castro Valley, ALAMEDA">Castro Valley, ALAMEDA</option>
-<option value="Castroville, MONTEREY">Castroville, MONTEREY</option>
-<option value="Cathedral City, RIVERSIDE">Cathedral City, RIVERSIDE</option>
-<option value="Catheys Valley, MARIPOSA">Catheys Valley, MARIPOSA</option>
-<option value="Cayucos, SAN LUIS OBISPO">Cayucos, SAN LUIS OBISPO</option>
-<option value="Cazadero, SONOMA">Cazadero, SONOMA</option>
-<option value="Cedar Glen, SAN BERNARDINO">Cedar Glen, SAN BERNARDINO</option>
-<option value="Cedarpines Park, SAN BERNARDINO">Cedarpines Park, SAN BERNARDINO</option>
-<option value="Cedarville, MODOC">Cedarville, MODOC</option>
-<option value="Ceres, STANISLAUS">Ceres, STANISLAUS</option>
-<option value="Cerritos, LOS ANGELES">Cerritos, LOS ANGELES</option>
-<option value="Cerritos, ORANGE">Cerritos, ORANGE</option>
-<option value="Challenge, YUBA">Challenge, YUBA</option>
-<option value="Chatsworth, LOS ANGELES">Chatsworth, LOS ANGELES</option>
-<option value="Chester, PLUMAS">Chester, PLUMAS</option>
-<option value="Chico, BUTTE">Chico, BUTTE</option>
-<option value="Chico, GLENN">Chico, GLENN</option>
-<option value="Chico, TEHAMA">Chico, TEHAMA</option>
-<option value="Chilcoot, PLUMAS">Chilcoot, PLUMAS</option>
-<option value="Chino Hills, SAN BERNARDINO">Chino Hills, SAN BERNARDINO</option>
-<option value="Chino, BUTTE">Chino, BUTTE</option>
-<option value="Chino, LOS ANGELES">Chino, LOS ANGELES</option>
-<option value="Chino, SAN BERNARDINO">Chino, SAN BERNARDINO</option>
-<option value="Chowchilla, MADERA">Chowchilla, MADERA</option>
-<option value="Chowchilla, MERCED">Chowchilla, MERCED</option>
-<option value="Chualar, MONTEREY">Chualar, MONTEREY</option>
-<option value="Chula Vista, SAN DIEGO">Chula Vista, SAN DIEGO</option>
-<option value="Citrus Heights, PLACER">Citrus Heights, PLACER</option>
-<option value="Citrus Heights, SACRAMENTO">Citrus Heights, SACRAMENTO</option>
-<option value="Claremont, LOS ANGELES">Claremont, LOS ANGELES</option>
-<option value="Clarksburg, SACRAMENTO">Clarksburg, SACRAMENTO</option>
-<option value="Clarksburg, YOLO">Clarksburg, YOLO</option>
-<option value="Clayton, CONTRA COSTA">Clayton, CONTRA COSTA</option>
-<option value="Clearlake Oaks, LAKE">Clearlake Oaks, LAKE</option>
-<option value="Clearlake, LAKE">Clearlake, LAKE</option>
-<option value="Clio, PLUMAS">Clio, PLUMAS</option>
-<option value="Cloverdale, SONOMA">Cloverdale, SONOMA</option>
-<option value="Clovis, FRESNO">Clovis, FRESNO</option>
-<option value="Coachella, RIVERSIDE">Coachella, RIVERSIDE</option>
-<option value="Coalinga, FRESNO">Coalinga, FRESNO</option>
-<option value="Coarsegold, MADERA">Coarsegold, MADERA</option>
-<option value="Cobb, LAKE">Cobb, LAKE</option>
-<option value="Coleville, MONO">Coleville, MONO</option>
-<option value="Colfax, PLACER">Colfax, PLACER</option>
-<option value="Colton, RIVERSIDE">Colton, RIVERSIDE</option>
-<option value="Colton, SAN BERNARDINO">Colton, SAN BERNARDINO</option>
-<option value="Columbia, TUOLUMNE">Columbia, TUOLUMNE</option>
-<option value="Colusa, COLUSA">Colusa, COLUSA</option>
-<option value="Comptche, MENDOCINO">Comptche, MENDOCINO</option>
-<option value="Compton, LOS ANGELES">Compton, LOS ANGELES</option>
-<option value="Concord, CONTRA COSTA">Concord, CONTRA COSTA</option>
-<option value="Cool, EL DORADO">Cool, EL DORADO</option>
-<option value="Cool, PLACER">Cool, PLACER</option>
-<option value="Copperopolis, CALAVERAS">Copperopolis, CALAVERAS</option>
-<option value="Copperopolis, TUOLUMNE">Copperopolis, TUOLUMNE</option>
-<option value="Corcoran, KINGS">Corcoran, KINGS</option>
-<option value="Corcoran, TULARE">Corcoran, TULARE</option>
-<option value="Corning, TEHAMA">Corning, TEHAMA</option>
-<option value="Corona Del Mar, ORANGE">Corona Del Mar, ORANGE</option>
-<option value="Corona, ORANGE">Corona, ORANGE</option>
-<option value="Corona, RIVERSIDE">Corona, RIVERSIDE</option>
-<option value="Corona, SAN BERNARDINO">Corona, SAN BERNARDINO</option>
-<option value="Coronado, SAN DIEGO">Coronado, SAN DIEGO</option>
-<option value="Corte Madera, MARIN">Corte Madera, MARIN</option>
-<option value="Costa Mesa, ORANGE">Costa Mesa, ORANGE</option>
-<option value="Cotati, SONOMA">Cotati, SONOMA</option>
-<option value="Cottonwood, SHASTA">Cottonwood, SHASTA</option>
-<option value="Cottonwood, TEHAMA">Cottonwood, TEHAMA</option>
-<option value="Coulterville, MARIPOSA">Coulterville, MARIPOSA</option>
-<option value="Courtland, SACRAMENTO">Courtland, SACRAMENTO</option>
-<option value="Covelo, MENDOCINO">Covelo, MENDOCINO</option>
-<option value="Covina, LOS ANGELES">Covina, LOS ANGELES</option>
-<option value="Coyote, SANTA CLARA">Coyote, SANTA CLARA</option>
-<option value="Crescent City, DEL NORTE">Crescent City, DEL NORTE</option>
-<option value="Crescent Mills, PLUMAS">Crescent Mills, PLUMAS</option>
-<option value="Crestline, SAN BERNARDINO">Crestline, SAN BERNARDINO</option>
-<option value="Creston, SAN LUIS OBISPO">Creston, SAN LUIS OBISPO</option>
-<option value="Crockett, CONTRA COSTA">Crockett, CONTRA COSTA</option>
-<option value="Crows Landing, STANISLAUS">Crows Landing, STANISLAUS</option>
-<option value="Culver City, LOS ANGELES">Culver City, LOS ANGELES</option>
-<option value="Cupertino, SANTA CLARA">Cupertino, SANTA CLARA</option>
-<option value="Cutler, TULARE">Cutler, TULARE</option>
-<option value="Cypress, ORANGE">Cypress, ORANGE</option>
-<option value="Daggett, SAN BERNARDINO">Daggett, SAN BERNARDINO</option>
-<option value="Daly City, SAN FRANCISCO">Daly City, SAN FRANCISCO</option>
-<option value="Daly City, SAN MATEO">Daly City, SAN MATEO</option>
-<option value="Dana Point, ORANGE">Dana Point, ORANGE</option>
-<option value="Danville, CONTRA COSTA">Danville, CONTRA COSTA</option>
-<option value="Davenport, SANTA CRUZ">Davenport, SANTA CRUZ</option>
-<option value="Davis Creek, MODOC">Davis Creek, MODOC</option>
-<option value="Davis, SOLANO">Davis, SOLANO</option>
-<option value="Davis, YOLO">Davis, YOLO</option>
-<option value="Death Valley, INYO">Death Valley, INYO</option>
-<option value="Del Mar, SAN DIEGO">Del Mar, SAN DIEGO</option>
-<option value="Del Rey, FRESNO">Del Rey, FRESNO</option>
-<option value="Delano, KERN">Delano, KERN</option>
-<option value="Delano, TULARE">Delano, TULARE</option>
-<option value="Delhi, MERCED">Delhi, MERCED</option>
-<option value="Denair, MERCED">Denair, MERCED</option>
-<option value="Denair, STANISLAUS">Denair, STANISLAUS</option>
-<option value="Descanso, SAN DIEGO">Descanso, SAN DIEGO</option>
-<option value="Desert Center, RIVERSIDE">Desert Center, RIVERSIDE</option>
-<option value="Desert Hot Springs, RIVERSIDE">Desert Hot Springs, RIVERSIDE</option>
-<option value="Diamond Bar, LOS ANGELES">Diamond Bar, LOS ANGELES</option>
-<option value="Diamond Springs, EL DORADO">Diamond Springs, EL DORADO</option>
-<option value="Dillon Beach, MARIN">Dillon Beach, MARIN</option>
-<option value="Dinuba, FRESNO">Dinuba, FRESNO</option>
-<option value="Dinuba, TULARE">Dinuba, TULARE</option>
-<option value="Discovery Bay, CONTRA COSTA">Discovery Bay, CONTRA COSTA</option>
-<option value="Dixon, SOLANO">Dixon, SOLANO</option>
-<option value="Dixon, YOLO">Dixon, YOLO</option>
-<option value="Dobbins, YUBA">Dobbins, YUBA</option>
-<option value="Dorris, SISKIYOU">Dorris, SISKIYOU</option>
-<option value="Dos Palos, FRESNO">Dos Palos, FRESNO</option>
-<option value="Dos Palos, MERCED">Dos Palos, MERCED</option>
-<option value="Dos Rios, MENDOCINO">Dos Rios, MENDOCINO</option>
-<option value="Douglas City, TRINITY">Douglas City, TRINITY</option>
-<option value="Downey, LOS ANGELES">Downey, LOS ANGELES</option>
-<option value="Doyle, LASSEN">Doyle, LASSEN</option>
-<option value="Duarte, LOS ANGELES">Duarte, LOS ANGELES</option>
-<option value="Dublin, ALAMEDA">Dublin, ALAMEDA</option>
-<option value="Dulzura, SAN DIEGO">Dulzura, SAN DIEGO</option>
-<option value="Dunlap, FRESNO">Dunlap, FRESNO</option>
-<option value="Dunnigan, COLUSA">Dunnigan, COLUSA</option>
-<option value="Dunnigan, YOLO">Dunnigan, YOLO</option>
-<option value="Dunsmuir, SHASTA">Dunsmuir, SHASTA</option>
-<option value="Dunsmuir, SISKIYOU">Dunsmuir, SISKIYOU</option>
-<option value="Durham, BUTTE">Durham, BUTTE</option>
-<option value="Dutch Flat, PLACER">Dutch Flat, PLACER</option>
-<option value="Earlimart, TULARE">Earlimart, TULARE</option>
-<option value="Earp, SAN BERNARDINO">Earp, SAN BERNARDINO</option>
-<option value="East Tehama County, TEHAMA">East Tehama County, TEHAMA</option>
-<option value="East Tulare County, KERN">East Tulare County, KERN</option>
-<option value="East Tulare County, TULARE">East Tulare County, TULARE</option>
-<option value="Echo Lake, EL DORADO">Echo Lake, EL DORADO</option>
-<option value="Edwards, KERN">Edwards, KERN</option>
-<option value="Edwards, SAN BERNARDINO">Edwards, SAN BERNARDINO</option>
-<option value="El Cajon, SAN DIEGO">El Cajon, SAN DIEGO</option>
-<option value="El Centro, IMPERIAL">El Centro, IMPERIAL</option>
-<option value="El Cerrito, CONTRA COSTA">El Cerrito, CONTRA COSTA</option>
-<option value="El Dorado Hills, EL DORADO">El Dorado Hills, EL DORADO</option>
-<option value="El Dorado Hills, SACRAMENTO">El Dorado Hills, SACRAMENTO</option>
-<option value="El Dorado, EL DORADO">El Dorado, EL DORADO</option>
-<option value="El Monte, LOS ANGELES">El Monte, LOS ANGELES</option>
-<option value="El Nido, MADERA">El Nido, MADERA</option>
-<option value="El Nido, MERCED">El Nido, MERCED</option>
-<option value="El Portal, MARIPOSA">El Portal, MARIPOSA</option>
-<option value="El Segundo, LOS ANGELES">El Segundo, LOS ANGELES</option>
-<option value="El Sobrante, CONTRA COSTA">El Sobrante, CONTRA COSTA</option>
-<option value="Eldorado Ntl Forest, EL DORADO">Eldorado Ntl Forest, EL DORADO</option>
-<option value="Elk Creek, GLENN">Elk Creek, GLENN</option>
-<option value="Elk Grove, SACRAMENTO">Elk Grove, SACRAMENTO</option>
-<option value="Elk, MENDOCINO">Elk, MENDOCINO</option>
-<option value="Elverta, PLACER">Elverta, PLACER</option>
-<option value="Elverta, SACRAMENTO">Elverta, SACRAMENTO</option>
-<option value="Emeryville, ALAMEDA">Emeryville, ALAMEDA</option>
-<option value="Emigrant Gap, PLACER">Emigrant Gap, PLACER</option>
-<option value="Encinitas, SAN DIEGO">Encinitas, SAN DIEGO</option>
-<option value="Encino, LOS ANGELES">Encino, LOS ANGELES</option>
-<option value="Escalon, SAN JOAQUIN">Escalon, SAN JOAQUIN</option>
-<option value="Escalon, STANISLAUS">Escalon, STANISLAUS</option>
-<option value="Escondido, SAN DIEGO">Escondido, SAN DIEGO</option>
-<option value="Escondido, SOLANO">Escondido, SOLANO</option>
-<option value="Esparto, YOLO">Esparto, YOLO</option>
-<option value="Essex, SAN BERNARDINO">Essex, SAN BERNARDINO</option>
-<option value="Etna, SISKIYOU">Etna, SISKIYOU</option>
-<option value="Eureka, HUMBOLDT">Eureka, HUMBOLDT</option>
-<option value="Exeter, FRESNO">Exeter, FRESNO</option>
-<option value="Exeter, TULARE">Exeter, TULARE</option>
-<option value="Fair Oaks, SACRAMENTO">Fair Oaks, SACRAMENTO</option>
-<option value="Fairfax, MARIN">Fairfax, MARIN</option>
-<option value="Fairfield, SOLANO">Fairfield, SOLANO</option>
-<option value="Fall River Mills, SHASTA">Fall River Mills, SHASTA</option>
-<option value="Fallbrook, SAN DIEGO">Fallbrook, SAN DIEGO</option>
-<option value="Farmersville, TULARE">Farmersville, TULARE</option>
-<option value="Farmington, CALAVERAS">Farmington, CALAVERAS</option>
-<option value="Farmington, SAN JOAQUIN">Farmington, SAN JOAQUIN</option>
-<option value="Farmington, STANISLAUS">Farmington, STANISLAUS</option>
-<option value="Fawnskin, SAN BERNARDINO">Fawnskin, SAN BERNARDINO</option>
-<option value="Fellows, KERN">Fellows, KERN</option>
-<option value="Felton, SANTA CRUZ">Felton, SANTA CRUZ</option>
-<option value="Ferndale, HUMBOLDT">Ferndale, HUMBOLDT</option>
-<option value="Fiddletown, AMADOR">Fiddletown, AMADOR</option>
-<option value="Fillmore, VENTURA">Fillmore, VENTURA</option>
-<option value="Firebaugh, FRESNO">Firebaugh, FRESNO</option>
-<option value="Firebaugh, MADERA">Firebaugh, MADERA</option>
-<option value="Firebaugh, MERCED">Firebaugh, MERCED</option>
-<option value="Fish Camp, MARIPOSA">Fish Camp, MARIPOSA</option>
-<option value="Floriston, NEVADA">Floriston, NEVADA</option>
-<option value="Folsom, SACRAMENTO">Folsom, SACRAMENTO</option>
-<option value="Fontana, RIVERSIDE">Fontana, RIVERSIDE</option>
-<option value="Fontana, SAN BERNARDINO">Fontana, SAN BERNARDINO</option>
-<option value="Foothill Ranch, ORANGE">Foothill Ranch, ORANGE</option>
-<option value="Forbestown, BUTTE">Forbestown, BUTTE</option>
-<option value="Forbestown, YUBA">Forbestown, YUBA</option>
-<option value="Forest Falls, SAN BERNARDINO">Forest Falls, SAN BERNARDINO</option>
-<option value="Forest Ranch, BUTTE">Forest Ranch, BUTTE</option>
-<option value="Forest Ranch, TEHAMA">Forest Ranch, TEHAMA</option>
-<option value="Foresthill, PLACER">Foresthill, PLACER</option>
-<option value="Forestville, SONOMA">Forestville, SONOMA</option>
-<option value="Fort Bragg, MENDOCINO">Fort Bragg, MENDOCINO</option>
-<option value="Fort Irwin, SAN BERNARDINO">Fort Irwin, SAN BERNARDINO</option>
-<option value="Fort Jones, SISKIYOU">Fort Jones, SISKIYOU</option>
-<option value="Fortuna, HUMBOLDT">Fortuna, HUMBOLDT</option>
-<option value="Fountain Valley, ORANGE">Fountain Valley, ORANGE</option>
-<option value="Fowler, FRESNO">Fowler, FRESNO</option>
-<option value="Frazier Park, KERN">Frazier Park, KERN</option>
-<option value="Frazier Park, VENTURA">Frazier Park, VENTURA</option>
-<option value="Freedom, SANTA CRUZ">Freedom, SANTA CRUZ</option>
-<option value="Fremont, ALAMEDA">Fremont, ALAMEDA</option>
-<option value="Fremont, SANTA CLARA">Fremont, SANTA CLARA</option>
-<option value="French Camp, SAN JOAQUIN">French Camp, SAN JOAQUIN</option>
-<option value="French Gulch, SHASTA">French Gulch, SHASTA</option>
-<option value="French Gulch, TRINITY">French Gulch, TRINITY</option>
-<option value="Fresno, FRESNO">Fresno, FRESNO</option>
-<option value="Friant, FRESNO">Friant, FRESNO</option>
-<option value="Friant, MADERA">Friant, MADERA</option>
-<option value="Fullerton, ORANGE">Fullerton, ORANGE</option>
-<option value="Fulton, SONOMA">Fulton, SONOMA</option>
-<option value="Galt, SACRAMENTO">Galt, SACRAMENTO</option>
-<option value="Galt, SAN JOAQUIN">Galt, SAN JOAQUIN</option>
-<option value="Garberville, HUMBOLDT">Garberville, HUMBOLDT</option>
-<option value="Garden Grove, ORANGE">Garden Grove, ORANGE</option>
-<option value="Garden Valley, EL DORADO">Garden Valley, EL DORADO</option>
-<option value="Gardena, LOS ANGELES">Gardena, LOS ANGELES</option>
-<option value="Gasquet, DEL NORTE">Gasquet, DEL NORTE</option>
-<option value="Gazelle, SISKIYOU">Gazelle, SISKIYOU</option>
-<option value="Georgetown, EL DORADO">Georgetown, EL DORADO</option>
-<option value="Gerber, TEHAMA">Gerber, TEHAMA</option>
-<option value="Geyserville, SONOMA">Geyserville, SONOMA</option>
-<option value="Gilroy, SAN BENITO">Gilroy, SAN BENITO</option>
-<option value="Gilroy, SANTA CLARA">Gilroy, SANTA CLARA</option>
-<option value="Glen Ellen, SONOMA">Glen Ellen, SONOMA</option>
-<option value="Glencoe, CALAVERAS">Glencoe, CALAVERAS</option>
-<option value="Glendale, LOS ANGELES">Glendale, LOS ANGELES</option>
-<option value="Glendora, LOS ANGELES">Glendora, LOS ANGELES</option>
-<option value="Glenhaven, LAKE">Glenhaven, LAKE</option>
-<option value="Glenn, GLENN">Glenn, GLENN</option>
-<option value="Gold Run, PLACER">Gold Run, PLACER</option>
-<option value="Goleta, SANTA BARBARA">Goleta, SANTA BARBARA</option>
-<option value="Gonzales, MONTEREY">Gonzales, MONTEREY</option>
-<option value="Goodyears Bar, SIERRA">Goodyears Bar, SIERRA</option>
-<option value="Granada Hills, LOS ANGELES">Granada Hills, LOS ANGELES</option>
-<option value="Grand Terrace, RIVERSIDE">Grand Terrace, RIVERSIDE</option>
-<option value="Grand Terrace, SAN BERNARDINO">Grand Terrace, SAN BERNARDINO</option>
-<option value="Granite Bay, PLACER">Granite Bay, PLACER</option>
-<option value="Grass Valley, NEVADA">Grass Valley, NEVADA</option>
-<option value="Graton, SONOMA">Graton, SONOMA</option>
-<option value="Green Valley Lake, SAN BERNARDINO">Green Valley Lake, SAN BERNARDINO</option>
-<option value="Greenbrae, MARIN">Greenbrae, MARIN</option>
-<option value="Greenfield, MONTEREY">Greenfield, MONTEREY</option>
-<option value="Greenville, PLUMAS">Greenville, PLUMAS</option>
-<option value="Greenwood, EL DORADO">Greenwood, EL DORADO</option>
-<option value="Grenada, SISKIYOU">Grenada, SISKIYOU</option>
-<option value="Gridley, BUTTE">Gridley, BUTTE</option>
-<option value="Gridley, SUTTER">Gridley, SUTTER</option>
-<option value="Groveland, TUOLUMNE">Groveland, TUOLUMNE</option>
-<option value="Grover Beach, SAN LUIS OBISPO">Grover Beach, SAN LUIS OBISPO</option>
-<option value="Guadalupe, SAN LUIS OBISPO">Guadalupe, SAN LUIS OBISPO</option>
-<option value="Guadalupe, SANTA BARBARA">Guadalupe, SANTA BARBARA</option>
-<option value="Gualala, MENDOCINO">Gualala, MENDOCINO</option>
-<option value="Guerneville, SONOMA">Guerneville, SONOMA</option>
-<option value="Gustine, MERCED">Gustine, MERCED</option>
-<option value="Hacienda Heights, LOS ANGELES">Hacienda Heights, LOS ANGELES</option>
-<option value="Half Moon Bay, SAN MATEO">Half Moon Bay, SAN MATEO</option>
-<option value="Hanford, KINGS">Hanford, KINGS</option>
-<option value="Happy Camp, SISKIYOU">Happy Camp, SISKIYOU</option>
-<option value="Harbor City, LOS ANGELES">Harbor City, LOS ANGELES</option>
-<option value="Hat Creek, SHASTA">Hat Creek, SHASTA</option>
-<option value="Hawaiian Gardens, LOS ANGELES">Hawaiian Gardens, LOS ANGELES</option>
-<option value="Hawthorne, LOS ANGELES">Hawthorne, LOS ANGELES</option>
-<option value="Hayfork, TRINITY">Hayfork, TRINITY</option>
-<option value="Hayward, ALAMEDA">Hayward, ALAMEDA</option>
-<option value="Healdsburg, SONOMA">Healdsburg, SONOMA</option>
-<option value="Heber, IMPERIAL">Heber, IMPERIAL</option>
-<option value="Helendale, SAN BERNARDINO">Helendale, SAN BERNARDINO</option>
-<option value="Hemet, RIVERSIDE">Hemet, RIVERSIDE</option>
-<option value="Herald, SACRAMENTO">Herald, SACRAMENTO</option>
-<option value="Hercules, CONTRA COSTA">Hercules, CONTRA COSTA</option>
-<option value="Hermosa Beach, LOS ANGELES">Hermosa Beach, LOS ANGELES</option>
-<option value="Hesperia, SAN BERNARDINO">Hesperia, SAN BERNARDINO</option>
-<option value="Hickman, STANISLAUS">Hickman, STANISLAUS</option>
-<option value="Hidden Valley Lake, LAKE">Hidden Valley Lake, LAKE</option>
-<option value="Highland, SAN BERNARDINO">Highland, SAN BERNARDINO</option>
-<option value="Hilmar, MERCED">Hilmar, MERCED</option>
-<option value="Hinkley, SAN BERNARDINO">Hinkley, SAN BERNARDINO</option>
-<option value="Hollister, SAN BENITO">Hollister, SAN BENITO</option>
-<option value="Hollister, SANTA CLARA">Hollister, SANTA CLARA</option>
-<option value="Holtville, IMPERIAL">Holtville, IMPERIAL</option>
-<option value="Homeland, RIVERSIDE">Homeland, RIVERSIDE</option>
-<option value="Homewood, PLACER">Homewood, PLACER</option>
-<option value="Hoopa, HUMBOLDT">Hoopa, HUMBOLDT</option>
-<option value="Hopland, MENDOCINO">Hopland, MENDOCINO</option>
-<option value="Hornbrook, SISKIYOU">Hornbrook, SISKIYOU</option>
-<option value="Hughson, STANISLAUS">Hughson, STANISLAUS</option>
-<option value="Huntington Beach, ORANGE">Huntington Beach, ORANGE</option>
-<option value="Huntington Park, LOS ANGELES">Huntington Park, LOS ANGELES</option>
-<option value="Huron, FRESNO">Huron, FRESNO</option>
-<option value="Huron, KINGS">Huron, KINGS</option>
-<option value="Hydesville, HUMBOLDT">Hydesville, HUMBOLDT</option>
-<option value="Idyllwild, RIVERSIDE">Idyllwild, RIVERSIDE</option>
-<option value="Igo, SHASTA">Igo, SHASTA</option>
-<option value="Imperial Beach, SAN DIEGO">Imperial Beach, SAN DIEGO</option>
-<option value="Imperial, IMPERIAL">Imperial, IMPERIAL</option>
-<option value="Independence, INYO">Independence, INYO</option>
-<option value="Indian Wells, RIVERSIDE">Indian Wells, RIVERSIDE</option>
-<option value="Indio, RIVERSIDE">Indio, RIVERSIDE</option>
-<option value="Inglewood, LOS ANGELES">Inglewood, LOS ANGELES</option>
-<option value="Inverness, MARIN">Inverness, MARIN</option>
-<option value="Inyokern, INYO">Inyokern, INYO</option>
-<option value="Inyokern, KERN">Inyokern, KERN</option>
-<option value="Ione, AMADOR">Ione, AMADOR</option>
-<option value="Irvine, ORANGE">Irvine, ORANGE</option>
-<option value="Isleton, SACRAMENTO">Isleton, SACRAMENTO</option>
-<option value="Isleton, SAN JOAQUIN">Isleton, SAN JOAQUIN</option>
-<option value="Ivanhoe, TULARE">Ivanhoe, TULARE</option>
-<option value="Jackson St Forest, MENDOCINO">Jackson St Forest, MENDOCINO</option>
-<option value="Jackson, AMADOR">Jackson, AMADOR</option>
-<option value="Jacumba, SAN DIEGO">Jacumba, SAN DIEGO</option>
-<option value="Jamestown, TUOLUMNE">Jamestown, TUOLUMNE</option>
-<option value="Jamul, SAN DIEGO">Jamul, SAN DIEGO</option>
-<option value="Janesville, LASSEN">Janesville, LASSEN</option>
-<option value="Jenner, SONOMA">Jenner, SONOMA</option>
-<option value="Johannesburg, KERN">Johannesburg, KERN</option>
-<option value="Joshua Tree, SAN BERNARDINO">Joshua Tree, SAN BERNARDINO</option>
-<option value="Julian, IMPERIAL">Julian, IMPERIAL</option>
-<option value="Julian, SAN DIEGO">Julian, SAN DIEGO</option>
-<option value="Junction City, TRINITY">Junction City, TRINITY</option>
-<option value="June Lake, MONO">June Lake, MONO</option>
-<option value="Keene, KERN">Keene, KERN</option>
-<option value="Kelseyville, LAKE">Kelseyville, LAKE</option>
-<option value="Kenwood, SONOMA">Kenwood, SONOMA</option>
-<option value="Kerman, FRESNO">Kerman, FRESNO</option>
-<option value="Kerman, MADERA">Kerman, MADERA</option>
-<option value="Kernville, KERN">Kernville, KERN</option>
-<option value="Kettleman City, KINGS">Kettleman City, KINGS</option>
-<option value="Keyes, STANISLAUS">Keyes, STANISLAUS</option>
-<option value="King City, MONTEREY">King City, MONTEREY</option>
-<option value="Kings Beach, PLACER">Kings Beach, PLACER</option>
-<option value="Kings Canyon National Pk, FRESNO">Kings Canyon National Pk, FRESNO</option>
-<option value="Kingsburg, FRESNO">Kingsburg, FRESNO</option>
-<option value="Kingsburg, KINGS">Kingsburg, KINGS</option>
-<option value="Kingsburg, TULARE">Kingsburg, TULARE</option>
-<option value="Klamath River, SISKIYOU">Klamath River, SISKIYOU</option>
-<option value="Klamath, DEL NORTE">Klamath, DEL NORTE</option>
-<option value="Knights Landing, COLUSA">Knights Landing, COLUSA</option>
-<option value="Knights Landing, SUTTER">Knights Landing, SUTTER</option>
-<option value="Knights Landing, YOLO">Knights Landing, YOLO</option>
-<option value="Knightsen, CONTRA COSTA">Knightsen, CONTRA COSTA</option>
-<option value="Korbel, HUMBOLDT">Korbel, HUMBOLDT</option>
-<option value="Kyburz, EL DORADO">Kyburz, EL DORADO</option>
-<option value="La Canada Flintridge, LOS ANGELES">La Canada Flintridge, LOS ANGELES</option>
-<option value="La Crescenta, LOS ANGELES">La Crescenta, LOS ANGELES</option>
-<option value="La Grange, MARIPOSA">La Grange, MARIPOSA</option>
-<option value="La Grange, STANISLAUS">La Grange, STANISLAUS</option>
-<option value="La Grange, TUOLUMNE">La Grange, TUOLUMNE</option>
-<option value="La Habra, LOS ANGELES">La Habra, LOS ANGELES</option>
-<option value="La Habra, ORANGE">La Habra, ORANGE</option>
-<option value="La Honda, SAN MATEO">La Honda, SAN MATEO</option>
-<option value="La Honda, SANTA CLARA">La Honda, SANTA CLARA</option>
-<option value="La Jolla, SAN DIEGO">La Jolla, SAN DIEGO</option>
-<option value="La Mesa, SAN DIEGO">La Mesa, SAN DIEGO</option>
-<option value="La Mirada, LOS ANGELES">La Mirada, LOS ANGELES</option>
-<option value="La Mirada, ORANGE">La Mirada, ORANGE</option>
-<option value="La Palma, LOS ANGELES">La Palma, LOS ANGELES</option>
-<option value="La Palma, ORANGE">La Palma, ORANGE</option>
-<option value="La Puente, LOS ANGELES">La Puente, LOS ANGELES</option>
-<option value="La Quinta, RIVERSIDE">La Quinta, RIVERSIDE</option>
-<option value="La Verne, LOS ANGELES">La Verne, LOS ANGELES</option>
-<option value="Ladera Ranch, ORANGE">Ladera Ranch, ORANGE</option>
-<option value="Lafayette, CONTRA COSTA">Lafayette, CONTRA COSTA</option>
-<option value="Laguna Beach, ORANGE">Laguna Beach, ORANGE</option>
-<option value="Laguna Hills, ORANGE">Laguna Hills, ORANGE</option>
-<option value="Laguna Niguel, ORANGE">Laguna Niguel, ORANGE</option>
-<option value="Laguna Woods, ORANGE">Laguna Woods, ORANGE</option>
-<option value="Lagunitas, MARIN">Lagunitas, MARIN</option>
-<option value="Lake Arrowhead, SAN BERNARDINO">Lake Arrowhead, SAN BERNARDINO</option>
-<option value="Lake City, MODOC">Lake City, MODOC</option>
-<option value="Lake Elsinore, ORANGE">Lake Elsinore, ORANGE</option>
-<option value="Lake Elsinore, RIVERSIDE">Lake Elsinore, RIVERSIDE</option>
-<option value="Lake Forest, ORANGE">Lake Forest, ORANGE</option>
-<option value="Lake Hughes, LOS ANGELES">Lake Hughes, LOS ANGELES</option>
-<option value="Lake Isabella, KERN">Lake Isabella, KERN</option>
-<option value="Lakehead, SHASTA">Lakehead, SHASTA</option>
-<option value="Lakeport, LAKE">Lakeport, LAKE</option>
-<option value="Lakeside, SAN DIEGO">Lakeside, SAN DIEGO</option>
-<option value="Lakewood, LOS ANGELES">Lakewood, LOS ANGELES</option>
-<option value="Lamont, KERN">Lamont, KERN</option>
-<option value="Lancaster, KERN">Lancaster, KERN</option>
-<option value="Lancaster, LOS ANGELES">Lancaster, LOS ANGELES</option>
-<option value="Landers, SAN BERNARDINO">Landers, SAN BERNARDINO</option>
-<option value="Larkspur, MARIN">Larkspur, MARIN</option>
-<option value="Lassen National Forest, PLUMAS">Lassen National Forest, PLUMAS</option>
-<option value="Lassen Ntl Forest, LASSEN">Lassen Ntl Forest, LASSEN</option>
-<option value="Lathrop, SAN JOAQUIN">Lathrop, SAN JOAQUIN</option>
-<option value="Laton, FRESNO">Laton, FRESNO</option>
-<option value="Laton, KINGS">Laton, KINGS</option>
-<option value="Lawndale, LOS ANGELES">Lawndale, LOS ANGELES</option>
-<option value="Laytonville, MENDOCINO">Laytonville, MENDOCINO</option>
-<option value="Le Grand, MERCED">Le Grand, MERCED</option>
-<option value="Lebec, KERN">Lebec, KERN</option>
-<option value="Lebec, LOS ANGELES">Lebec, LOS ANGELES</option>
-<option value="Lee Vining, MONO">Lee Vining, MONO</option>
-<option value="Leggett, MENDOCINO">Leggett, MENDOCINO</option>
-<option value="Lemon Cove, TULARE">Lemon Cove, TULARE</option>
-<option value="Lemon Grove, SAN DIEGO">Lemon Grove, SAN DIEGO</option>
-<option value="Lemoore, KINGS">Lemoore, KINGS</option>
-<option value="Lewiston, TRINITY">Lewiston, TRINITY</option>
-<option value="Lincoln, PLACER">Lincoln, PLACER</option>
-<option value="Linden, SAN JOAQUIN">Linden, SAN JOAQUIN</option>
-<option value="Lindsay, TULARE">Lindsay, TULARE</option>
-<option value="Little River, MENDOCINO">Little River, MENDOCINO</option>
-<option value="Littlerock, LOS ANGELES">Littlerock, LOS ANGELES</option>
-<option value="Live Oak, SUTTER">Live Oak, SUTTER</option>
-<option value="Livermore, ALAMEDA">Livermore, ALAMEDA</option>
-<option value="Livermore, CONTRA COSTA">Livermore, CONTRA COSTA</option>
-<option value="Livermore, SANTA CLARA">Livermore, SANTA CLARA</option>
-<option value="Livingston, MERCED">Livingston, MERCED</option>
-<option value="Llano, LOS ANGELES">Llano, LOS ANGELES</option>
-<option value="Lockeford, SAN JOAQUIN">Lockeford, SAN JOAQUIN</option>
-<option value="Lockwood, MONTEREY">Lockwood, MONTEREY</option>
-<option value="Lodi, SAN JOAQUIN">Lodi, SAN JOAQUIN</option>
-<option value="Loleta, HUMBOLDT">Loleta, HUMBOLDT</option>
-<option value="Loma Linda, SAN BERNARDINO">Loma Linda, SAN BERNARDINO</option>
-<option value="Lomita, LOS ANGELES">Lomita, LOS ANGELES</option>
-<option value="Lompoc, SANTA BARBARA">Lompoc, SANTA BARBARA</option>
-<option value="Lone Pine, INYO">Lone Pine, INYO</option>
-<option value="Long Barn, TUOLUMNE">Long Barn, TUOLUMNE</option>
-<option value="Long Beach, LOS ANGELES">Long Beach, LOS ANGELES</option>
-<option value="Long Beach, ORANGE">Long Beach, ORANGE</option>
-<option value="Lookout, MODOC">Lookout, MODOC</option>
-<option value="Loomis, PLACER">Loomis, PLACER</option>
-<option value="Los Alamitos, LOS ANGELES">Los Alamitos, LOS ANGELES</option>
-<option value="Los Alamitos, ORANGE">Los Alamitos, ORANGE</option>
-<option value="Los Alamos, SANTA BARBARA">Los Alamos, SANTA BARBARA</option>
-<option value="Los Altos, SANTA CLARA">Los Altos, SANTA CLARA</option>
-<option value="Los Angeles, LOS ANGELES">Los Angeles, LOS ANGELES</option>
-<option value="Los Banos, MERCED">Los Banos, MERCED</option>
-<option value="Los Gatos, SANTA CLARA">Los Gatos, SANTA CLARA</option>
-<option value="Los Gatos, SANTA CRUZ">Los Gatos, SANTA CRUZ</option>
-<option value="Los Molinos, TEHAMA">Los Molinos, TEHAMA</option>
-<option value="Los Olivos, SANTA BARBARA">Los Olivos, SANTA BARBARA</option>
-<option value="Los Osos, SAN LUIS OBISPO">Los Osos, SAN LUIS OBISPO</option>
-<option value="Lost Hills, FRESNO">Lost Hills, FRESNO</option>
-<option value="Lost Hills, KERN">Lost Hills, KERN</option>
-<option value="Lotus, EL DORADO">Lotus, EL DORADO</option>
-<option value="Lower Lake, LAKE">Lower Lake, LAKE</option>
-<option value="Loyalton, SIERRA">Loyalton, SIERRA</option>
-<option value="Lucerne Valley, SAN BERNARDINO">Lucerne Valley, SAN BERNARDINO</option>
-<option value="Lucerne, LAKE">Lucerne, LAKE</option>
-<option value="Ludlow, SAN BERNARDINO">Ludlow, SAN BERNARDINO</option>
-<option value="Lynwood, LOS ANGELES">Lynwood, LOS ANGELES</option>
-<option value="Lytle Creek, SAN BERNARDINO">Lytle Creek, SAN BERNARDINO</option>
-<option value="Macdoel, SISKIYOU">Macdoel, SISKIYOU</option>
-<option value="Mad River, TRINITY">Mad River, TRINITY</option>
-<option value="Madera, FRESNO">Madera, FRESNO</option>
-<option value="Madera, MADERA">Madera, MADERA</option>
-<option value="Madison, YOLO">Madison, YOLO</option>
-<option value="Magalia, BUTTE">Magalia, BUTTE</option>
-<option value="Malibu, LOS ANGELES">Malibu, LOS ANGELES</option>
-<option value="Malibu, VENTURA">Malibu, VENTURA</option>
-<option value="Mammoth Lakes, MONO">Mammoth Lakes, MONO</option>
-<option value="Manhattan Beach, LOS ANGELES">Manhattan Beach, LOS ANGELES</option>
-<option value="Manteca, SAN JOAQUIN">Manteca, SAN JOAQUIN</option>
-<option value="Manton, SHASTA">Manton, SHASTA</option>
-<option value="Manton, TEHAMA">Manton, TEHAMA</option>
-<option value="March Air Reserve Base, RIVERSIDE">March Air Reserve Base, RIVERSIDE</option>
-<option value="Maricopa, KERN">Maricopa, KERN</option>
-<option value="Maricopa, SAN LUIS OBISPO">Maricopa, SAN LUIS OBISPO</option>
-<option value="Maricopa, SANTA BARBARA">Maricopa, SANTA BARBARA</option>
-<option value="Maricopa, VENTURA">Maricopa, VENTURA</option>
-<option value="Marina Del Rey, LOS ANGELES">Marina Del Rey, LOS ANGELES</option>
-<option value="Marina, MONTEREY">Marina, MONTEREY</option>
-<option value="Mariposa, MARIPOSA">Mariposa, MARIPOSA</option>
-<option value="Markleeville, ALPINE">Markleeville, ALPINE</option>
-<option value="Marshall, MARIN">Marshall, MARIN</option>
-<option value="Martinez, CONTRA COSTA">Martinez, CONTRA COSTA</option>
-<option value="Marysville, BUTTE">Marysville, BUTTE</option>
-<option value="Marysville, YUBA">Marysville, YUBA</option>
-<option value="Mather, SACRAMENTO">Mather, SACRAMENTO</option>
-<option value="Maxwell, COLUSA">Maxwell, COLUSA</option>
-<option value="Maywood, LOS ANGELES">Maywood, LOS ANGELES</option>
-<option value="Mc Farland, KERN">Mc Farland, KERN</option>
-<option value="Mc Kittrick, KERN">Mc Kittrick, KERN</option>
-<option value="Mcarthur, LASSEN">Mcarthur, LASSEN</option>
-<option value="Mcarthur, MODOC">Mcarthur, MODOC</option>
-<option value="Mcclellan, SACRAMENTO">Mcclellan, SACRAMENTO</option>
-<option value="Mccloud, SISKIYOU">Mccloud, SISKIYOU</option>
-<option value="Mckinleyville, HUMBOLDT">Mckinleyville, HUMBOLDT</option>
-<option value="Meadow Valley, PLUMAS">Meadow Valley, PLUMAS</option>
-<option value="Meadow Vista, PLACER">Meadow Vista, PLACER</option>
-<option value="Mecca, RIVERSIDE">Mecca, RIVERSIDE</option>
-<option value="Mendocino, MENDOCINO">Mendocino, MENDOCINO</option>
-<option value="Mendota, FRESNO">Mendota, FRESNO</option>
-<option value="Menifee, RIVERSIDE">Menifee, RIVERSIDE</option>
-<option value="Menlo Park, SAN MATEO">Menlo Park, SAN MATEO</option>
-<option value="Menlo Park, SANTA CLARA">Menlo Park, SANTA CLARA</option>
-<option value="Mentone, SAN BERNARDINO">Mentone, SAN BERNARDINO</option>
-<option value="Merced, MERCED">Merced, MERCED</option>
-<option value="Meridian, SUTTER">Meridian, SUTTER</option>
-<option value="Mi Wuk Village, TUOLUMNE">Mi Wuk Village, TUOLUMNE</option>
-<option value="Middletown, LAKE">Middletown, LAKE</option>
-<option value="Midpines, MARIPOSA">Midpines, MARIPOSA</option>
-<option value="Midway City, ORANGE">Midway City, ORANGE</option>
-<option value="Milford, LASSEN">Milford, LASSEN</option>
-<option value="Mill Creek, TEHAMA">Mill Creek, TEHAMA</option>
-<option value="Mill Valley, MARIN">Mill Valley, MARIN</option>
-<option value="Millbrae, SAN MATEO">Millbrae, SAN MATEO</option>
-<option value="Millville, SHASTA">Millville, SHASTA</option>
-<option value="Milpitas, ALAMEDA">Milpitas, ALAMEDA</option>
-<option value="Milpitas, SANTA CLARA">Milpitas, SANTA CLARA</option>
-<option value="Mira Loma, RIVERSIDE">Mira Loma, RIVERSIDE</option>
-<option value="Mira Loma, SAN BERNARDINO">Mira Loma, SAN BERNARDINO</option>
-<option value="Miramonte, FRESNO">Miramonte, FRESNO</option>
-<option value="Mission Hills, LOS ANGELES">Mission Hills, LOS ANGELES</option>
-<option value="Mission Viejo, ORANGE">Mission Viejo, ORANGE</option>
-<option value="Modesto, STANISLAUS">Modesto, STANISLAUS</option>
-<option value="Mojave, KERN">Mojave, KERN</option>
-<option value="Mokelumne Hill, CALAVERAS">Mokelumne Hill, CALAVERAS</option>
-<option value="Monrovia, LOS ANGELES">Monrovia, LOS ANGELES</option>
-<option value="Montague, SISKIYOU">Montague, SISKIYOU</option>
-<option value="Montclair, LOS ANGELES">Montclair, LOS ANGELES</option>
-<option value="Montclair, SAN BERNARDINO">Montclair, SAN BERNARDINO</option>
-<option value="Monte Rio, SONOMA">Monte Rio, SONOMA</option>
-<option value="Montebello, LOS ANGELES">Montebello, LOS ANGELES</option>
-<option value="Monterey Park, LOS ANGELES">Monterey Park, LOS ANGELES</option>
-<option value="Monterey, MONTEREY">Monterey, MONTEREY</option>
-<option value="Montgomery Creek, SHASTA">Montgomery Creek, SHASTA</option>
-<option value="Montrose, LOS ANGELES">Montrose, LOS ANGELES</option>
-<option value="Moorpark, VENTURA">Moorpark, VENTURA</option>
-<option value="Moraga, CONTRA COSTA">Moraga, CONTRA COSTA</option>
-<option value="Moreno Valley, RIVERSIDE">Moreno Valley, RIVERSIDE</option>
-<option value="Morgan Hill, SANTA CLARA">Morgan Hill, SANTA CLARA</option>
-<option value="Morongo Valley, SAN BERNARDINO">Morongo Valley, SAN BERNARDINO</option>
-<option value="Morro Bay, SAN LUIS OBISPO">Morro Bay, SAN LUIS OBISPO</option>
-<option value="Moss Beach, SAN MATEO">Moss Beach, SAN MATEO</option>
-<option value="Moss Landing, MONTEREY">Moss Landing, MONTEREY</option>
-<option value="Mount Hamilton, SANTA CLARA">Mount Hamilton, SANTA CLARA</option>
-<option value="Mount Shasta, SISKIYOU">Mount Shasta, SISKIYOU</option>
-<option value="Mountain Center, RIVERSIDE">Mountain Center, RIVERSIDE</option>
-<option value="Mountain Ranch, CALAVERAS">Mountain Ranch, CALAVERAS</option>
-<option value="Mountain View, SANTA CLARA">Mountain View, SANTA CLARA</option>
-<option value="Mt Baldy, SAN BERNARDINO">Mt Baldy, SAN BERNARDINO</option>
-<option value="Murphys, CALAVERAS">Murphys, CALAVERAS</option>
-<option value="Murrieta, RIVERSIDE">Murrieta, RIVERSIDE</option>
-<option value="Myers Flat, HUMBOLDT">Myers Flat, HUMBOLDT</option>
-<option value="NA, ALAMEDA">NA, ALAMEDA</option>
-<option value="NA, CONTRA COSTA">NA, CONTRA COSTA</option>
-<option value="NA, HUMBOLDT">NA, HUMBOLDT</option>
-<option value="NA, MARIN">NA, MARIN</option>
-<option value="NA, SAN BERNARDINO">NA, SAN BERNARDINO</option>
-<option value="NA, SAN DIEGO">NA, SAN DIEGO</option>
-<option value="NA, SAN FRANCISCO">NA, SAN FRANCISCO</option>
-<option value="NA, SAN MATEO">NA, SAN MATEO</option>
-<option value="NA, SOLANO">NA, SOLANO</option>
-<option value="Napa, NAPA">Napa, NAPA</option>
-<option value="Napa, SOLANO">Napa, SOLANO</option>
-<option value="National City, SAN DIEGO">National City, SAN DIEGO</option>
-<option value="Needles, SAN BERNARDINO">Needles, SAN BERNARDINO</option>
-<option value="Nevada City, NEVADA">Nevada City, NEVADA</option>
-<option value="New Cuyama, SANTA BARBARA">New Cuyama, SANTA BARBARA</option>
-<option value="Newark, ALAMEDA">Newark, ALAMEDA</option>
-<option value="Newberry Springs, SAN BERNARDINO">Newberry Springs, SAN BERNARDINO</option>
-<option value="Newbury Park, VENTURA">Newbury Park, VENTURA</option>
-<option value="Newcastle, PLACER">Newcastle, PLACER</option>
-<option value="Newhall, LOS ANGELES">Newhall, LOS ANGELES</option>
-<option value="Newman, MERCED">Newman, MERCED</option>
-<option value="Newman, STANISLAUS">Newman, STANISLAUS</option>
-<option value="Newport Beach, ORANGE">Newport Beach, ORANGE</option>
-<option value="Newport Coast, ORANGE">Newport Coast, ORANGE</option>
-<option value="Nicasio, MARIN">Nicasio, MARIN</option>
-<option value="Nice, LAKE">Nice, LAKE</option>
-<option value="Nicolaus, SUTTER">Nicolaus, SUTTER</option>
-<option value="Niland, IMPERIAL">Niland, IMPERIAL</option>
-<option value="Nipomo, SAN LUIS OBISPO">Nipomo, SAN LUIS OBISPO</option>
-<option value="Nipton, SAN BERNARDINO">Nipton, SAN BERNARDINO</option>
-<option value="Norco, RIVERSIDE">Norco, RIVERSIDE</option>
-<option value="Norden, NEVADA">Norden, NEVADA</option>
-<option value="Norden, PLACER">Norden, PLACER</option>
-<option value="North Fork, MADERA">North Fork, MADERA</option>
-<option value="North Highlands, SACRAMENTO">North Highlands, SACRAMENTO</option>
-<option value="North Hills, LOS ANGELES">North Hills, LOS ANGELES</option>
-<option value="North Hollywood, LOS ANGELES">North Hollywood, LOS ANGELES</option>
-<option value="North Palm Springs, RIVERSIDE">North Palm Springs, RIVERSIDE</option>
-<option value="North San Juan, NEVADA">North San Juan, NEVADA</option>
-<option value="North San Juan, YUBA">North San Juan, YUBA</option>
-<option value="Northridge, LOS ANGELES">Northridge, LOS ANGELES</option>
-<option value="Norwalk, LOS ANGELES">Norwalk, LOS ANGELES</option>
-<option value="Novato, MARIN">Novato, MARIN</option>
-<option value="Novato, SONOMA">Novato, SONOMA</option>
-<option value="Nuevo, RIVERSIDE">Nuevo, RIVERSIDE</option>
-<option value="O Neals, MADERA">O Neals, MADERA</option>
-<option value="Oak Park, VENTURA">Oak Park, VENTURA</option>
-<option value="Oak Run, SHASTA">Oak Run, SHASTA</option>
-<option value="Oak View, VENTURA">Oak View, VENTURA</option>
-<option value="Oakdale, SAN JOAQUIN">Oakdale, SAN JOAQUIN</option>
-<option value="Oakdale, STANISLAUS">Oakdale, STANISLAUS</option>
-<option value="Oakhurst, MADERA">Oakhurst, MADERA</option>
-<option value="Oakland, ALAMEDA">Oakland, ALAMEDA</option>
-<option value="Oakland, CONTRA COSTA">Oakland, CONTRA COSTA</option>
-<option value="Oakley, CONTRA COSTA">Oakley, CONTRA COSTA</option>
-<option value="Occidental, SONOMA">Occidental, SONOMA</option>
-<option value="Oceano, SAN LUIS OBISPO">Oceano, SAN LUIS OBISPO</option>
-<option value="Oceanside, SAN DIEGO">Oceanside, SAN DIEGO</option>
-<option value="Ocotillo, IMPERIAL">Ocotillo, IMPERIAL</option>
-<option value="Ojai, VENTURA">Ojai, VENTURA</option>
-<option value="Old Station, SHASTA">Old Station, SHASTA</option>
-<option value="Olivehurst, YUBA">Olivehurst, YUBA</option>
-<option value="Olympic Valley, PLACER">Olympic Valley, PLACER</option>
-<option value="Ontario, RIVERSIDE">Ontario, RIVERSIDE</option>
-<option value="Ontario, SAN BERNARDINO">Ontario, SAN BERNARDINO</option>
-<option value="Onyx, KERN">Onyx, KERN</option>
-<option value="Orange Cove, FRESNO">Orange Cove, FRESNO</option>
-<option value="Orange Cove, TULARE">Orange Cove, TULARE</option>
-<option value="Orange, ORANGE">Orange, ORANGE</option>
-<option value="Orangevale, SACRAMENTO">Orangevale, SACRAMENTO</option>
-<option value="Oregon House, YUBA">Oregon House, YUBA</option>
-<option value="Orick, HUMBOLDT">Orick, HUMBOLDT</option>
-<option value="Orinda, ALAMEDA">Orinda, ALAMEDA</option>
-<option value="Orinda, CONTRA COSTA">Orinda, CONTRA COSTA</option>
-<option value="Orland, GLENN">Orland, GLENN</option>
-<option value="Orland, TEHAMA">Orland, TEHAMA</option>
-<option value="Orleans, HUMBOLDT">Orleans, HUMBOLDT</option>
-<option value="Oro Grande, SAN BERNARDINO">Oro Grande, SAN BERNARDINO</option>
-<option value="Orosi, TULARE">Orosi, TULARE</option>
-<option value="Oroville, BUTTE">Oroville, BUTTE</option>
-<option value="Oxnard, VENTURA">Oxnard, VENTURA</option>
-<option value="Pacific Grove, MONTEREY">Pacific Grove, MONTEREY</option>
-<option value="Pacific Palisades, LOS ANGELES">Pacific Palisades, LOS ANGELES</option>
-<option value="Pacifica, SAN MATEO">Pacifica, SAN MATEO</option>
-<option value="Pacoima, LOS ANGELES">Pacoima, LOS ANGELES</option>
-<option value="Paicines, MONTEREY">Paicines, MONTEREY</option>
-<option value="Paicines, SAN BENITO">Paicines, SAN BENITO</option>
-<option value="Pala, SAN DIEGO">Pala, SAN DIEGO</option>
-<option value="Palermo, BUTTE">Palermo, BUTTE</option>
-<option value="Palm Desert, RIVERSIDE">Palm Desert, RIVERSIDE</option>
-<option value="Palm Springs, RIVERSIDE">Palm Springs, RIVERSIDE</option>
-<option value="Palmdale, LOS ANGELES">Palmdale, LOS ANGELES</option>
-<option value="Palo Alto, SAN MATEO">Palo Alto, SAN MATEO</option>
-<option value="Palo Alto, SANTA CLARA">Palo Alto, SANTA CLARA</option>
-<option value="Palo Cedro, SHASTA">Palo Cedro, SHASTA</option>
-<option value="Palos Verdes Peninsula, LOS ANGELES">Palos Verdes Peninsula, LOS ANGELES</option>
-<option value="Panorama City, LOS ANGELES">Panorama City, LOS ANGELES</option>
-<option value="Paradise, BUTTE">Paradise, BUTTE</option>
-<option value="Paramount, LOS ANGELES">Paramount, LOS ANGELES</option>
-<option value="Parker Dam, SAN BERNARDINO">Parker Dam, SAN BERNARDINO</option>
-<option value="Parlier, FRESNO">Parlier, FRESNO</option>
-<option value="Pasadena, LOS ANGELES">Pasadena, LOS ANGELES</option>
-<option value="Paso Robles, SAN LUIS OBISPO">Paso Robles, SAN LUIS OBISPO</option>
-<option value="Patterson, STANISLAUS">Patterson, STANISLAUS</option>
-<option value="Pauma Valley, SAN DIEGO">Pauma Valley, SAN DIEGO</option>
-<option value="Paynes Creek, TEHAMA">Paynes Creek, TEHAMA</option>
-<option value="Pearblossom, LOS ANGELES">Pearblossom, LOS ANGELES</option>
-<option value="Pebble Beach, MONTEREY">Pebble Beach, MONTEREY</option>
-<option value="Penn Valley, NEVADA">Penn Valley, NEVADA</option>
-<option value="Penngrove, SONOMA">Penngrove, SONOMA</option>
-<option value="Penryn, PLACER">Penryn, PLACER</option>
-<option value="Perris, RIVERSIDE">Perris, RIVERSIDE</option>
-<option value="Pescadero, SAN MATEO">Pescadero, SAN MATEO</option>
-<option value="Petaluma, MARIN">Petaluma, MARIN</option>
-<option value="Petaluma, SONOMA">Petaluma, SONOMA</option>
-<option value="Petrolia, HUMBOLDT">Petrolia, HUMBOLDT</option>
-<option value="Phelan, SAN BERNARDINO">Phelan, SAN BERNARDINO</option>
-<option value="Philo, MENDOCINO">Philo, MENDOCINO</option>
-<option value="Pico Rivera, LOS ANGELES">Pico Rivera, LOS ANGELES</option>
-<option value="Piercy, MENDOCINO">Piercy, MENDOCINO</option>
-<option value="Pilot Hill, EL DORADO">Pilot Hill, EL DORADO</option>
-<option value="Pine Grove, AMADOR">Pine Grove, AMADOR</option>
-<option value="Pine Mountain Club, KERN">Pine Mountain Club, KERN</option>
-<option value="Pine Valley, SAN DIEGO">Pine Valley, SAN DIEGO</option>
-<option value="Pinecrest, TUOLUMNE">Pinecrest, TUOLUMNE</option>
-<option value="Pinole, CONTRA COSTA">Pinole, CONTRA COSTA</option>
-<option value="Pinon Hills, SAN BERNARDINO">Pinon Hills, SAN BERNARDINO</option>
-<option value="Pioneer, AMADOR">Pioneer, AMADOR</option>
-<option value="Pioneer, EL DORADO">Pioneer, EL DORADO</option>
-<option value="Piru, VENTURA">Piru, VENTURA</option>
-<option value="Pismo Beach, SAN LUIS OBISPO">Pismo Beach, SAN LUIS OBISPO</option>
-<option value="Pittsburg, CONTRA COSTA">Pittsburg, CONTRA COSTA</option>
-<option value="Pixley, TULARE">Pixley, TULARE</option>
-<option value="Placentia, ORANGE">Placentia, ORANGE</option>
-<option value="Placerville, EL DORADO">Placerville, EL DORADO</option>
-<option value="Planada, MERCED">Planada, MERCED</option>
-<option value="Platina, TEHAMA">Platina, TEHAMA</option>
-<option value="Playa Del Rey, LOS ANGELES">Playa Del Rey, LOS ANGELES</option>
-<option value="Playa Vista, LOS ANGELES">Playa Vista, LOS ANGELES</option>
-<option value="Pleasant Grove, PLACER">Pleasant Grove, PLACER</option>
-<option value="Pleasant Grove, SUTTER">Pleasant Grove, SUTTER</option>
-<option value="Pleasant Hill, CONTRA COSTA">Pleasant Hill, CONTRA COSTA</option>
-<option value="Pleasanton, ALAMEDA">Pleasanton, ALAMEDA</option>
-<option value="Pleasanton, CONTRA COSTA">Pleasanton, CONTRA COSTA</option>
-<option value="Plumas National Park, SIERRA">Plumas National Park, SIERRA</option>
-<option value="Plymouth, AMADOR">Plymouth, AMADOR</option>
-<option value="Plymouth, EL DORADO">Plymouth, EL DORADO</option>
-<option value="Point Arena, MENDOCINO">Point Arena, MENDOCINO</option>
-<option value="Point Mugu Nawc, VENTURA">Point Mugu Nawc, VENTURA</option>
-<option value="Point Reyes Station, MARIN">Point Reyes Station, MARIN</option>
-<option value="Pollock Pines, EL DORADO">Pollock Pines, EL DORADO</option>
-<option value="Pomona, LOS ANGELES">Pomona, LOS ANGELES</option>
-<option value="Pomona, SAN BERNARDINO">Pomona, SAN BERNARDINO</option>
-<option value="Pope Valley, NAPA">Pope Valley, NAPA</option>
-<option value="Port Hueneme, VENTURA">Port Hueneme, VENTURA</option>
-<option value="Porter Ranch, LOS ANGELES">Porter Ranch, LOS ANGELES</option>
-<option value="Porterville, TULARE">Porterville, TULARE</option>
-<option value="Portola Valley, SAN MATEO">Portola Valley, SAN MATEO</option>
-<option value="Portola Valley, SANTA CLARA">Portola Valley, SANTA CLARA</option>
-<option value="Portola, PLUMAS">Portola, PLUMAS</option>
-<option value="Potrero, SAN DIEGO">Potrero, SAN DIEGO</option>
-<option value="Potter Valley, MENDOCINO">Potter Valley, MENDOCINO</option>
-<option value="Poway, SAN DIEGO">Poway, SAN DIEGO</option>
-<option value="Prather, FRESNO">Prather, FRESNO</option>
-<option value="Princeton, COLUSA">Princeton, COLUSA</option>
-<option value="Princeton, GLENN">Princeton, GLENN</option>
-<option value="Quail Valley, RIVERSIDE">Quail Valley, RIVERSIDE</option>
-<option value="Quincy, PLUMAS">Quincy, PLUMAS</option>
-<option value="Rackerby, YUBA">Rackerby, YUBA</option>
-<option value="Ramona, SAN DIEGO">Ramona, SAN DIEGO</option>
-<option value="Ranchita, SAN DIEGO">Ranchita, SAN DIEGO</option>
-<option value="Rancho Cordova, SACRAMENTO">Rancho Cordova, SACRAMENTO</option>
-<option value="Rancho Cucamonga, SAN BERNARDINO">Rancho Cucamonga, SAN BERNARDINO</option>
-<option value="Rancho Mirage, RIVERSIDE">Rancho Mirage, RIVERSIDE</option>
-<option value="Rancho Palos Verdes, LOS ANGELES">Rancho Palos Verdes, LOS ANGELES</option>
-<option value="Rancho Santa Fe, SAN DIEGO">Rancho Santa Fe, SAN DIEGO</option>
-<option value="Rancho Santa Margarita, ORANGE">Rancho Santa Margarita, ORANGE</option>
-<option value="Randsburg, KERN">Randsburg, KERN</option>
-<option value="Raymond, MADERA">Raymond, MADERA</option>
-<option value="Raymond, MARIPOSA">Raymond, MARIPOSA</option>
-<option value="Red Bluff, TEHAMA">Red Bluff, TEHAMA</option>
-<option value="Redcrest, HUMBOLDT">Redcrest, HUMBOLDT</option>
-<option value="Redding, SHASTA">Redding, SHASTA</option>
-<option value="Redlands, RIVERSIDE">Redlands, RIVERSIDE</option>
-<option value="Redlands, SAN BERNARDINO">Redlands, SAN BERNARDINO</option>
-<option value="Redondo Beach, LOS ANGELES">Redondo Beach, LOS ANGELES</option>
-<option value="Redway, HUMBOLDT">Redway, HUMBOLDT</option>
-<option value="Redwood City, SAN MATEO">Redwood City, SAN MATEO</option>
-<option value="Redwood City, SANTA CLARA">Redwood City, SANTA CLARA</option>
-<option value="Redwood Valley, MENDOCINO">Redwood Valley, MENDOCINO</option>
-<option value="Reedley, FRESNO">Reedley, FRESNO</option>
-<option value="Reedley, TULARE">Reedley, TULARE</option>
-<option value="Rescue, EL DORADO">Rescue, EL DORADO</option>
-<option value="Reseda, LOS ANGELES">Reseda, LOS ANGELES</option>
-<option value="Rialto, SAN BERNARDINO">Rialto, SAN BERNARDINO</option>
-<option value="Richmond, ALAMEDA">Richmond, ALAMEDA</option>
-<option value="Richmond, CONTRA COSTA">Richmond, CONTRA COSTA</option>
-<option value="Ridgecrest, INYO">Ridgecrest, INYO</option>
-<option value="Ridgecrest, KERN">Ridgecrest, KERN</option>
-<option value="Ridgecrest, SAN BERNARDINO">Ridgecrest, SAN BERNARDINO</option>
-<option value="Rimforest, SAN BERNARDINO">Rimforest, SAN BERNARDINO</option>
-<option value="Rio Dell, HUMBOLDT">Rio Dell, HUMBOLDT</option>
-<option value="Rio Linda, SACRAMENTO">Rio Linda, SACRAMENTO</option>
-<option value="Rio Oso, SUTTER">Rio Oso, SUTTER</option>
-<option value="Rio Vista, CONTRA COSTA">Rio Vista, CONTRA COSTA</option>
-<option value="Rio Vista, SACRAMENTO">Rio Vista, SACRAMENTO</option>
-<option value="Rio Vista, SOLANO">Rio Vista, SOLANO</option>
-<option value="Ripon, SAN JOAQUIN">Ripon, SAN JOAQUIN</option>
-<option value="Ripon, STANISLAUS">Ripon, STANISLAUS</option>
-<option value="Riverbank, STANISLAUS">Riverbank, STANISLAUS</option>
-<option value="Riverdale, FRESNO">Riverdale, FRESNO</option>
-<option value="Riverdale, KINGS">Riverdale, KINGS</option>
-<option value="Riverside, RIVERSIDE">Riverside, RIVERSIDE</option>
-<option value="Riverside, SAN BERNARDINO">Riverside, SAN BERNARDINO</option>
-<option value="Rocklin, PLACER">Rocklin, PLACER</option>
-<option value="Rodeo, CONTRA COSTA">Rodeo, CONTRA COSTA</option>
-<option value="Rohnert Park, SONOMA">Rohnert Park, SONOMA</option>
-<option value="Rosamond, KERN">Rosamond, KERN</option>
-<option value="Rosamond, LOS ANGELES">Rosamond, LOS ANGELES</option>
-<option value="Rosemead, LOS ANGELES">Rosemead, LOS ANGELES</option>
-<option value="Roseville, PLACER">Roseville, PLACER</option>
-<option value="Roseville, SACRAMENTO">Roseville, SACRAMENTO</option>
-<option value="Ross, MARIN">Ross, MARIN</option>
-<option value="Rough And Ready, NEVADA">Rough And Ready, NEVADA</option>
-<option value="Rowland Heights, LOS ANGELES">Rowland Heights, LOS ANGELES</option>
-<option value="Running Springs, SAN BERNARDINO">Running Springs, SAN BERNARDINO</option>
-<option value="Sacramento, CONTRA COSTA">Sacramento, CONTRA COSTA</option>
-<option value="Sacramento, SACRAMENTO">Sacramento, SACRAMENTO</option>
-<option value="Sacramento, YOLO">Sacramento, YOLO</option>
-<option value="Saint Helena, ALAMEDA">Saint Helena, ALAMEDA</option>
-<option value="Saint Helena, NAPA">Saint Helena, NAPA</option>
-<option value="Salida, SAN JOAQUIN">Salida, SAN JOAQUIN</option>
-<option value="Salida, STANISLAUS">Salida, STANISLAUS</option>
-<option value="Salinas, MONTEREY">Salinas, MONTEREY</option>
-<option value="Salyer, HUMBOLDT">Salyer, HUMBOLDT</option>
-<option value="Salyer, TRINITY">Salyer, TRINITY</option>
-<option value="San Andreas, CALAVERAS">San Andreas, CALAVERAS</option>
-<option value="San Anselmo, MARIN">San Anselmo, MARIN</option>
-<option value="San Ardo, MONTEREY">San Ardo, MONTEREY</option>
-<option value="San Bernardino, SAN BERNARDINO">San Bernardino, SAN BERNARDINO</option>
-<option value="San Bruno, SAN MATEO">San Bruno, SAN MATEO</option>
-<option value="San Carlos, SAN MATEO">San Carlos, SAN MATEO</option>
-<option value="San Clemente, ORANGE">San Clemente, ORANGE</option>
-<option value="San Clemente, SAN DIEGO">San Clemente, SAN DIEGO</option>
-<option value="San Diego, SAN DIEGO">San Diego, SAN DIEGO</option>
-<option value="San Dimas, LOS ANGELES">San Dimas, LOS ANGELES</option>
-<option value="San Fernando, LOS ANGELES">San Fernando, LOS ANGELES</option>
-<option value="San Francisco, SAN FRANCISCO">San Francisco, SAN FRANCISCO</option>
-<option value="San Francisco, SAN MATEO">San Francisco, SAN MATEO</option>
-<option value="San Gabriel, LOS ANGELES">San Gabriel, LOS ANGELES</option>
-<option value="San Gregorio, SAN MATEO">San Gregorio, SAN MATEO</option>
-<option value="San Jacinto, RIVERSIDE">San Jacinto, RIVERSIDE</option>
-<option value="San Joaquin, FRESNO">San Joaquin, FRESNO</option>
-<option value="San Jose, ALAMEDA">San Jose, ALAMEDA</option>
-<option value="San Jose, SANTA CLARA">San Jose, SANTA CLARA</option>
-<option value="San Juan Bautista, SAN BENITO">San Juan Bautista, SAN BENITO</option>
-<option value="San Juan Capistrano, ORANGE">San Juan Capistrano, ORANGE</option>
-<option value="San Leandro, ALAMEDA">San Leandro, ALAMEDA</option>
-<option value="San Lorenzo, ALAMEDA">San Lorenzo, ALAMEDA</option>
-<option value="San Luis Obispo, SAN LUIS OBISPO">San Luis Obispo, SAN LUIS OBISPO</option>
-<option value="San Marcos, SAN DIEGO">San Marcos, SAN DIEGO</option>
-<option value="San Marino, LOS ANGELES">San Marino, LOS ANGELES</option>
-<option value="San Martin, SANTA CLARA">San Martin, SANTA CLARA</option>
-<option value="San Mateo, SAN MATEO">San Mateo, SAN MATEO</option>
-<option value="San Miguel, MONTEREY">San Miguel, MONTEREY</option>
-<option value="San Miguel, SAN LUIS OBISPO">San Miguel, SAN LUIS OBISPO</option>
-<option value="San Pablo, CONTRA COSTA">San Pablo, CONTRA COSTA</option>
-<option value="San Pedro, LOS ANGELES">San Pedro, LOS ANGELES</option>
-<option value="San Quentin, MARIN">San Quentin, MARIN</option>
-<option value="San Rafael, MARIN">San Rafael, MARIN</option>
-<option value="San Ramon, CONTRA COSTA">San Ramon, CONTRA COSTA</option>
-<option value="San Simeon, SAN LUIS OBISPO">San Simeon, SAN LUIS OBISPO</option>
-<option value="San Ysidro, SAN DIEGO">San Ysidro, SAN DIEGO</option>
-<option value="Sanger, FRESNO">Sanger, FRESNO</option>
-<option value="Santa Ana, ORANGE">Santa Ana, ORANGE</option>
-<option value="Santa Barbara, SANTA BARBARA">Santa Barbara, SANTA BARBARA</option>
-<option value="Santa Clara, SANTA CLARA">Santa Clara, SANTA CLARA</option>
-<option value="Santa Clarita, LOS ANGELES">Santa Clarita, LOS ANGELES</option>
-<option value="Santa Cruz, SAN JOAQUIN">Santa Cruz, SAN JOAQUIN</option>
-<option value="Santa Cruz, SANTA CRUZ">Santa Cruz, SANTA CRUZ</option>
-<option value="Santa Fe Springs, LOS ANGELES">Santa Fe Springs, LOS ANGELES</option>
-<option value="Santa Margarita, SAN LUIS OBISPO">Santa Margarita, SAN LUIS OBISPO</option>
-<option value="Santa Maria, SAN LUIS OBISPO">Santa Maria, SAN LUIS OBISPO</option>
-<option value="Santa Maria, SANTA BARBARA">Santa Maria, SANTA BARBARA</option>
-<option value="Santa Monica, LOS ANGELES">Santa Monica, LOS ANGELES</option>
-<option value="Santa Paula, VENTURA">Santa Paula, VENTURA</option>
-<option value="Santa Rosa, SONOMA">Santa Rosa, SONOMA</option>
-<option value="Santa Ynez, SANTA BARBARA">Santa Ynez, SANTA BARBARA</option>
-<option value="Santa Ysabel, SAN DIEGO">Santa Ysabel, SAN DIEGO</option>
-<option value="Santee, SAN DIEGO">Santee, SAN DIEGO</option>
-<option value="Saratoga, SANTA CLARA">Saratoga, SANTA CLARA</option>
-<option value="Sausalito, MARIN">Sausalito, MARIN</option>
-<option value="Scotia, HUMBOLDT">Scotia, HUMBOLDT</option>
-<option value="Scotts Valley, SANTA CRUZ">Scotts Valley, SANTA CRUZ</option>
-<option value="Seal Beach, ORANGE">Seal Beach, ORANGE</option>
-<option value="Seaside, MONTEREY">Seaside, MONTEREY</option>
-<option value="Sebastopol, SONOMA">Sebastopol, SONOMA</option>
-<option value="Selma, FRESNO">Selma, FRESNO</option>
-<option value="Shafter, KERN">Shafter, KERN</option>
-<option value="Shandon, SAN LUIS OBISPO">Shandon, SAN LUIS OBISPO</option>
-<option value="Shasta Lake, SHASTA">Shasta Lake, SHASTA</option>
-<option value="Shaver Lake, FRESNO">Shaver Lake, FRESNO</option>
-<option value="Sheridan, PLACER">Sheridan, PLACER</option>
-<option value="Sheridan, YUBA">Sheridan, YUBA</option>
-<option value="Sherman Oaks, LOS ANGELES">Sherman Oaks, LOS ANGELES</option>
-<option value="Shingle Springs, EL DORADO">Shingle Springs, EL DORADO</option>
-<option value="Shingletown, SHASTA">Shingletown, SHASTA</option>
-<option value="Shoshone, INYO">Shoshone, INYO</option>
-<option value="Sierra City, SIERRA">Sierra City, SIERRA</option>
-<option value="Sierra Madre, LOS ANGELES">Sierra Madre, LOS ANGELES</option>
-<option value="Sierraville, SIERRA">Sierraville, SIERRA</option>
-<option value="Signal Hill, LOS ANGELES">Signal Hill, LOS ANGELES</option>
-<option value="Silverado, ORANGE">Silverado, ORANGE</option>
-<option value="Simi Valley, VENTURA">Simi Valley, VENTURA</option>
-<option value="Sloughhouse, SACRAMENTO">Sloughhouse, SACRAMENTO</option>
-<option value="Smartsville, NEVADA">Smartsville, NEVADA</option>
-<option value="Smartsville, YUBA">Smartsville, YUBA</option>
-<option value="Smith River, DEL NORTE">Smith River, DEL NORTE</option>
-<option value="Snelling, MARIPOSA">Snelling, MARIPOSA</option>
-<option value="Snelling, MERCED">Snelling, MERCED</option>
-<option value="Soda Springs, NEVADA">Soda Springs, NEVADA</option>
-<option value="Soda Springs, PLACER">Soda Springs, PLACER</option>
-<option value="Solana Beach, SAN DIEGO">Solana Beach, SAN DIEGO</option>
-<option value="Soledad, MONTEREY">Soledad, MONTEREY</option>
-<option value="Solvang, SANTA BARBARA">Solvang, SANTA BARBARA</option>
-<option value="Somerset, AMADOR">Somerset, AMADOR</option>
-<option value="Somerset, EL DORADO">Somerset, EL DORADO</option>
-<option value="Somes Bar, SISKIYOU">Somes Bar, SISKIYOU</option>
-<option value="Somis, VENTURA">Somis, VENTURA</option>
-<option value="Sonoma, SOLANO">Sonoma, SOLANO</option>
-<option value="Sonoma, SONOMA">Sonoma, SONOMA</option>
-<option value="Sonora, TUOLUMNE">Sonora, TUOLUMNE</option>
-<option value="Soquel, SANTA CRUZ">Soquel, SANTA CRUZ</option>
-<option value="Soulsbyville, TUOLUMNE">Soulsbyville, TUOLUMNE</option>
-<option value="South Alpine County, ALPINE">South Alpine County, ALPINE</option>
-<option value="South Alpine County, TUOLUMNE">South Alpine County, TUOLUMNE</option>
-<option value="South El Monte, LOS ANGELES">South El Monte, LOS ANGELES</option>
-<option value="South Gate, LOS ANGELES">South Gate, LOS ANGELES</option>
-<option value="South Lake Tahoe, EL DORADO">South Lake Tahoe, EL DORADO</option>
-<option value="South Pasadena, LOS ANGELES">South Pasadena, LOS ANGELES</option>
-<option value="South San Francisco, SAN FRANCISCO">South San Francisco, SAN FRANCISCO</option>
-<option value="South San Francisco, SAN MATEO">South San Francisco, SAN MATEO</option>
-<option value="Spring Valley, SAN DIEGO">Spring Valley, SAN DIEGO</option>
-<option value="Springville, TULARE">Springville, TULARE</option>
-<option value="Squaw Valley, FRESNO">Squaw Valley, FRESNO</option>
-<option value="Stanford, SAN MATEO">Stanford, SAN MATEO</option>
-<option value="Stanford, SANTA CLARA">Stanford, SANTA CLARA</option>
-<option value="Stanton, ORANGE">Stanton, ORANGE</option>
-<option value="Stevenson Ranch, LOS ANGELES">Stevenson Ranch, LOS ANGELES</option>
-<option value="Stevinson, MERCED">Stevinson, MERCED</option>
-<option value="Stinson Beach, MARIN">Stinson Beach, MARIN</option>
-<option value="Stockton, SAN JOAQUIN">Stockton, SAN JOAQUIN</option>
-<option value="Stonyford, COLUSA">Stonyford, COLUSA</option>
-<option value="Stratford, KINGS">Stratford, KINGS</option>
-<option value="Strathmore, TULARE">Strathmore, TULARE</option>
-<option value="Strawberry Valley, PLUMAS">Strawberry Valley, PLUMAS</option>
-<option value="Studio City, LOS ANGELES">Studio City, LOS ANGELES</option>
-<option value="Sugarloaf, SAN BERNARDINO">Sugarloaf, SAN BERNARDINO</option>
-<option value="Suisun City, SOLANO">Suisun City, SOLANO</option>
-<option value="Summerland, SANTA BARBARA">Summerland, SANTA BARBARA</option>
-<option value="Sun City, RIVERSIDE">Sun City, RIVERSIDE</option>
-<option value="Sun Valley, LOS ANGELES">Sun Valley, LOS ANGELES</option>
-<option value="Sunland, LOS ANGELES">Sunland, LOS ANGELES</option>
-<option value="Sunnyvale, SANTA CLARA">Sunnyvale, SANTA CLARA</option>
-<option value="Sunol, ALAMEDA">Sunol, ALAMEDA</option>
-<option value="Sunset Beach, ORANGE">Sunset Beach, ORANGE</option>
-<option value="Susanville, LASSEN">Susanville, LASSEN</option>
-<option value="Sutter Creek, AMADOR">Sutter Creek, AMADOR</option>
-<option value="Sutter, SUTTER">Sutter, SUTTER</option>
-<option value="Sylmar, LOS ANGELES">Sylmar, LOS ANGELES</option>
-<option value="Taft, FRESNO">Taft, FRESNO</option>
-<option value="Taft, KERN">Taft, KERN</option>
-<option value="Tahoe City, PLACER">Tahoe City, PLACER</option>
-<option value="Tahoe National Forest, SIERRA">Tahoe National Forest, SIERRA</option>
-<option value="Tahoe Vista, PLACER">Tahoe Vista, PLACER</option>
-<option value="Tahoma, PLACER">Tahoma, PLACER</option>
-<option value="Tarzana, LOS ANGELES">Tarzana, LOS ANGELES</option>
-<option value="Taylorsville, PLUMAS">Taylorsville, PLUMAS</option>
-<option value="Tecate, SAN DIEGO">Tecate, SAN DIEGO</option>
-<option value="Tecopa, INYO">Tecopa, INYO</option>
-<option value="Tehachapi, KERN">Tehachapi, KERN</option>
-<option value="Temecula, RIVERSIDE">Temecula, RIVERSIDE</option>
-<option value="Temple City, LOS ANGELES">Temple City, LOS ANGELES</option>
-<option value="Templeton, SAN LUIS OBISPO">Templeton, SAN LUIS OBISPO</option>
-<option value="Termo, LASSEN">Termo, LASSEN</option>
-<option value="Terra Bella, TULARE">Terra Bella, TULARE</option>
-<option value="The Sea Ranch, SONOMA">The Sea Ranch, SONOMA</option>
-<option value="Thermal, IMPERIAL">Thermal, IMPERIAL</option>
-<option value="Thermal, RIVERSIDE">Thermal, RIVERSIDE</option>
-<option value="Thousand Oaks, LOS ANGELES">Thousand Oaks, LOS ANGELES</option>
-<option value="Thousand Oaks, VENTURA">Thousand Oaks, VENTURA</option>
-<option value="Thousand Palms, RIVERSIDE">Thousand Palms, RIVERSIDE</option>
-<option value="Three Rivers, TULARE">Three Rivers, TULARE</option>
-<option value="Tipton, TULARE">Tipton, TULARE</option>
-<option value="Tollhouse, FRESNO">Tollhouse, FRESNO</option>
-<option value="Tomales, MARIN">Tomales, MARIN</option>
-<option value="Topanga, LOS ANGELES">Topanga, LOS ANGELES</option>
-<option value="Topaz, MONO">Topaz, MONO</option>
-<option value="Torrance, LOS ANGELES">Torrance, LOS ANGELES</option>
-<option value="Trabuco Canyon, ORANGE">Trabuco Canyon, ORANGE</option>
-<option value="Tracy, ALAMEDA">Tracy, ALAMEDA</option>
-<option value="Tracy, SAN JOAQUIN">Tracy, SAN JOAQUIN</option>
-<option value="Tranquillity, FRESNO">Tranquillity, FRESNO</option>
-<option value="Travis Afb, SOLANO">Travis Afb, SOLANO</option>
-<option value="Tres Pinos, SAN BENITO">Tres Pinos, SAN BENITO</option>
-<option value="Trinidad, HUMBOLDT">Trinidad, HUMBOLDT</option>
-<option value="Trinity Center, TRINITY">Trinity Center, TRINITY</option>
-<option value="Trona, SAN BERNARDINO">Trona, SAN BERNARDINO</option>
-<option value="Truckee, NEVADA">Truckee, NEVADA</option>
-<option value="Truckee, PLACER">Truckee, PLACER</option>
-<option value="Tujunga, LOS ANGELES">Tujunga, LOS ANGELES</option>
-<option value="Tulare, TULARE">Tulare, TULARE</option>
-<option value="Tulelake, MODOC">Tulelake, MODOC</option>
-<option value="Tulelake, SISKIYOU">Tulelake, SISKIYOU</option>
-<option value="Tuolumne, TUOLUMNE">Tuolumne, TUOLUMNE</option>
-<option value="Tupman, KERN">Tupman, KERN</option>
-<option value="Turlock, MERCED">Turlock, MERCED</option>
-<option value="Turlock, STANISLAUS">Turlock, STANISLAUS</option>
-<option value="Tustin, ORANGE">Tustin, ORANGE</option>
-<option value="Twain Harte, TUOLUMNE">Twain Harte, TUOLUMNE</option>
-<option value="Twain, PLUMAS">Twain, PLUMAS</option>
-<option value="Twentynine Palms, SAN BERNARDINO">Twentynine Palms, SAN BERNARDINO</option>
-<option value="Twin Bridges, EL DORADO">Twin Bridges, EL DORADO</option>
-<option value="Twin Peaks, SAN BERNARDINO">Twin Peaks, SAN BERNARDINO</option>
-<option value="Ukiah, MENDOCINO">Ukiah, MENDOCINO</option>
-<option value="Union City, ALAMEDA">Union City, ALAMEDA</option>
-<option value="Universal City, LOS ANGELES">Universal City, LOS ANGELES</option>
-<option value="Upland, LOS ANGELES">Upland, LOS ANGELES</option>
-<option value="Upland, SAN BERNARDINO">Upland, SAN BERNARDINO</option>
-<option value="Upper Lake, LAKE">Upper Lake, LAKE</option>
-<option value="Vacaville, SOLANO">Vacaville, SOLANO</option>
-<option value="Valencia, LOS ANGELES">Valencia, LOS ANGELES</option>
-<option value="Vallecito, CALAVERAS">Vallecito, CALAVERAS</option>
-<option value="Vallejo, SANTA CLARA">Vallejo, SANTA CLARA</option>
-<option value="Vallejo, SOLANO">Vallejo, SOLANO</option>
-<option value="Valley Center, SAN DIEGO">Valley Center, SAN DIEGO</option>
-<option value="Valley Springs, CALAVERAS">Valley Springs, CALAVERAS</option>
-<option value="Valley Village, LOS ANGELES">Valley Village, LOS ANGELES</option>
-<option value="Valyermo, LOS ANGELES">Valyermo, LOS ANGELES</option>
-<option value="Van Nuys, LOS ANGELES">Van Nuys, LOS ANGELES</option>
-<option value="Venice, LOS ANGELES">Venice, LOS ANGELES</option>
-<option value="Ventura, VENTURA">Ventura, VENTURA</option>
-<option value="Vernalis, SAN JOAQUIN">Vernalis, SAN JOAQUIN</option>
-<option value="Vernalis, STANISLAUS">Vernalis, STANISLAUS</option>
-<option value="Victorville, SAN BERNARDINO">Victorville, SAN BERNARDINO</option>
-<option value="Vidal, SAN BERNARDINO">Vidal, SAN BERNARDINO</option>
-<option value="Villa Park, ORANGE">Villa Park, ORANGE</option>
-<option value="Visalia, TULARE">Visalia, TULARE</option>
-<option value="Vista, SAN DIEGO">Vista, SAN DIEGO</option>
-<option value="Volcano, AMADOR">Volcano, AMADOR</option>
-<option value="Walnut Creek, CONTRA COSTA">Walnut Creek, CONTRA COSTA</option>
-<option value="Walnut Grove, SACRAMENTO">Walnut Grove, SACRAMENTO</option>
-<option value="Walnut Grove, SAN JOAQUIN">Walnut Grove, SAN JOAQUIN</option>
-<option value="Walnut Grove, SOLANO">Walnut Grove, SOLANO</option>
-<option value="Walnut, LOS ANGELES">Walnut, LOS ANGELES</option>
-<option value="Warner Springs, SAN DIEGO">Warner Springs, SAN DIEGO</option>
-<option value="Wasco, KERN">Wasco, KERN</option>
-<option value="Waterford, STANISLAUS">Waterford, STANISLAUS</option>
-<option value="Watsonville, MONTEREY">Watsonville, MONTEREY</option>
-<option value="Watsonville, SANTA CLARA">Watsonville, SANTA CLARA</option>
-<option value="Watsonville, SANTA CRUZ">Watsonville, SANTA CRUZ</option>
-<option value="Weaverville, TRINITY">Weaverville, TRINITY</option>
-<option value="Weed, SISKIYOU">Weed, SISKIYOU</option>
-<option value="Weldon, KERN">Weldon, KERN</option>
-<option value="Wendel, LASSEN">Wendel, LASSEN</option>
-<option value="West Covina, LOS ANGELES">West Covina, LOS ANGELES</option>
-<option value="West Hills, LOS ANGELES">West Hills, LOS ANGELES</option>
-<option value="West Hills, VENTURA">West Hills, VENTURA</option>
-<option value="West Hollywood, LOS ANGELES">West Hollywood, LOS ANGELES</option>
-<option value="West Point, CALAVERAS">West Point, CALAVERAS</option>
-<option value="West Sacramento, YOLO">West Sacramento, YOLO</option>
-<option value="Westlake Village, LOS ANGELES">Westlake Village, LOS ANGELES</option>
-<option value="Westlake Village, VENTURA">Westlake Village, VENTURA</option>
-<option value="Westminster, ORANGE">Westminster, ORANGE</option>
-<option value="Westmorland, IMPERIAL">Westmorland, IMPERIAL</option>
-<option value="Westport, MENDOCINO">Westport, MENDOCINO</option>
-<option value="Westwood, LASSEN">Westwood, LASSEN</option>
-<option value="Westwood, PLUMAS">Westwood, PLUMAS</option>
-<option value="Wheatland, YUBA">Wheatland, YUBA</option>
-<option value="Whitethorn, HUMBOLDT">Whitethorn, HUMBOLDT</option>
-<option value="Whitethorn, MENDOCINO">Whitethorn, MENDOCINO</option>
-<option value="Whitewater, RIVERSIDE">Whitewater, RIVERSIDE</option>
-<option value="Whitmore, SHASTA">Whitmore, SHASTA</option>
-<option value="Whittier, LOS ANGELES">Whittier, LOS ANGELES</option>
-<option value="Whittier, ORANGE">Whittier, ORANGE</option>
-<option value="Wildomar, RIVERSIDE">Wildomar, RIVERSIDE</option>
-<option value="Williams, COLUSA">Williams, COLUSA</option>
-<option value="Willits, MENDOCINO">Willits, MENDOCINO</option>
-<option value="Willow Creek, HUMBOLDT">Willow Creek, HUMBOLDT</option>
-<option value="Willows, COLUSA">Willows, COLUSA</option>
-<option value="Willows, GLENN">Willows, GLENN</option>
-<option value="Wilmington, LOS ANGELES">Wilmington, LOS ANGELES</option>
-<option value="Wilton, SACRAMENTO">Wilton, SACRAMENTO</option>
-<option value="Winchester, RIVERSIDE">Winchester, RIVERSIDE</option>
-<option value="Windsor, SONOMA">Windsor, SONOMA</option>
-<option value="Winnetka, LOS ANGELES">Winnetka, LOS ANGELES</option>
-<option value="Winterhaven, IMPERIAL">Winterhaven, IMPERIAL</option>
-<option value="Winters, SOLANO">Winters, SOLANO</option>
-<option value="Winters, YOLO">Winters, YOLO</option>
-<option value="Winton, MERCED">Winton, MERCED</option>
-<option value="Wishon, MADERA">Wishon, MADERA</option>
-<option value="Wofford Heights, KERN">Wofford Heights, KERN</option>
-<option value="Woodacre, MARIN">Woodacre, MARIN</option>
-<option value="Woodbridge, SAN JOAQUIN">Woodbridge, SAN JOAQUIN</option>
-<option value="Woodlake, TULARE">Woodlake, TULARE</option>
-<option value="Woodland Hills, LOS ANGELES">Woodland Hills, LOS ANGELES</option>
-<option value="Woodland, YOLO">Woodland, YOLO</option>
-<option value="Woody, KERN">Woody, KERN</option>
-<option value="Wrightwood, SAN BERNARDINO">Wrightwood, SAN BERNARDINO</option>
-<option value="Yermo, SAN BERNARDINO">Yermo, SAN BERNARDINO</option>
-<option value="Yorba Linda, ORANGE">Yorba Linda, ORANGE</option>
-<option value="Yorkville, MENDOCINO">Yorkville, MENDOCINO</option>
-<option value="Yountville, NAPA">Yountville, NAPA</option>
-<option value="Yreka, SISKIYOU">Yreka, SISKIYOU</option>
-<option value="Yuba City, SUTTER">Yuba City, SUTTER</option>
-<option value="Yucaipa, SAN BERNARDINO">Yucaipa, SAN BERNARDINO</option>
-<option value="Yucca Valley, SAN BERNARDINO">Yucca Valley, SAN BERNARDINO</option>
-<option value="Zamora, YOLO">Zamora, YOLO</option>
-<option value="Zenia, TRINITY">Zenia, TRINITY</option></select>
+<select id="county" class="shiny-input-select"><option value="ALAMEDA">ALAMEDA</option>
+<option value="ALPINE">ALPINE</option>
+<option value="AMADOR">AMADOR</option>
+<option value="BUTTE">BUTTE</option>
+<option value="CALAVERAS">CALAVERAS</option>
+<option value="COLUSA">COLUSA</option>
+<option value="CONTRA COSTA">CONTRA COSTA</option>
+<option value="DEL NORTE">DEL NORTE</option>
+<option value="EL DORADO">EL DORADO</option>
+<option value="FRESNO">FRESNO</option>
+<option value="GLENN">GLENN</option>
+<option value="HUMBOLDT">HUMBOLDT</option>
+<option value="IMPERIAL">IMPERIAL</option>
+<option value="INYO">INYO</option>
+<option value="KERN">KERN</option>
+<option value="KINGS">KINGS</option>
+<option value="LAKE">LAKE</option>
+<option value="LASSEN">LASSEN</option>
+<option value="LOS ANGELES">LOS ANGELES</option>
+<option value="MADERA">MADERA</option>
+<option value="MARIN">MARIN</option>
+<option value="MARIPOSA">MARIPOSA</option>
+<option value="MENDOCINO">MENDOCINO</option>
+<option value="MERCED">MERCED</option>
+<option value="MODOC">MODOC</option>
+<option value="MONO">MONO</option>
+<option value="MONTEREY">MONTEREY</option>
+<option value="NAPA">NAPA</option>
+<option value="NEVADA">NEVADA</option>
+<option value="ORANGE">ORANGE</option>
+<option value="PLACER">PLACER</option>
+<option value="PLUMAS">PLUMAS</option>
+<option value="RIVERSIDE">RIVERSIDE</option>
+<option value="SACRAMENTO">SACRAMENTO</option>
+<option value="SAN BENITO">SAN BENITO</option>
+<option value="SAN BERNARDINO">SAN BERNARDINO</option>
+<option value="SAN DIEGO">SAN DIEGO</option>
+<option value="SAN FRANCISCO">SAN FRANCISCO</option>
+<option value="SAN JOAQUIN">SAN JOAQUIN</option>
+<option value="SAN LUIS OBISPO">SAN LUIS OBISPO</option>
+<option value="SAN MATEO">SAN MATEO</option>
+<option value="SANTA BARBARA">SANTA BARBARA</option>
+<option value="SANTA CLARA">SANTA CLARA</option>
+<option value="SANTA CRUZ">SANTA CRUZ</option>
+<option value="SHASTA">SHASTA</option>
+<option value="SIERRA">SIERRA</option>
+<option value="SISKIYOU">SISKIYOU</option>
+<option value="SOLANO">SOLANO</option>
+<option value="SONOMA">SONOMA</option>
+<option value="STANISLAUS">STANISLAUS</option>
+<option value="SUTTER">SUTTER</option>
+<option value="TEHAMA">TEHAMA</option>
+<option value="TRINITY">TRINITY</option>
+<option value="TULARE">TULARE</option>
+<option value="TUOLUMNE">TUOLUMNE</option>
+<option value="VENTURA">VENTURA</option>
+<option value="YOLO">YOLO</option>
+<option value="YUBA">YUBA</option></select>
 <script type="application/json" data-for="county" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
 </div>
 </div>
@@ -1431,55 +221,55 @@ grid-auto-rows: minmax(0, 1fr);">
 <div class="shiny-options-group">
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="broadside">
+<input type="checkbox" name="coltype" value="broadside" checked="checked">
 <span>broadside</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="head-on">
+<input type="checkbox" name="coltype" value="head-on" checked="checked">
 <span>head-on</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="hit object">
+<input type="checkbox" name="coltype" value="hit object" checked="checked">
 <span>hit object</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="other">
+<input type="checkbox" name="coltype" value="other" checked="checked">
 <span>other</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="overturned">
+<input type="checkbox" name="coltype" value="overturned" checked="checked">
 <span>overturned</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="rear end">
+<input type="checkbox" name="coltype" value="rear end" checked="checked">
 <span>rear end</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="sideswipe">
+<input type="checkbox" name="coltype" value="sideswipe" checked="checked">
 <span>sideswipe</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="unknown">
+<input type="checkbox" name="coltype" value="unknown" checked="checked">
 <span>unknown</span>
 </label>
 </div>
 <div class="checkbox">
 <label>
-<input type="checkbox" name="coltype" value="vehicle/pedestrian">
+<input type="checkbox" name="coltype" value="vehicle/pedestrian" checked="checked">
 <span>vehicle/pedestrian</span>
 </label>
 </div>
@@ -1509,22 +299,40 @@ grid-auto-rows: minmax(0, 1fr);">
 <div id="dates" class="shiny-date-range-input form-group shiny-input-container">
 <label class="control-label" id="dates-label" for="dates">Date Range</label>
 <div class="input-daterange input-group input-group-sm">
-<input class="form-control" type="text" aria-labelledby="dates-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-initial-date="1975-07-11" data-date-autoclose="true">
+<input class="form-control" type="text" aria-labelledby="dates-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-initial-date="2019-01-01" data-date-autoclose="true">
 <span class="input-group-addon input-group-prepend input-group-append">
 <span class="input-group-text"> to </span>
 </span>
-<input class="form-control" type="text" aria-labelledby="dates-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-initial-date="1975-05-31" data-date-autoclose="true">
+<input class="form-control" type="text" aria-labelledby="dates-label" title="Date format: yyyy-mm-dd" data-date-language="en" data-date-week-start="0" data-date-format="yyyy-mm-dd" data-date-start-view="month" data-initial-date="2019-12-31" data-date-autoclose="true">
 </div>
 </div>
 </div>
 <div class="cell-output-display no-overflow-x">
 <div class="form-group shiny-input-container">
-<label class="control-label" id="tiles-label" for="tiles">Map Layer</label>
+<label class="control-label" id="provider-label" for="provider">Select tile provider:</label>
 <div>
-<select id="tiles" class="shiny-input-select"><option value="detailed" selected="">detailed</option>
-<option value="light">light</option>
-<option value="dark">dark</option></select>
-<script type="application/json" data-for="tiles" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+<select id="provider" class="shiny-input-select"><option value="CartoDB.Positron" selected="">CartoDB.Positron</option>
+<option value="CartoDB.DarkMatter">CartoDB.DarkMatter</option>
+<option value="Esri.WorldTerrain">Esri.WorldTerrain</option>
+<option value="MtbMap">MtbMap</option>
+<option value="Stadia.StamenWatercolor">Stadia.StamenWatercolor</option>
+<option value="USGS.USImageryTopo">USGS.USImageryTopo</option></select>
+<script type="application/json" data-for="provider" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="wday-label" for="wday">Filter by Day of Week:</label>
+<div>
+<select id="wday" class="shiny-input-select"><option value="Wednesday">Wednesday</option>
+<option value="Sunday">Sunday</option>
+<option value="Friday">Friday</option>
+<option value="Monday" selected="">Monday</option>
+<option value="Thursday">Thursday</option>
+<option value="Tuesday">Tuesday</option>
+<option value="Saturday">Saturday</option></select>
+<script type="application/json" data-for="wday" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
 </div>
 </div>
 </div>
@@ -1560,17 +368,81 @@ library(RColorBrewer)  # optional: nice color schemes
  
 <script type="application/shiny-prerendered" data-context="server">
 # assemble leaflet map of crash locations (tab 1)
+
 output$map <- renderLeaflet({
-  
-  
+
+  req(input$coltype)
+
+  filtered <- crashes |>
+    filter(
+      DATETIME >= input$dates[1],
+      DATETIME <= input$dates[2],
+      COUNTY == input$county,
+      PCF_VIOL_CATEGORY == input$violation,
+      TYPE_OF_COLLISION %in% input$coltype
+    )
+
+  leafmap <- leaflet(filtered) |>
+    addProviderTiles(input$provider)
+
+  if (input$color == "yes") {
+    pal <- colorFactor(
+    palette = "Reds",   
+    domain = filtered$COLLISION_SEVERITY,
+    ordered = TRUE
+   )
+    
+    leafmap |>
+      addCircles(
+        lng = ~POINT_X,
+        lat = ~POINT_Y,
+        label = ~paste0("Case ID:", CASE_ID, ", ", PCF_VIOL_CATEGORY),
+        color = ~pal(COLLISION_SEVERITY),
+        weight = 2
+      ) |>
+      addLegend(
+        position = "bottomright",
+        pal = pal,
+        values = ~COLLISION_SEVERITY,
+        title = "Severity"
+      )
+
+  } 
+  else {
+
+    leafmap |>
+      addCircles(
+        lng = ~POINT_X,
+        lat = ~POINT_Y,
+        label = ~paste0("Case ID:", CASE_ID, ", ", PCF_VIOL_CATEGORY),
+        weight = 2
+      )
+  }
 })
+  
 
 
 # assemble graphic for tab 2
 output$plot <- renderPlotly({
-  
-  
+  filtered2 <- crashes |>
+    filter((WDAY == input$wday), 
+      DATETIME >= input$dates[1],
+      DATETIME <= input$dates[2],
+      COUNTY == input$county,
+      PCF_VIOL_CATEGORY == input$violation,
+      TYPE_OF_COLLISION %in% input$coltype) |>
+        group_by(TYPE_OF_COLLISION) |>
+           summarize(count = n())
+g <- filtered2 |> ggplot(aes(y = count, x = TYPE_OF_COLLISION)) +
+  geom_col() +
+  labs(
+    title = "Number and Type of Crashes by Day of Week", 
+          x = "Type of Collision", 
+          y = "Number of Crashes")
+  ggplotly(g)
+
 })
+
 </script>
  
 <script type="application/shiny-prerendered" data-context="server-extras">
@@ -1615,12 +487,12 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
 </p>
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
-{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap-datepicker-js"]},{"type":"character","attributes":{},"value":["1.10.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/datepicker"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/bootstrap-datepicker.min.js"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["<script>(function() {\n        var datepicker = $.fn.datepicker.noConflict();\n        $.fn.bsDatepicker = datepicker;\n      })();\n     <\/script>"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap-datepicker-css"]},{"type":"character","attributes":{},"value":["1.10.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/datepicker"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/bootstrap-datepicker3.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.1.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["leaflet"]},{"type":"character","attributes":{},"value":["1.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/leaflet"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet.js"]},{"type":"character","attributes":{},"value":["leaflet.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["leafletfix"]},{"type":"character","attributes":{},"value":["1.0.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/leafletfix"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leafletfix.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["proj4"]},{"type":"character","attributes":{},"value":["2.6.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/plugins/Proj4Leaflet"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["proj4.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["Proj4Leaflet"]},{"type":"character","attributes":{},"value":["1.0.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/plugins/Proj4Leaflet"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["proj4leaflet.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["rstudio_leaflet"]},{"type":"character","attributes":{},"value":["1.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/rstudio_leaflet"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rstudio_leaflet.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["leaflet-binding"]},{"type":"character","attributes":{},"value":["2.2.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/assets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["plotly-binding"]},{"type":"character","attributes":{},"value":["4.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["plotly.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["plotly"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["4.12.0"]}]}]}
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap-datepicker-js"]},{"type":"character","attributes":{},"value":["1.10.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/datepicker"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/bootstrap-datepicker.min.js"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["<script>(function() {\n        var datepicker = $.fn.datepicker.noConflict();\n        $.fn.bsDatepicker = datepicker;\n      })();\n     <\/script>"]},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap-datepicker-css"]},{"type":"character","attributes":{},"value":["1.10.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/datepicker"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/bootstrap-datepicker3.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.13.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["3.6.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/3.6.0"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery-3.6.0.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquerylib"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.1.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["leaflet"]},{"type":"character","attributes":{},"value":["1.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/leaflet"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet.js"]},{"type":"character","attributes":{},"value":["leaflet.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["leafletfix"]},{"type":"character","attributes":{},"value":["1.0.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/leafletfix"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leafletfix.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["proj4"]},{"type":"character","attributes":{},"value":["2.6.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/plugins/Proj4Leaflet"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["proj4.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["Proj4Leaflet"]},{"type":"character","attributes":{},"value":["1.0.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/plugins/Proj4Leaflet"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["proj4leaflet.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["rstudio_leaflet"]},{"type":"character","attributes":{},"value":["1.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/rstudio_leaflet"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rstudio_leaflet.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["leaflet-binding"]},{"type":"character","attributes":{},"value":["2.2.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/assets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["leaflet"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["2.2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["1.6.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.6.4"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["plotly-binding"]},{"type":"character","attributes":{},"value":["4.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["plotly.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["plotly"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["4.12.0"]}]}]}
 </script>
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92]}},"value":[{"type":"character","attributes":{},"value":["base","bit","bit64","bslib","cachem","class","classInt","cli","compiler","crayon","crosstalk","data.table","datasets","DBI","digest","dplyr","e1071","evaluate","farver","fastmap","fontBitstreamVera","fontLiberation","fontquiver","forcats","gdtools","generics","ggiraph","ggplot2","glue","graphics","grDevices","grid","gtable","hms","htmltools","htmlwidgets","httpuv","httr","jquerylib","jsonlite","KernSmooth","knitr","later","lazyeval","leaflet","lifecycle","lubridate","magrittr","MASS","memoise","methods","mime","otel","parallel","pillar","pkgconfig","plotly","promises","proxy","purrr","R6","RColorBrewer","Rcpp","readr","rlang","rmarkdown","S7","sass","scales","sf","shiny","stats","stringi","stringr","systemfonts","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","units","utf8","utils","vctrs","viridisLite","vroom","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.5.1","4.6.0","4.6.0-1","0.9.0","1.1.0","7.3-23","0.4-11","3.6.5","4.5.1","1.5.3","1.2.2","1.17.8","4.5.1","1.2.3","0.6.37","1.1.4","1.7-17","1.0.5","2.1.2","1.2.0","0.1.1","0.1.0","0.2.1","1.0.1","0.5.0","0.1.4","0.9.6","4.0.1","1.8.0","4.5.1","4.5.1","4.5.1","0.3.6","1.1.3","0.5.8.1","1.6.4","1.6.17","1.4.7","0.1.4","2.0.0","2.23-26","1.50","1.4.8","0.2.2","2.2.3","1.0.4","1.9.4","2.0.4","7.3-65","2.0.1","4.5.1","0.13","0.2.0","4.5.1","1.11.1","2.0.3","4.12.0","1.5.0","0.4-29","1.1.0","2.6.1","1.1-3","1.1.0","2.1.5","1.1.6","2.30","0.2.0","0.4.10","1.4.0","1.1-0","1.13.0","4.5.1","1.8.7","1.5.2","1.3.1","3.3.0","1.3.1","1.2.1","2.0.0","0.3.0","4.5.1","0.5.0","1.0-1","1.2.6","4.5.1","0.6.5","0.4.2","1.6.6","3.0.2","0.53","1.8-8","2.3.10"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91]}},"value":[{"type":"character","attributes":{},"value":["base","bit","bit64","bslib","cachem","class","classInt","cli","compiler","crayon","crosstalk","data.table","datasets","DBI","digest","dplyr","e1071","evaluate","farver","fastmap","fontBitstreamVera","fontLiberation","fontquiver","forcats","gdtools","generics","ggiraph","ggplot2","glue","graphics","grDevices","grid","gtable","hms","htmltools","htmlwidgets","httpuv","httr","jquerylib","jsonlite","KernSmooth","knitr","later","lazyeval","leaflet","lifecycle","lubridate","magrittr","MASS","memoise","methods","mime","otel","parallel","pillar","pkgconfig","plotly","promises","proxy","purrr","R6","RColorBrewer","Rcpp","readr","rlang","rmarkdown","S7","sass","scales","sf","shiny","stats","stringi","stringr","systemfonts","tibble","tidyr","tidyselect","tidyverse","timechange","tools","tzdb","units","utils","vctrs","viridisLite","vroom","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.5.1","4.6.0","4.6.0-1","0.9.0","1.1.0","7.3-23","0.4-11","3.6.5","4.5.1","1.5.3","1.2.2","1.17.8","4.5.1","1.2.3","0.6.37","1.1.4","1.7-17","1.0.5","2.1.2","1.2.0","0.1.1","0.1.0","0.2.1","1.0.1","0.5.0","0.1.4","0.9.6","4.0.1","1.8.0","4.5.1","4.5.1","4.5.1","0.3.6","1.1.3","0.5.8.1","1.6.4","1.6.17","1.4.7","0.1.4","2.0.0","2.23-26","1.50","1.4.8","0.2.2","2.2.3","1.0.4","1.9.4","2.0.4","7.3-65","2.0.1","4.5.1","0.13","0.2.0","4.5.1","1.11.1","2.0.3","4.12.0","1.5.0","0.4-29","1.1.0","2.6.1","1.1-3","1.1.0","2.1.5","1.1.6","2.30","0.2.0","0.4.10","1.4.0","1.1-0","1.13.0","4.5.1","1.8.7","1.5.2","1.3.1","3.3.0","1.3.1","1.2.1","2.0.0","0.3.0","4.5.1","0.5.0","1.0-1","4.5.1","0.6.5","0.4.2","1.6.6","3.0.2","0.53","1.8-8","2.3.10"]}]}]}
 </script>
 <!--/html_preserve-->
 
