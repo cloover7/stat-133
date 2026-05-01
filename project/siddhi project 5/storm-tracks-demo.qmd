@@ -1,0 +1,191 @@
+---
+title: "Tropical Cyclones in the North Atlantic"
+format: dashboard
+server: shiny
+---
+
+```{r}
+#| context: setup
+
+# packages
+library(tidyverse)     # ecosystem of data science packages
+library(leaflet)       # web interactive maps
+library(sf)            # "simple features" (vector data for maps)
+library(RColorBrewer)  # nice color schemes
+
+
+# storms data (from package "dplyr")
+# - new column: "date" (yyyy-mm-dd)
+# - new column: "id" to have a unique identifier for each storm
+storms = storms |> 
+  mutate(
+    date = as_date(paste(year, month, day, sep = "-")),
+    id = paste(name, year, sep = "-")
+  )
+
+
+# auxiliary vector of wind categories
+# (Saffir-Simpson wind scale)
+wind_categories = c(
+  "tropical depression", # < 34 knots
+  "tropical storm",      # 34-63 knots
+  "hurricane 1",         # 64-82 knots
+  "hurricane 2",         # 83-95 knots
+  "hurricane 3",         # 96-112 knots
+  "hurricane 4",         # 113-136 knots
+  "hurricane 5")         # > 136 knots
+
+
+# table with the maximum wind speed and 
+# wind-category reached by each storm
+storm_max_categories = storms |> 
+  select(id, status, wind) |> 
+  group_by(id) |> 
+  summarize(max_wind = max(wind)) |> 
+  mutate(
+    max_category = case_when(
+      max_wind >= 137 ~ "hurricane 5",
+      max_wind >= 113 ~ "hurricane 4",
+      max_wind >= 96 ~ "hurricane 3",
+      max_wind >= 83 ~ "hurricane 2",
+      max_wind >= 64 ~ "hurricane 1",
+      max_wind >= 34 ~ "tropical storm",
+      max_wind < 34  ~ "tropical depression"),
+    # make category into a factor with ordered levels
+    max_category = factor(max_category, levels = wind_categories)
+  ) # close mutate
+
+
+# join storms with storm_max_categories to
+# bring in "max_category" for each storm
+storms = storms |> 
+  inner_join(storm_max_categories, by = "id")
+```
+
+
+# Storm Tracks
+
+## {.sidebar width="300px"}
+
+```{r}
+# Choosing storms within a date range
+dateRangeInput(
+  inputId = "dates",
+  label = "Date range", 
+  start = "1975-06-27",
+  end = "1975-12-31",
+  min = min(storms$date),
+  max = max(storms$date))
+```
+
+```{r}
+# Deciding what category of storms to display
+# (using the max_category reached by each storm)
+checkboxGroupInput(
+  inputId = "category",
+  label = "Maximum category:",
+  choices = wind_categories,
+  selected = wind_categories)
+```
+
+```{r}
+# Magnitude factor to resize points
+# (to be used with wind speed in leaflet map)
+sliderInput(
+  inputId = "size",
+  label = "Resize magnitude",
+  min = 1,
+  max = 10,
+  value = 5,
+  step = 1)
+```
+
+```{r}
+# Should points be color coded by storm name?
+radioButtons(
+  inputId = "color",
+  label = "Color by name?",
+  choices = c("yes", "no"),
+  selected = "yes")
+```
+
+```{r}
+# To select tiles for leaflet 
+# https://leaflet-extras.github.io/leaflet-providers/preview/
+selectInput(
+  inputId = "provider",
+  label = "Select tile provider:",
+  choices = c(
+    "CartoDB.Positron",
+    "CartoDB.DarkMatter",
+    "Esri.WorldTerrain",
+    "Esri.WorldShadedRelief",
+    "NASAGIBS.ViirsEarthAtNight2012",
+    "USGS.USImageryTopo"), 
+  selected = "CartoDB.Positron")
+```
+
+```{r}
+# a collapsible note
+tags$details(
+  tags$summary("Details"),
+  "This is the hidden content of your note."
+)
+```
+
+
+## Row
+
+```{r}
+leafletOutput(outputId = "map")
+```
+
+
+```{r}
+#| context: server
+
+# output: leaflet map of storm tracks
+output$map <- renderLeaflet({
+  # filtering storms according to inputs "dates" and "category"
+  filtered = storms |> 
+    filter(
+      date >= input$dates[1] & date <= input$dates[2],
+      max_category %in% input$category) 
+  
+  # preparing map object
+  leafmap = filtered |> 
+    leaflet() |> 
+    addProviderTiles(provider = input$provider)
+  
+  # deciding whether to color code points
+  if (input$color == "yes") {
+    # color palette
+    pal = colorFactor(
+      palette = rainbow(n = length(unique(filtered$id))),
+      domain = filtered$id)
+    # color code by storm id
+    leafmap |> 
+      addCircles(
+        lng = ~long,
+        lat = ~lat,
+        # label: name, date, wind speed
+        label = ~paste0(name, ", ", date, ", ", wind, " kn"),
+        color = ~pal(id),
+        radius = ~wind * input$size * 100,
+        weight = 2)
+  } else {
+    # don't color code by storm id
+    leafmap |> 
+      addCircles(
+        lng = ~long,
+        lat = ~lat,
+        # label: name, date, wind speed
+        label = ~paste0(name, ", ", date, ", ", wind, " kn"),
+        radius = ~wind * input$size * 100,
+        weight = 2)
+  }
+  
+})
+
+```
+
