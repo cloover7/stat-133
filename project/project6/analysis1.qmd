@@ -1,4 +1,106 @@
 ---
 title: 'Analysis 1'
-format: html
+format: 
+    html:
+        code-fold: true
+embed-resources: true
 ---
+
+
+```{R, include=FALSE}
+library(tidyverse)
+library(tidytext)
+library(wordcloud)
+library(plotly)   
+```
+
+```{r, include=FALSE}
+# load data
+sotu <- read_csv('data/sotu.csv')
+head(sotu)
+```
+
+## What are the top 10 most common words in the first ever address?
+
+```{r}
+fsotu <- sotu |> slice(1) |> select(text)
+ftokens <- unnest_tokens(tbl = fsotu, input = text, output = word)
+ftokens <- anti_join(ftokens, stop_words, by = "word")
+
+g1 <- ftokens |> 
+  count(word, name = "count", sort = TRUE) |> 
+  slice(1:20) |>
+  ggplot(aes(x = count, y = reorder(word, count))) +
+  labs(y = 'word') +
+  geom_col()
+
+ggplotly(g1)
+```
+
+## What are the top 10 most common words in the latest address?
+
+```{r}
+lsotu <- sotu |> slice(n()) |> select(text)
+ltokens <- unnest_tokens(tbl = lsotu, input = text, output = word)
+ltokens <- anti_join(ltokens, stop_words, by = "word")
+
+g2 <- ltokens |> 
+  count(word, name = "count", sort = TRUE) |> 
+  slice(1:20) |>
+  ggplot(aes(x = count, y = reorder(word, count))) +
+  labs(y = 'word') +
+  geom_col()
+
+ggplotly(g2)
+```
+
+## Top 10 words in each political party's addresses
+
+```{r}
+dem <- sotu |> filter(party == 'Democratic') |> select(text)
+dtokens <- unnest_tokens(tbl = dem, input = text, output = word)
+dtokens <- anti_join(dtokens, stop_words, by = "word")
+
+g3 <- dtokens |> 
+  count(word, name = "count", sort = TRUE) |> 
+  slice(1:20) |>
+  ggplot(aes(x = count, y = reorder(word, count))) +
+  labs(y = 'word', title = 'Democrat') +
+  geom_col()
+
+ggplotly(g3)
+```
+
+```{r}
+rep <- sotu |> filter(party == 'Republican') |> select(text)
+rtokens <- unnest_tokens(tbl = rep, input = text, output = word)
+rtokens <- anti_join(rtokens, stop_words, by = "word")
+
+g4 <- rtokens |> 
+  count(word, name = "count", sort = TRUE) |> 
+  slice(1:20) |>
+  ggplot(aes(x = count, y = reorder(word, count))) +
+  labs(y = 'word', title = 'Republican') +
+  geom_col()
+
+ggplotly(g4)
+```
+
+## Top 10 most common words in all SOTU addresses
+
+
+```{r}
+allsotu <- sotu |> select(text)
+alltokens <- unnest_tokens(tbl = allsotu, input = text, output = word)
+alltokens <- anti_join(alltokens, stop_words, by = "word")
+
+g5 <- alltokens |> 
+  count(word, name = "count", sort = TRUE) |> 
+  slice(1:20) |>
+  ggplot(aes(x = count, y = reorder(word, count))) +
+  labs(y = 'word', title = 'All SOTU Addresses!') +
+  geom_col()
+
+ggplotly(g5)
+```
+

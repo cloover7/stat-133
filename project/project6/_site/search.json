@@ -19,5 +19,75 @@
     "title": "Project 6 - Text Analysis",
     "section": "Analyses",
     "text": "Analyses\nThis website presents two text analyses:\n\nAnalysis 1: Title of Your First Text Analysis\nAnalysis 2: Title of Your Second Text Analysis"
+  },
+  {
+    "objectID": "analysis1.html",
+    "href": "analysis1.html",
+    "title": "Analysis 1",
+    "section": "",
+    "text": "Code\nfsotu &lt;- sotu |&gt; slice(1) |&gt; select(text)\nftokens &lt;- unnest_tokens(tbl = fsotu, input = text, output = word)\nftokens &lt;- anti_join(ftokens, stop_words, by = \"word\")\n\ng1 &lt;- ftokens |&gt; \n  count(word, name = \"count\", sort = TRUE) |&gt; \n  slice(1:20) |&gt;\n  ggplot(aes(x = count, y = reorder(word, count))) +\n  labs(y = 'word') +\n  geom_col()\n\nggplotly(g1)"
+  },
+  {
+    "objectID": "analysis1.html#what-are-the-top-10-most-common-words-in-the-first-ever-address",
+    "href": "analysis1.html#what-are-the-top-10-most-common-words-in-the-first-ever-address",
+    "title": "Analysis 1",
+    "section": "",
+    "text": "Code\nfsotu &lt;- sotu |&gt; slice(1) |&gt; select(text)\nftokens &lt;- unnest_tokens(tbl = fsotu, input = text, output = word)\nftokens &lt;- anti_join(ftokens, stop_words, by = \"word\")\n\ng1 &lt;- ftokens |&gt; \n  count(word, name = \"count\", sort = TRUE) |&gt; \n  slice(1:20) |&gt;\n  ggplot(aes(x = count, y = reorder(word, count))) +\n  labs(y = 'word') +\n  geom_col()\n\nggplotly(g1)"
+  },
+  {
+    "objectID": "analysis1.html#what-are-the-top-10-most-common-words-in-the-latest-address",
+    "href": "analysis1.html#what-are-the-top-10-most-common-words-in-the-latest-address",
+    "title": "Analysis 1",
+    "section": "What are the top 10 most common words in the latest address?",
+    "text": "What are the top 10 most common words in the latest address?\n\n\nCode\nlsotu &lt;- sotu |&gt; slice(n()) |&gt; select(text)\nltokens &lt;- unnest_tokens(tbl = lsotu, input = text, output = word)\nltokens &lt;- anti_join(ltokens, stop_words, by = \"word\")\n\ng2 &lt;- ltokens |&gt; \n  count(word, name = \"count\", sort = TRUE) |&gt; \n  slice(1:20) |&gt;\n  ggplot(aes(x = count, y = reorder(word, count))) +\n  labs(y = 'word') +\n  geom_col()\n\nggplotly(g2)"
+  },
+  {
+    "objectID": "analysis1.html#top-10-words-in-each-political-partys-addresses",
+    "href": "analysis1.html#top-10-words-in-each-political-partys-addresses",
+    "title": "Analysis 1",
+    "section": "Top 10 words in each political party’s addresses",
+    "text": "Top 10 words in each political party’s addresses\n\n\nCode\ndem &lt;- sotu |&gt; filter(party == 'Democratic') |&gt; select(text)\ndtokens &lt;- unnest_tokens(tbl = dem, input = text, output = word)\ndtokens &lt;- anti_join(dtokens, stop_words, by = \"word\")\n\ng3 &lt;- dtokens |&gt; \n  count(word, name = \"count\", sort = TRUE) |&gt; \n  slice(1:20) |&gt;\n  ggplot(aes(x = count, y = reorder(word, count))) +\n  labs(y = 'word', title = 'Democrat') +\n  geom_col()\n\nggplotly(g3)\n\n\n\n\n\n\n\n\nCode\nrep &lt;- sotu |&gt; filter(party == 'Republican') |&gt; select(text)\nrtokens &lt;- unnest_tokens(tbl = rep, input = text, output = word)\nrtokens &lt;- anti_join(rtokens, stop_words, by = \"word\")\n\ng4 &lt;- rtokens |&gt; \n  count(word, name = \"count\", sort = TRUE) |&gt; \n  slice(1:20) |&gt;\n  ggplot(aes(x = count, y = reorder(word, count))) +\n  labs(y = 'word', title = 'Republican') +\n  geom_col()\n\nggplotly(g4)"
+  },
+  {
+    "objectID": "analysis1.html#top-10-most-common-words-in-all-sotu-addresses",
+    "href": "analysis1.html#top-10-most-common-words-in-all-sotu-addresses",
+    "title": "Analysis 1",
+    "section": "Top 10 most common words in all SOTU addresses",
+    "text": "Top 10 most common words in all SOTU addresses\n\n\nCode\nallsotu &lt;- sotu |&gt; select(text)\nalltokens &lt;- unnest_tokens(tbl = allsotu, input = text, output = word)\nalltokens &lt;- anti_join(alltokens, stop_words, by = \"word\")\n\ng5 &lt;- alltokens |&gt; \n  count(word, name = \"count\", sort = TRUE) |&gt; \n  slice(1:20) |&gt;\n  ggplot(aes(x = count, y = reorder(word, count))) +\n  labs(y = 'word', title = 'All SOTU Addresses!') +\n  geom_col()\n\nggplotly(g5)"
+  },
+  {
+    "objectID": "analysis2.html",
+    "href": "analysis2.html",
+    "title": "Analysis 2",
+    "section": "",
+    "text": "Code\nallsotu &lt;- sotu |&gt; select(text)\nalltokens &lt;- unnest_tokens(tbl = allsotu, input = text, output = word)\nalltokens &lt;- anti_join(alltokens, stop_words, by = \"word\")\n\nallsent = inner_join(alltokens, sentiments, by = \"word\")\n\n\nWarning in inner_join(alltokens, sentiments, by = \"word\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 310579 of `x` matches multiple rows in `y`.\nℹ Row 6513 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\nCode\ng6 &lt;- allsent |&gt; \n  count(word, sentiment, name = \"count\", sort = TRUE) |&gt; \n  slice_head(n = 20) |&gt; \n  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +\n  geom_col()\n\nggplotly(g6)"
+  },
+  {
+    "objectID": "analysis2.html#net-sentiment-over-the-years",
+    "href": "analysis2.html#net-sentiment-over-the-years",
+    "title": "Analysis 2",
+    "section": "",
+    "text": "Code\nallsotu &lt;- sotu |&gt; select(text)\nalltokens &lt;- unnest_tokens(tbl = allsotu, input = text, output = word)\nalltokens &lt;- anti_join(alltokens, stop_words, by = \"word\")\n\nallsent = inner_join(alltokens, sentiments, by = \"word\")\n\n\nWarning in inner_join(alltokens, sentiments, by = \"word\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 310579 of `x` matches multiple rows in `y`.\nℹ Row 6513 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\nCode\ng6 &lt;- allsent |&gt; \n  count(word, sentiment, name = \"count\", sort = TRUE) |&gt; \n  slice_head(n = 20) |&gt; \n  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +\n  geom_col()\n\nggplotly(g6)"
+  },
+  {
+    "objectID": "analysis2.html#first-sotu-address-contribution-analysis",
+    "href": "analysis2.html#first-sotu-address-contribution-analysis",
+    "title": "Analysis 2",
+    "section": "First SOTU address contribution analysis",
+    "text": "First SOTU address contribution analysis\n\n\nCode\nfsotu &lt;- sotu |&gt; slice(1) |&gt; select(text)\nftokens &lt;- unnest_tokens(tbl = fsotu, input = text, output = word)\nftokens &lt;- anti_join(ftokens, stop_words, by = \"word\")\nfsent &lt;- inner_join(ftokens, sentiments, by = \"word\")\n\ng7 &lt;- fsent |&gt; \n  count(word, sentiment, name = \"count\", sort = TRUE) |&gt; \n  slice_head(n = 20) |&gt; \n  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +\n  geom_col()\n\nggplotly(g7)"
+  },
+  {
+    "objectID": "analysis2.html#latest-sotu-address-contribution-analysis",
+    "href": "analysis2.html#latest-sotu-address-contribution-analysis",
+    "title": "Analysis 2",
+    "section": "Latest SOTU address contribution analysis",
+    "text": "Latest SOTU address contribution analysis\n\n\nCode\nlsotu &lt;- sotu |&gt; slice(n()) |&gt; select(text)\nltokens &lt;- unnest_tokens(tbl = lsotu, input = text, output = word)\nltokens &lt;- anti_join(ltokens, stop_words, by = \"word\")\n\nlsent &lt;- inner_join(ltokens, sentiments, by = \"word\")\n\ng8 &lt;- lsent |&gt; \n  count(word, sentiment, name = \"count\", sort = TRUE) |&gt; \n  slice_head(n = 20) |&gt; \n  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +\n  geom_col()\n\nggplotly(g8)"
+  },
+  {
+    "objectID": "analysis2.html#sentiment-dictionary-comparison",
+    "href": "analysis2.html#sentiment-dictionary-comparison",
+    "title": "Analysis 2",
+    "section": "Sentiment dictionary comparison",
+    "text": "Sentiment dictionary comparison\n\n\nCode\nallafinn = inner_join(alltokens, afinn, by = \"word\")\n\ng9 &lt;- allafinn |&gt; \n  count(word, value, name = \"count\", sort = TRUE) |&gt; \n  slice_head(n = 20) |&gt; \n  ggplot(aes(x = count, y = reorder(word, count), fill = value)) +\n  labs(y = 'word', title = 'Afinn Lexicon') +\n  geom_col()\n\nggplotly(g9)\n\n\n\n\n\n\n\n\nCode\nallnrc = inner_join(alltokens, nrc, by = \"word\")\n\n\nWarning in inner_join(alltokens, nrc, by = \"word\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 1 of `x` matches multiple rows in `y`.\nℹ Row 9888 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.\n\n\nCode\ng10 &lt;- allnrc |&gt; \n  count(word, sentiment, name = \"count\", sort = TRUE) |&gt; \n  slice_head(n = 20) |&gt; \n  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +\n  labs(y = 'word', title = 'NRC Lexicon') +\n  geom_col()\n\nggplotly(g10)\n\n\n\n\n\n\nIt’s definitely easier to interpret the afinn lexicon since things are on a numeric scale between good and bad. From the NRC graph though, we can see that there are a lot of “trusting” words. I wonder why congress is ‘disgust’ lol"
   }
 ]

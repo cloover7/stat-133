@@ -1,4 +1,109 @@
 ---
 title: 'Analysis 2'
-format: html
+format: 
+    html:
+        code-fold: true
+embed-resources: true
 ---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(tidytext)
+library(plotly)   
+```
+
+```{r, include=FALSE}
+# load sentiment datasets
+bing <- read_csv('sentiment-lexicons/bing.csv')
+nrc <- read_csv('sentiment-lexicons/nrc.csv')
+afinn <- read_csv('sentiment-lexicons/afinn.csv')
+```
+
+```{r, include=FALSE}
+# load data
+sotu <- read_csv('data/sotu.csv')
+```
+
+## Net sentiment over the years
+
+```{r}
+allsotu <- sotu |> select(text)
+alltokens <- unnest_tokens(tbl = allsotu, input = text, output = word)
+alltokens <- anti_join(alltokens, stop_words, by = "word")
+
+allsent = inner_join(alltokens, sentiments, by = "word")
+
+g6 <- allsent |> 
+  count(word, sentiment, name = "count", sort = TRUE) |> 
+  slice_head(n = 20) |> 
+  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +
+  geom_col()
+
+ggplotly(g6)
+```
+
+## First SOTU address contribution analysis
+
+```{r}
+fsotu <- sotu |> slice(1) |> select(text)
+ftokens <- unnest_tokens(tbl = fsotu, input = text, output = word)
+ftokens <- anti_join(ftokens, stop_words, by = "word")
+fsent <- inner_join(ftokens, sentiments, by = "word")
+
+g7 <- fsent |> 
+  count(word, sentiment, name = "count", sort = TRUE) |> 
+  slice_head(n = 20) |> 
+  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +
+  geom_col()
+
+ggplotly(g7)
+```
+
+## Latest SOTU address contribution analysis
+
+```{r}
+lsotu <- sotu |> slice(n()) |> select(text)
+ltokens <- unnest_tokens(tbl = lsotu, input = text, output = word)
+ltokens <- anti_join(ltokens, stop_words, by = "word")
+
+lsent <- inner_join(ltokens, sentiments, by = "word")
+
+g8 <- lsent |> 
+  count(word, sentiment, name = "count", sort = TRUE) |> 
+  slice_head(n = 20) |> 
+  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +
+  geom_col()
+
+ggplotly(g8)
+```
+
+## Sentiment dictionary comparison
+
+```{r}
+allafinn = inner_join(alltokens, afinn, by = "word")
+
+g9 <- allafinn |> 
+  count(word, value, name = "count", sort = TRUE) |> 
+  slice_head(n = 20) |> 
+  ggplot(aes(x = count, y = reorder(word, count), fill = value)) +
+  labs(y = 'word', title = 'Afinn Lexicon') +
+  geom_col()
+
+ggplotly(g9)
+```
+
+
+```{r}
+allnrc = inner_join(alltokens, nrc, by = "word")
+
+g10 <- allnrc |> 
+  count(word, sentiment, name = "count", sort = TRUE) |> 
+  slice_head(n = 20) |> 
+  ggplot(aes(x = count, y = reorder(word, count), fill = sentiment)) +
+  labs(y = 'word', title = 'NRC Lexicon') +
+  geom_col()
+
+ggplotly(g10)
+```
+
+It's definitely easier to interpret the afinn lexicon since things are on a numeric scale between good and bad. From the NRC graph though, we can see that there are a lot of "trusting" words. I wonder why congress is 'disgust' lol
