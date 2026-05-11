@@ -1,0 +1,60 @@
+---
+title: 'final'
+author: 'erin'
+format: 
+    html:
+        embed-resources: true
+---
+
+
+```{r}
+a <- c(1, 2, 'a')
+a
+```
+
+
+```{r}
+library(ggplot2)
+library(plotly)
+
+```
+
+
+```{r}
+iris |> # note that this is a pipe!
+    ggplot(aes(x = Sepal.Length, y = Sepal.Width)) + # whereas this is a 
+    geom_point(aes(color = Species)) + 
+        geom_smooth(method = 'lm') +
+    labs(x = "Highway MPG", y = "City MPG")
+```
+
+
+```{r}
+iris |> # note that this is a pipe!
+    ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + # whereas this is a +!
+    geom_point() + 
+    geom_smooth(method = 'lm') +
+    labs(x = "Highway MPG", y = "City MPG")
+```
+
+
+```{r}
+zero <- FALSE
+one <- c(zero, TRUE)
+two <- one + 1L
+three <- c(one^2, two, '3.0')
+four <- as.factor(three)
+five <- three[two[one[1]]]
+```
+
+
+```{r}
+lst <- list(a = 1:3, b = matrix(1:4, 2))
+```
+
+
+```{r}
+mat <- matrix(1:5, nrow = 1)
+mat
+
+```
